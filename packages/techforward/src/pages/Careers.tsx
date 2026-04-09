@@ -38,8 +38,8 @@ function FadeSection({ children, className = '' }: { children: React.ReactNode; 
 const cultureCards = [
   {
     emoji: '\u{1F465}',
-    title: '90% Retention',
-    desc: 'Our client retention rate speaks to the depth of our partnerships.',
+    title: 'Decades-Long Clients',
+    desc: 'Our client relationships span decades — a testament to the depth of our partnerships.',
   },
   {
     emoji: '\u{1F4CD}',

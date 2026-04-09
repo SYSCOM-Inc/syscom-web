@@ -48,6 +48,18 @@ export default function About() {
         </div>
       </section>
 
+      {/* Mission */}
+      <section className="py-16 md:py-20 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-[10px] uppercase tracking-[0.3em] text-copper-500 mb-6">
+            Our Mission
+          </p>
+          <blockquote className="font-heading text-2xl md:text-3xl text-cream-100 font-light leading-relaxed">
+            &ldquo;{company.mission}&rdquo;
+          </blockquote>
+        </div>
+      </section>
+
       {/* History */}
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-3xl mx-auto">

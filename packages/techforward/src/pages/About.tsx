@@ -71,6 +71,12 @@ export default function About() {
                 <h2 className="font-heading font-bold text-3xl sm:text-4xl tracking-[-2px] mb-6">
                   The right technology at the right time.
                 </h2>
+                <div className="rounded-xl bg-cyan/5 border border-cyan/20 p-5 mb-6">
+                  <p className="text-xs font-heading font-bold uppercase tracking-[3px] text-cyan mb-2">Our Mission</p>
+                  <p className="text-white/90 leading-relaxed italic">
+                    &ldquo;{company.mission}&rdquo;
+                  </p>
+                </div>
                 <div className="space-y-4 text-muted leading-relaxed">
                   <p>
                     That philosophy has guided SYSCOM for over four decades. We know that the

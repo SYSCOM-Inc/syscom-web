@@ -7,7 +7,7 @@ COMPANY OVERVIEW:
 - Founded 1982, 40+ years of enterprise IT solutions
 - Specializes in Enterprise Content Management (ECM), Business Process Automation, Enterprise Capture, Content Migration, AI & Intelligent Automation, Custom Application Services, and Staffing & Workforce Augmentation
 - Three divisions: Professional Services, Sales & Marketing, Corporate Services
-- 90% client retention rate, 70%+ employee tenure over 5 years
+- Long-term client relationships spanning decades, 70%+ employee tenure over 5 years
 - Serves government (federal & state), financial services, insurance, health & human services, healthcare, transportation, manufacturing & telecom
 - Key partnerships: IBM (decades), Tungsten Automation/Kofax (30+ years)
 - PMP-certified project managers, PMBOK methodology
@@ -90,7 +90,7 @@ const FALLBACK_RESPONSES: Record<string, { keywords: string[]; response: string 
   company: {
     keywords: ['about', 'company', 'history', 'who', 'syscom', 'baltimore'],
     response:
-      "SYSCOM has been delivering enterprise technology solutions since 1982 — over 40 years. Based in Baltimore's Inner Harbor, we serve government, financial services, insurance, healthcare, transportation, and manufacturing clients. Our 90% client retention rate and 70%+ employee tenure over 5 years speak to the depth of our partnerships.",
+      "SYSCOM has been delivering enterprise technology solutions since 1982 — over 40 years. Based in Baltimore's Inner Harbor, we serve government, financial services, insurance, healthcare, transportation, and manufacturing clients. Our long-term client relationships — many spanning decades — and 70%+ employee tenure over 5 years speak to the depth of our partnerships.",
   },
   contact: {
     keywords: ['contact', 'reach', 'call', 'email', 'phone', 'address'],

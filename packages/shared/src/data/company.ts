@@ -31,7 +31,7 @@ export const company = {
     "Sales & Marketing",
     "Corporate Services",
   ],
-  retentionRate: "90%",
+  retentionRate: "Exceptional",
   equalOpportunityEmployer: true,
   careerPortal: "https://syscom.catsone.com/careers/95588-General/",
 };
@@ -95,7 +95,7 @@ export const services = [
     name: "Business Process Automation",
     shortName: "BPA",
     description:
-      "End-to-end workflow design and optimization. Process analysis, redesign, and orchestration using IBM Business Automation Workflow and Tungsten platforms. Case management, business rules, and human-in-the-loop automation.",
+      "End-to-end workflow design and optimization. Process analysis, redesign, and orchestration using IBM Business Automation Workflow and Tungsten platforms. Case management, business rules, and human-in-the-loop automation. Increasingly AI-enhanced — we integrate intelligent document classification, automated decision support, and predictive routing into BPA workflows so processes get smarter over time, not just faster.",
     icon: "workflow",
   },
   {
@@ -129,6 +129,14 @@ export const services = [
     description:
       "Purpose-built applications and integrations tailored to your specific business processes. From front-end portals to backend system integrations, we design and build solutions that work the way your organization does.",
     icon: "code",
+  },
+  {
+    id: "managed-services",
+    name: "Managed Services",
+    shortName: "Managed Services",
+    description:
+      "Ongoing operational support for enterprise content and capture platforms. SYSCOM embeds dedicated teams to run day-to-day production operations — document capture, quality assurance, exception handling, and system monitoring — so your organization can focus on its mission. We manage the entire pipeline from intake through final disposition, with SLA-backed performance and continuous process improvement.",
+    icon: "shield",
   },
   {
     id: "staffing",
@@ -665,7 +673,7 @@ export const verticals = [
 
 export const stats = [
   { value: "40+", label: "Years" },
-  { value: "90%", label: "Client Retention" },
+  { value: "Decades", label: "Client Relationships" },
   { value: "25+", label: "Connectors" },
   { value: "30+", label: "Yr Kofax Partner" },
 ];

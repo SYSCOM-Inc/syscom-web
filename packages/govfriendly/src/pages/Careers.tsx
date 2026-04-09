@@ -30,8 +30,8 @@ export default function Careers() {
                 Why SYSCOM
               </h2>
               <p className="mt-4 text-slate leading-relaxed">
-                SYSCOM is not a revolving door. Our 90% client retention rate
-                means the people you work with are experienced, invested, and here for
+                SYSCOM is not a revolving door. Our client relationships span decades,
+                which means the people you work with are experienced, invested, and here for
                 the long haul. We've been doing this for {company.yearsInBusiness} years
                 because we hire well and treat people right.
               </p>
@@ -50,8 +50,8 @@ export default function Careers() {
                   <p className="text-xs text-muted mt-1">Years in Business</p>
                 </div>
                 <div className="bg-warm-cream rounded-warm p-4 text-center border border-warm-border">
-                  <p className="font-heading text-2xl font-bold text-navy">90%</p>
-                  <p className="text-xs text-muted mt-1">Client Retention</p>
+                  <p className="font-heading text-2xl font-bold text-navy">70%+</p>
+                  <p className="text-xs text-muted mt-1">5+ Year Tenure</p>
                 </div>
               </div>
             </div>

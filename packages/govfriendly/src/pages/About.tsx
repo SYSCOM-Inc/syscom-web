@@ -29,8 +29,14 @@ export default function About() {
               >
                 Our Philosophy
               </h2>
-              <div className="mt-6 border-l-4 border-gold pl-6 py-2 bg-warm-light rounded-r-warm">
-                <blockquote className="text-xl text-navy font-heading font-semibold italic leading-relaxed">
+              <div className="mt-6 border-l-4 border-teal pl-6 py-3 bg-warm-light rounded-r-warm">
+                <p className="text-xs font-heading font-bold uppercase tracking-wider text-teal mb-1">Our Mission</p>
+                <blockquote className="text-lg text-navy font-heading font-semibold italic leading-relaxed">
+                  &ldquo;{company.mission}&rdquo;
+                </blockquote>
+              </div>
+              <div className="mt-4 border-l-4 border-gold pl-6 py-2 bg-warm-light rounded-r-warm">
+                <blockquote className="text-base text-navy/80 italic leading-relaxed">
                   &ldquo;{company.tagline}&rdquo;
                 </blockquote>
               </div>
@@ -42,8 +48,8 @@ export default function About() {
               <p className="mt-4 text-slate leading-relaxed">
                 SYSCOM is not a body shop. We build and own our products, develop deep
                 expertise in every platform we support, and maintain long-term relationships
-                with our clients. Our 90% client retention rate means the people who
-                know your systems stay with us.
+                with our clients. Many of our client relationships span decades — the
+                people who know your systems stay with us.
               </p>
             </div>
 
