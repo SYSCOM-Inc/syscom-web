@@ -54,7 +54,7 @@ export const leadership = [
   {
     name: "Mark Anzmann",
     title: "Executive Vice President",
-    bio: "Mark oversees SYSCOM's Professional Services division and strategic client relationships across government and financial services verticals. With over 20 years of experience and six IBM certifications, Mark brings deep technical expertise to every engagement. He has served as Chair of the Baltimore/Washington DB2 Users Group.",
+    bio: "Mark oversees SYSCOM's Professional Services division and strategic client relationships across government and financial services verticals. With over 30 years of experience and six IBM certifications, Mark brings deep technical expertise to every engagement. He has served as Chair of the Baltimore/Washington DB2 Users Group.",
     education: [
       "James Madison University, BS Computer Science",
     ],
@@ -72,7 +72,6 @@ export const leadership = [
     ],
     certifications: [
       "Kofax Capture Certified (v8–v11.2)",
-      "Kofax KTM 6 Certified",
       "AWS Certified Solutions Architect",
       "Microsoft Certified Technology Specialist",
       "IBM Certified Solutions Designer — DB2 Content Manager v8.3",
