@@ -66,7 +66,17 @@ export const leadership = [
   {
     name: "Chris Benedetti",
     title: "Chief Technology Officer",
-    bio: "Chris drives SYSCOM's technology strategy, leading AI integration, cloud modernization, and product development initiatives. Under his leadership, SYSCOM has expanded into AI-powered document intelligence, semantic search, and next-generation migration tooling.",
+    bio: "Chris has spent over 25 years at SYSCOM, progressing from capture engineer to CTO. He leads product development and technology strategy across the entire SYSCOM portfolio — including AnySource Migrator, IBIG 2.0, and AIS Bridge. Chris has architected and delivered enterprise content solutions for clients including Wells Fargo, Navy Federal Credit Union, the United Nations, and numerous federal and state government agencies. He also co-founded Bishop Records, a vinyl record company. Under his leadership, SYSCOM has expanded into AI-powered document intelligence, semantic search, and next-generation migration tooling.",
+    education: [
+      "University of Cincinnati, BBA — Information Systems & Management",
+    ],
+    certifications: [
+      "Kofax Capture Certified (v8–v11.2)",
+      "Kofax KTM 6 Certified",
+      "AWS Certified Solutions Architect",
+      "Microsoft Certified Technology Specialist",
+      "IBM Certified Solutions Designer — DB2 Content Manager v8.3",
+    ],
   },
 ];
 
