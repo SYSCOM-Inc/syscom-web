@@ -35,53 +35,93 @@ jobs:
 
       - name: Combine into single site
         run: |
-          mkdir -p _site/techforward _site/govfriendly _site/premium
+          mkdir -p _site/techforward _site/govfriendly _site/premium _site/samples
           cp -r packages/techforward/dist/* _site/techforward/
           cp -r packages/govfriendly/dist/* _site/govfriendly/
           cp -r packages/premium/dist/* _site/premium/
+          cp samples/*.html _site/samples/
           cat > _site/index.html << 'LANDING'
           <!DOCTYPE html>
           <html lang="en">
           <head>
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>SYSCOM Website — Variant Preview</title>
+            <title>SYSCOM Website — Design Preview</title>
             <style>
               * { margin: 0; padding: 0; box-sizing: border-box; }
-              body { font-family: system-ui, sans-serif; background: #0a0a0b; color: #fff; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-              .container { max-width: 800px; padding: 2rem; text-align: center; }
+              body { font-family: system-ui, sans-serif; background: #0a0a0b; color: #fff; min-height: 100vh; padding: 4rem 2rem; }
+              .container { max-width: 900px; margin: 0 auto; text-align: center; }
               h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; }
-              .sub { color: #888; margin-bottom: 3rem; }
-              .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
-              .card { background: #141416; border: 1px solid #222; border-radius: 12px; padding: 2rem 1.5rem; text-decoration: none; color: #fff; transition: border-color 0.3s, transform 0.2s; }
+              .sub { color: #888; margin-bottom: 2.5rem; }
+              h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: #555; margin-bottom: 1rem; margin-top: 3rem; }
+              .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+              .card { background: #141416; border: 1px solid #222; border-radius: 12px; padding: 1.75rem 1.5rem; text-decoration: none; color: #fff; transition: border-color 0.3s, transform 0.2s; }
               .card:hover { border-color: #555; transform: translateY(-2px); }
-              .card h2 { font-size: 1.25rem; margin-bottom: 0.5rem; }
-              .card p { font-size: 0.875rem; color: #888; line-height: 1.5; }
-              .tag { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.75rem; border-radius: 999px; margin-bottom: 1rem; }
+              .card h2 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+              .card p { font-size: 0.8rem; color: #888; line-height: 1.5; }
+              .tag { display: inline-block; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.2rem 0.65rem; border-radius: 999px; margin-bottom: 0.75rem; }
               .tf .tag { background: rgba(34,211,238,0.15); color: #22d3ee; }
               .gf .tag { background: rgba(46,125,111,0.15); color: #2e7d6f; }
               .pm .tag { background: rgba(196,147,94,0.15); color: #c4935e; }
+              .s4 .tag { background: rgba(0,101,255,0.15); color: #4d94ff; }
+              .s5 .tag { background: rgba(99,71,217,0.15); color: #7c6be6; }
+              .s6 .tag { background: rgba(255,122,69,0.15); color: #ff7a45; }
+              .s7 .tag { background: rgba(99,91,255,0.15); color: #7a73ff; }
+              .s8 .tag { background: rgba(27,42,74,0.25); color: #8899bb; }
+              .divider { border: none; border-top: 1px solid #222; margin: 2rem 0 0 0; }
             </style>
           </head>
           <body>
             <div class="container">
               <h1>SYSCOM Website</h1>
-              <p class="sub">Select a variant to preview</p>
+              <p class="sub">Design preview — select a variant or sample to view</p>
+
+              <h3>React App Variants (Full Site)</h3>
               <div class="cards">
                 <a class="card tf" href="techforward/">
-                  <span class="tag">Tech-Forward</span>
-                  <h2>Modern &amp; AI-Forward</h2>
-                  <p>Clean energy, gradient accents, technical credibility. Vercel/Stripe aesthetic.</p>
+                  <span class="tag">Sample 1</span>
+                  <h2>Tech-Forward</h2>
+                  <p>Modern, AI-forward. Gradient accents, technical credibility. Vercel/Stripe energy.</p>
                 </a>
                 <a class="card gf" href="govfriendly/">
-                  <span class="tag">Government-Friendly</span>
-                  <h2>Trusted &amp; Accessible</h2>
-                  <p>WCAG AA compliant, high contrast, professional. USDS design energy.</p>
+                  <span class="tag">Sample 2</span>
+                  <h2>Government-Friendly</h2>
+                  <p>WCAG AA, high contrast, professional. Clean and trustworthy. USDS design energy.</p>
                 </a>
                 <a class="card pm" href="premium/">
-                  <span class="tag">Premium Dark</span>
-                  <h2>Sophisticated &amp; Cinematic</h2>
-                  <p>Dark theme, elegant typography, luxury brand feel. Apple aesthetic.</p>
+                  <span class="tag">Sample 3</span>
+                  <h2>Premium Dark</h2>
+                  <p>Sophisticated, cinematic. Elegant typography, luxury brand feel.</p>
+                </a>
+              </div>
+
+              <hr class="divider" />
+              <h3>Landing Page Samples (Light Theme)</h3>
+              <div class="cards">
+                <a class="card s4" href="samples/sample-4-atlassian.html">
+                  <span class="tag">Sample 4</span>
+                  <h2>Product Card Grid</h2>
+                  <p>Atlassian-inspired. Clean whitespace, friendly product cards, approachable.</p>
+                </a>
+                <a class="card s5" href="samples/sample-5-datadog.html">
+                  <span class="tag">Sample 5</span>
+                  <h2>Mega-Menu Catalog</h2>
+                  <p>Datadog-inspired. Sophisticated nav, dashboard hero, feature comparison.</p>
+                </a>
+                <a class="card s6" href="samples/sample-6-hubspot.html">
+                  <span class="tag">Sample 6</span>
+                  <h2>Hub Architecture</h2>
+                  <p>HubSpot-inspired. Warm palette, product hubs with expandable details.</p>
+                </a>
+                <a class="card s7" href="samples/sample-7-stripe.html">
+                  <span class="tag">Sample 7</span>
+                  <h2>Elegant Minimalism</h2>
+                  <p>Stripe-inspired. Typography-first, flowing narrative, code snippets.</p>
+                </a>
+                <a class="card s8" href="samples/sample-8-palantir.html">
+                  <span class="tag">Sample 8</span>
+                  <h2>Enterprise Credibility</h2>
+                  <p>Palantir-inspired. Data visualization, trust signals, case study metrics.</p>
                 </a>
               </div>
             </div>

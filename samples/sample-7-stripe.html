@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SYSCOM, Inc. — Enterprise Content. Intelligent Automation.</title>
+  <meta name="description" content="SYSCOM, Inc. — 40+ years of enterprise content management, intelligent automation, and content migration. Baltimore, MD.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy: #1B2A4A;
+      --navy-light: #2A3F6B;
+      --navy-faint: #EEF1F6;
+      --gold: #D4A843;
+      --gold-light: #E8C97A;
+      --gold-faint: #FBF6EC;
+      --text-primary: #1B2A4A;
+      --text-secondary: #4A5568;
+      --text-tertiary: #718096;
+      --bg-white: #FFFFFF;
+      --bg-off-white: #FAFBFC;
+      --bg-light: #F7F8FA;
+      --border: #E2E8F0;
+      --border-light: #EDF2F7;
+      --code-bg: #F8FAFC;
+      --code-border: #E2E8F0;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text-primary);
+      background: var(--bg-white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ===== Typography ===== */
+    h1, h2, h3, h4 {
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+    }
+
+    p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .mono {
+      font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+    }
+
+    /* ===== Layout ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container-narrow {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container-wide {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 120px 0;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 80px 0;
+      }
+    }
+
+    /* ===== Navigation ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .nav-logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      letter-spacing: -0.03em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--navy);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--bg-white) !important;
+      background: var(--navy);
+      padding: 8px 20px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--navy-light);
+      color: var(--bg-white) !important;
+    }
+
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--navy);
+      margin: 4px 0;
+      transition: all 0.3s ease;
+      border-radius: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--bg-white);
+        flex-direction: column;
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      padding: 160px 0 120px;
+      text-align: center;
+      background: var(--bg-white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 168, 67, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(27, 42, 74, 0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--navy);
+      background: var(--navy-faint);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .hero-badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      max-width: 800px;
+      margin: 0 auto 28px;
+    }
+
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 40%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.1rem, 2vw, 1.25rem);
+      color: var(--text-tertiary);
+      max-width: 560px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--bg-white);
+      background: var(--navy);
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--navy-light);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(27, 42, 74, 0.2);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      background: var(--bg-white);
+      padding: 14px 32px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--navy);
+      background: var(--navy-faint);
+      transform: translateY(-1px);
+    }
+
+    .btn-arrow {
+      transition: transform 0.2s ease;
+    }
+
+    .btn-primary:hover .btn-arrow,
+    .btn-secondary:hover .btn-arrow {
+      transform: translateX(3px);
+    }
+
+    /* ===== Section Label ===== */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .section-description {
+      font-size: clamp(1.05rem, 1.5vw, 1.15rem);
+      color: var(--text-tertiary);
+      max-width: 640px;
+      line-height: 1.8;
+      margin-top: 20px;
+    }
+
+    /* ===== Product Narrative Sections ===== */
+    .product-section {
+      position: relative;
+    }
+
+    .product-section:nth-child(even) {
+      background: var(--bg-off-white);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .product-grid.reverse {
+      direction: rtl;
+    }
+
+    .product-grid.reverse > * {
+      direction: ltr;
+    }
+
+    @media (max-width: 900px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .product-grid.reverse {
+        direction: ltr;
+      }
+    }
+
+    .product-content h2 {
+      margin-bottom: 8px;
+    }
+
+    .product-tagline {
+      font-size: 1.1rem;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .product-text {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+    }
+
+    .product-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .product-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .product-features li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      margin-top: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .product-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+      margin-top: 24px;
+      transition: gap 0.2s ease;
+    }
+
+    .product-link:hover {
+      gap: 10px;
+    }
+
+    /* ===== Code Blocks ===== */
+    .code-window {
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow:
+        0 4px 6px rgba(27, 42, 74, 0.06),
+        0 20px 60px rgba(27, 42, 74, 0.12);
+    }
+
+    .code-window-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 20px;
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    .code-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .code-dot:nth-child(1) { background: #FF5F57; }
+    .code-dot:nth-child(2) { background: #FEBC2E; }
+    .code-dot:nth-child(3) { background: #28C840; }
+
+    .code-window-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.4);
+      margin-left: 12px;
+    }
+
+    .code-window pre {
+      padding: 24px;
+      overflow-x: auto;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.85);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .code-window pre::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .code-window pre::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .code-window pre::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+    }
+
+    .code-key { color: #7EC8E3; }
+    .code-string { color: #A8D8A8; }
+    .code-number { color: #E8C97A; }
+    .code-comment { color: rgba(255, 255, 255, 0.35); }
+    .code-bracket { color: rgba(255, 255, 255, 0.5); }
+    .code-keyword { color: #C792EA; }
+    .code-bool { color: #F78C6C; }
+
+    /* ===== Platform Section ===== */
+    .platform-section {
+      background: var(--bg-white);
+    }
+
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: 64px;
+    }
+
+    @media (max-width: 768px) {
+      .platform-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .platform-card {
+      background: var(--bg-white);
+      padding: 48px 40px;
+      transition: background 0.2s ease;
+    }
+
+    .platform-card:hover {
+      background: var(--bg-off-white);
+    }
+
+    .platform-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--navy-faint);
+      border-radius: var(--radius-sm);
+      margin-bottom: 24px;
+    }
+
+    .platform-icon svg {
+      width: 20px;
+      height: 20px;
+      color: var(--navy);
+    }
+
+    .platform-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.15rem;
+    }
+
+    .platform-card p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-tertiary);
+    }
+
+    /* ===== Trust Section ===== */
+    .trust-section {
+      background: var(--navy);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .trust-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(212, 168, 67, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .trust-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .trust-section .section-label {
+      color: var(--gold-light);
+    }
+
+    .trust-section .section-label::before {
+      background: var(--gold-light);
+    }
+
+    .trust-section h2 {
+      color: white;
+      max-width: 600px;
+    }
+
+    .trust-section .section-description {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .trust-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 48px;
+      margin-top: 72px;
+    }
+
+    @media (max-width: 768px) {
+      .trust-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 36px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .trust-stats {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .trust-stat-value {
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: white;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .trust-stat-value .accent {
+      color: var(--gold);
+    }
+
+    .trust-stat-label {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 500;
+    }
+
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 64px;
+    }
+
+    .trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 10px 20px;
+      border-radius: 100px;
+    }
+
+    .trust-badge svg {
+      width: 14px;
+      height: 14px;
+      color: var(--gold-light);
+    }
+
+    /* ===== CTA Section ===== */
+    .cta-section {
+      text-align: center;
+      background: var(--bg-off-white);
+      border-top: 1px solid var(--border-light);
+    }
+
+    .cta-section h2 {
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      max-width: 480px;
+      margin: 0 auto 40px;
+      color: var(--text-tertiary);
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .cta-note {
+      display: block;
+      margin-top: 24px;
+      font-size: 0.85rem;
+      color: var(--text-tertiary);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: var(--bg-white);
+      border-top: 1px solid var(--border-light);
+      padding: 64px 0 48px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-brand p {
+      font-size: 0.9rem;
+      color: var(--text-tertiary);
+      margin-top: 12px;
+      max-width: 300px;
+      line-height: 1.7;
+    }
+
+    .footer-col h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-col a {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-col a:hover {
+      color: var(--navy);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.85rem;
+      color: var(--text-tertiary);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: var(--navy);
+    }
+
+    /* ===== Connector Tags ===== */
+    .connector-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 24px;
+    }
+
+    .connector-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-tertiary);
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.01em;
+    }
+
+    /* ===== Divider ===== */
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border-light);
+    }
+
+    /* ===== Animations ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+
+    /* ===== Mainframe Section ===== */
+    .mainframe-visual {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .mainframe-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .mainframe-node {
+      background: var(--bg-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px 24px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      text-align: center;
+      flex: 1;
+      transition: all 0.2s ease;
+    }
+
+    .mainframe-node:hover {
+      border-color: var(--navy);
+      box-shadow: 0 2px 8px rgba(27, 42, 74, 0.08);
+    }
+
+    .mainframe-node.active {
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+    }
+
+    .mainframe-node.gold {
+      background: var(--gold-faint);
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+
+    .mainframe-arrow {
+      color: var(--text-tertiary);
+      flex-shrink: 0;
+      font-size: 1.2rem;
+    }
+
+    .mainframe-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    /* ===== Responsive Utility ===== */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 120px 0 80px;
+      }
+
+      .mainframe-row {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .mainframe-arrow {
+        transform: rotate(90deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">SYSCOM</a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#products">Products</a></li>
+        <li><a href="#platform">Solutions</a></li>
+        <li><a href="#trust">About</a></li>
+        <li><a href="#contact" class="nav-cta">Contact <span class="btn-arrow">&rarr;</span></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container">
+      <div class="fade-up">
+        <span class="hero-badge">Since 1982 &mdash; Baltimore, MD</span>
+      </div>
+      <h1 class="fade-up fade-up-delay-1">
+        <span class="gradient-text">Enterprise Content.</span><br>
+        <span class="gradient-text">Intelligent Automation.</span>
+      </h1>
+      <p class="hero-subtitle fade-up fade-up-delay-2">
+        We build the infrastructure that powers document intelligence, content migration, and process automation for government and financial institutions.
+      </p>
+      <div class="hero-actions fade-up fade-up-delay-3">
+        <a href="#contact" class="btn-primary">Talk to an expert <span class="btn-arrow">&rarr;</span></a>
+        <a href="#products" class="btn-secondary">Explore products <span class="btn-arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== IBIG Section ===== -->
+  <section class="product-section" id="products" style="background: var(--bg-off-white);">
+    <div class="container">
+      <div class="product-grid">
+        <div class="product-content fade-up">
+          <span class="section-label">IBIG 2.0</span>
+          <h2>AI Document Intelligence</h2>
+          <p class="product-tagline">Don't just search your documents. Understand them.</p>
+          <p class="product-text">
+            The Intelligent Business Information Gateway crawls your existing repositories, uses LLMs to comprehend document meaning &mdash; not just OCR text &mdash; and builds a semantic knowledge layer with natural language search. Ask questions in plain English. Get ranked, contextualized answers.
+          </p>
+          <ul class="product-features">
+            <li>Zero-shot classification without templates</li>
+            <li>Knowledge graph maps relationships across your entire archive</li>
+            <li>On-premises deployment for air-gapped environments</li>
+            <li>25+ repository connectors inherited from ASM</li>
+          </ul>
+          <a href="#contact" class="product-link">Learn more <span class="btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="fade-up fade-up-delay-1">
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-dot"></span>
+              <span class="code-dot"></span>
+              <span class="code-dot"></span>
+              <span class="code-window-title">GET /api/v2/search</span>
+            </div>
+            <pre><span class="code-comment">// Natural language query &rarr; ranked results</span>
+<span class="code-bracket">{</span>
+  <span class="code-key">"query"</span>: <span class="code-string">"contracts expiring Q2 2026"</span>,
+  <span class="code-key">"results"</span>: <span class="code-bracket">[</span>
+    <span class="code-bracket">{</span>
+      <span class="code-key">"id"</span>: <span class="code-string">"doc-849271"</span>,
+      <span class="code-key">"title"</span>: <span class="code-string">"Master Services Agreement"</span>,
+      <span class="code-key">"source"</span>: <span class="code-string">"FileNet P8"</span>,
+      <span class="code-key">"confidence"</span>: <span class="code-number">0.96</span>,
+      <span class="code-key">"entities"</span>: <span class="code-bracket">{</span>
+        <span class="code-key">"expiration"</span>: <span class="code-string">"2026-06-30"</span>,
+        <span class="code-key">"party"</span>: <span class="code-string">"State DOT"</span>,
+        <span class="code-key">"value"</span>: <span class="code-string">"$2.4M"</span>
+      <span class="code-bracket">}</span>,
+      <span class="code-key">"relationships"</span>: <span class="code-bracket">[</span>
+        <span class="code-string">"Amendment 3 (doc-849305)"</span>,
+        <span class="code-string">"SOW Attachment (doc-849272)"</span>
+      <span class="code-bracket">]</span>
+    <span class="code-bracket">}</span>
+  <span class="code-bracket">]</span>,
+  <span class="code-key">"total"</span>: <span class="code-number">14</span>,
+  <span class="code-key">"model"</span>: <span class="code-string">"ibig-2.0-semantic"</span>
+<span class="code-bracket">}</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AnySource Migrator Section ===== -->
+  <section class="product-section">
+    <div class="container">
+      <div class="product-grid reverse">
+        <div class="product-content fade-up">
+          <span class="section-label">AnySource Migrator</span>
+          <h2>Migrate Anything.<br>Lose Nothing.</h2>
+          <p class="product-tagline">Any source. Any destination. Zero compromises.</p>
+          <p class="product-text">
+            ASM is our flagship content migration platform &mdash; 25+ pre-built repository connectors, AI-powered auto-mapping, and real-time monitoring. Move millions of documents between ECM platforms with full metadata, security, and folder structure preservation. No other migration tool on the market matches it.
+          </p>
+          <ul class="product-features">
+            <li>AI auto-mapping reduces weeks of planning to hours</li>
+            <li>TIFF-to-PDF, MODCA-to-TIFF, full-text PDF &mdash; all configurable</li>
+            <li>Live monitoring with anomaly detection</li>
+            <li>Horizontal scaling for multi-million document migrations</li>
+          </ul>
+          <div class="connector-tags">
+            <span class="connector-tag">FileNet P8</span>
+            <span class="connector-tag">Content Manager</span>
+            <span class="connector-tag">ImagePlus</span>
+            <span class="connector-tag">SharePoint</span>
+            <span class="connector-tag">Documentum</span>
+            <span class="connector-tag">CMIS</span>
+            <span class="connector-tag">File System</span>
+            <span class="connector-tag">Custom</span>
+          </div>
+          <a href="#contact" class="product-link">Learn more <span class="btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="fade-up fade-up-delay-1">
+          <div class="code-window">
+            <div class="code-window-bar">
+              <span class="code-dot"></span>
+              <span class="code-dot"></span>
+              <span class="code-dot"></span>
+              <span class="code-window-title">asm-migration.yml</span>
+            </div>
+            <pre><span class="code-comment"># ASM Migration Configuration</span>
+<span class="code-key">migration</span>:
+  <span class="code-key">name</span>: <span class="code-string">"FileNet to SharePoint"</span>
+  <span class="code-key">source</span>:
+    <span class="code-key">type</span>: <span class="code-string">filenet-p8</span>
+    <span class="code-key">object_store</span>: <span class="code-string">"Production_OS"</span>
+    <span class="code-key">query</span>: <span class="code-string">"SELECT * FROM Document"</span>
+  <span class="code-key">target</span>:
+    <span class="code-key">type</span>: <span class="code-string">sharepoint-online</span>
+    <span class="code-key">site</span>: <span class="code-string">"enterprise-docs"</span>
+    <span class="code-key">library</span>: <span class="code-string">"Migrated Content"</span>
+  <span class="code-key">transforms</span>:
+    - <span class="code-key">type</span>: <span class="code-string">tiff-to-pdf</span>
+      <span class="code-key">ocr</span>: <span class="code-bool">true</span>
+      <span class="code-key">full_text</span>: <span class="code-bool">true</span>
+    - <span class="code-key">type</span>: <span class="code-string">metadata-map</span>
+      <span class="code-key">mode</span>: <span class="code-string">ai-auto</span>  <span class="code-comment"># AI-powered mapping</span>
+  <span class="code-key">options</span>:
+    <span class="code-key">parallel_threads</span>: <span class="code-number">16</span>
+    <span class="code-key">preserve_security</span>: <span class="code-bool">true</span>
+    <span class="code-key">preserve_versions</span>: <span class="code-bool">true</span>
+    <span class="code-key">anomaly_detection</span>: <span class="code-bool">true</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AI Mainframe Intelligence Section ===== -->
+  <section class="product-section" style="background: var(--bg-off-white);">
+    <div class="container">
+      <div class="product-grid">
+        <div class="product-content fade-up">
+          <span class="section-label">Mainframe Modernization</span>
+          <h2>AI Meets the<br>Mainframe</h2>
+          <p class="product-tagline">Modernize without migrating.</p>
+          <p class="product-text">
+            Organizations running IBM ImagePlus, CICS, and MVS workloads face a hard problem: modernize the access layer without disrupting decades of operational investment. Our AIS Bridge and MVS Connect products solve this &mdash; drop-in replacements that preserve every integration while delivering modern architecture underneath.
+          </p>
+          <ul class="product-features">
+            <li>AIS Bridge: full API-compatible replacement for ImagePlus</li>
+            <li>Zero-downtime phased migration approach</li>
+            <li>MVS Connect: high-speed mainframe-to-capture integration</li>
+            <li>HTML5 Content Viewer replaces deprecated Java applets</li>
+          </ul>
+          <a href="#contact" class="product-link">Learn more <span class="btn-arrow">&rarr;</span></a>
+        </div>
+        <div class="fade-up fade-up-delay-1">
+          <div class="mainframe-visual">
+            <div class="mainframe-label">Current State</div>
+            <div class="mainframe-row">
+              <div class="mainframe-node">IBM ImagePlus</div>
+              <span class="mainframe-arrow">&rarr;</span>
+              <div class="mainframe-node">CICS / IMS</div>
+              <span class="mainframe-arrow">&rarr;</span>
+              <div class="mainframe-node">Java Applet Viewer</div>
+            </div>
+            <div style="text-align: center; padding: 8px 0;">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="color: var(--gold);">
+                <path d="M10 4v12M10 16l-4-4M10 16l4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="mainframe-label">With SYSCOM</div>
+            <div class="mainframe-row">
+              <div class="mainframe-node gold">AIS Bridge</div>
+              <span class="mainframe-arrow">&rarr;</span>
+              <div class="mainframe-node active">AI Layer</div>
+              <span class="mainframe-arrow">&rarr;</span>
+              <div class="mainframe-node gold">HTML5 Viewer</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Platform Section ===== -->
+  <section class="platform-section" id="platform">
+    <div class="container">
+      <div class="fade-up" style="text-align: center; max-width: 640px; margin: 0 auto;">
+        <span class="section-label" style="justify-content: center;">The Platform</span>
+        <h2>Everything your content<br>infrastructure needs</h2>
+        <p class="section-description" style="margin: 20px auto 0;">
+          ECM, business process automation, enterprise capture, and AI &mdash; integrated as a single platform. Not a patchwork of acquisitions. One company, one architecture, 40 years of focus.
+        </p>
+      </div>
+      <div class="platform-grid fade-up fade-up-delay-1">
+        <div class="platform-card">
+          <div class="platform-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"/><polyline points="14 2 14 8 20 8"/><path d="m3 15 2 2 4-4"/></svg>
+          </div>
+          <h3>Enterprise Content Management</h3>
+          <p>IBM FileNet P8, Content Manager, Content Manager OnDemand. Federation, integration, and migration between platforms &mdash; we've done it all.</p>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h3>Business Process Automation</h3>
+          <p>End-to-end workflow design with IBM BAW and Tungsten platforms. Case management, business rules, and AI-enhanced routing that gets smarter over time.</p>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <h3>Enterprise Capture</h3>
+          <p>30+ year Tungsten (Kofax) partnership. Remote and central capture, advanced recognition, classification, and custom validation scripts.</p>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+          <h3>Content Migration</h3>
+          <p>Powered by AnySource Migrator. 25+ connectors. Full metadata, security, and folder structure preservation. Gradual, overnight, or federated strategies.</p>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3>AI & Intelligent Automation</h3>
+          <p>Zero-shot document classification. AI auto-mapping in ASM 2.0. Semantic search in IBIG 2.0. Compliance-as-Code. Cloud or on-premises deployment.</p>
+        </div>
+        <div class="platform-card">
+          <div class="platform-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>Managed Services & Staffing</h3>
+          <p>Embedded teams running production operations. PMs, architects, developers, DBAs, and cybersecurity engineers. Short-term to 10+ year placements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Trust Section ===== -->
+  <section class="trust-section" id="trust">
+    <div class="container trust-content">
+      <div class="fade-up">
+        <span class="section-label">Why SYSCOM</span>
+        <h2>Not a startup.<br>Not a body shop.</h2>
+        <p class="section-description">
+          We've been solving enterprise content problems since 1982. We build and own our IP. We know that the newest technology isn't always the best solution &mdash; but it's sometimes the only solution. And we know the difference.
+        </p>
+      </div>
+      <div class="trust-stats fade-up fade-up-delay-1">
+        <div>
+          <div class="trust-stat-value">44<span class="accent">+</span></div>
+          <div class="trust-stat-label">Years in Business</div>
+        </div>
+        <div>
+          <div class="trust-stat-value">9</div>
+          <div class="trust-stat-label">Software Products</div>
+        </div>
+        <div>
+          <div class="trust-stat-value">70<span class="accent">%+</span></div>
+          <div class="trust-stat-label">5-Year Retention</div>
+        </div>
+        <div>
+          <div class="trust-stat-value">25<span class="accent">+</span></div>
+          <div class="trust-stat-label">Migration Connectors</div>
+        </div>
+      </div>
+      <div class="trust-badges fade-up fade-up-delay-2">
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          NIST 800-53
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          CJIS Compliant
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          IRS Pub 1075
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a4 4 0 0 0-8 0v2"/></svg>
+          IBM Business Partner
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a4 4 0 0 0-8 0v2"/></svg>
+          Tungsten Partner
+        </span>
+        <span class="trust-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          FedRAMP Aligned
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA Section ===== -->
+  <section class="cta-section" id="contact">
+    <div class="container">
+      <div class="fade-up">
+        <span class="section-label" style="justify-content: center; display: flex;">Talk to Us</span>
+        <h2>Ready to modernize your<br>content infrastructure?</h2>
+        <p>We'll walk through your environment, identify quick wins, and show you what's possible &mdash; no pitch deck required.</p>
+        <div class="cta-actions">
+          <a href="mailto:sales@syscom.com" class="btn-primary">Contact sales <span class="btn-arrow">&rarr;</span></a>
+          <a href="tel:+14105393737" class="btn-secondary">Call (410) 539-3737</a>
+        </div>
+        <span class="cta-note">Inner Harbor Center, 400 East Pratt Street, Suite 600, Baltimore, MD 21202</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">SYSCOM</a>
+          <p>Enterprise content management and intelligent automation since 1982. Baltimore, Maryland.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#products">IBIG 2.0</a></li>
+            <li><a href="#products">AnySource Migrator</a></li>
+            <li><a href="#products">AIS Bridge</a></li>
+            <li><a href="#products">Content Viewer</a></li>
+            <li><a href="#products">Content Services</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="#platform">ECM</a></li>
+            <li><a href="#platform">Process Automation</a></li>
+            <li><a href="#platform">Enterprise Capture</a></li>
+            <li><a href="#platform">Content Migration</a></li>
+            <li><a href="#platform">AI & Automation</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#trust">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="https://syscom.catsone.com/careers/95588-General/">Careers</a></li>
+            <li><a href="mailto:sales@syscom.com">sales@syscom.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 SYSCOM, Inc. All rights reserved.</span>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Mobile hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Close mobile nav on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Scroll-triggered fade-in animation
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 80;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

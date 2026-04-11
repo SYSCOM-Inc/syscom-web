@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SYSCOM, Inc. — Enterprise Content Intelligence</title>
+<meta name="description" content="SYSCOM, Inc. — 40+ years of enterprise content management, business process automation, and AI-driven document intelligence for government and financial services.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   RESET & BASE
+   ======================================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navy: #1B2A4A;
+  --navy-deep: #0F1A2E;
+  --navy-light: #2A3D5F;
+  --gold: #D4A843;
+  --gold-light: #E8C76A;
+  --gold-muted: rgba(212, 168, 67, 0.15);
+  --white: #FFFFFF;
+  --gray-50: #F8F9FB;
+  --gray-100: #F0F2F5;
+  --gray-200: #E2E5EB;
+  --gray-300: #C8CDD6;
+  --gray-400: #9AA1B0;
+  --gray-500: #6B7280;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --text-primary: #1B2A4A;
+  --text-secondary: #4B5563;
+  --text-tertiary: #6B7280;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--text-primary);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+.heading-xl {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.heading-lg {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+.heading-md {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.heading-sm {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+}
+
+.body-lg {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.body-md {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.body-sm {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-tertiary);
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ========================================
+   LAYOUT
+   ======================================== */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.container-narrow {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.section-navy {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.section-gray {
+  background: var(--gray-50);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+.grid-6 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .grid-3, .grid-6 { grid-template-columns: repeat(2, 1fr); }
+  .grid-5 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-5, .grid-6 { grid-template-columns: 1fr; }
+  .section { padding: 4rem 0; }
+  .container, .container-narrow { padding: 0 1.25rem; }
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--gray-200);
+  transition: box-shadow 0.3s ease;
+}
+
+.nav.scrolled {
+  box-shadow: 0 1px 12px rgba(27, 42, 74, 0.08);
+}
+
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-logo-mark {
+  width: 8px;
+  height: 32px;
+  background: var(--gold);
+  border-radius: 2px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--navy);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gold);
+  transition: width 0.2s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  background: var(--navy);
+  color: var(--white) !important;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600 !important;
+  font-size: 0.875rem;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.nav-cta:hover {
+  background: var(--navy-light) !important;
+  transform: translateY(-1px);
+}
+
+.nav-cta::after {
+  display: none !important;
+}
+
+.nav-mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.nav-mobile-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--navy);
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .nav-inner { padding: 0 1.25rem; }
+  .nav-mobile-toggle { display: block; }
+  .nav-links {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    flex-direction: column;
+    padding: 1.5rem 2rem 2rem;
+    gap: 1.25rem;
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+  }
+  .nav-links.open { transform: translateY(0); }
+  .nav-links a { font-size: 1rem; }
+  .nav-cta { text-align: center; display: block; padding: 0.75rem 1.25rem; }
+}
+
+/* ========================================
+   HERO
+   ======================================== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--gray-50);
+  overflow: hidden;
+  padding-top: 72px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* CSS Data Visualization — Network Graph */
+.hero-viz {
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+}
+
+.hero-viz svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-node {
+  fill: var(--navy);
+}
+
+.hero-node-gold {
+  fill: var(--gold);
+}
+
+.hero-line {
+  stroke: var(--navy);
+  stroke-width: 1;
+  opacity: 0.4;
+}
+
+.hero-line-gold {
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  opacity: 0.5;
+}
+
+.hero-pulse {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.hero-pulse-delay {
+  animation: pulse 3s ease-in-out 1s infinite;
+}
+
+.hero-pulse-delay2 {
+  animation: pulse 3s ease-in-out 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; r: 3; }
+  50% { opacity: 0.8; r: 5; }
+}
+
+@keyframes float-line {
+  0%, 100% { stroke-dashoffset: 0; }
+  50% { stroke-dashoffset: 20; }
+}
+
+.hero-animated-line {
+  stroke-dasharray: 8 12;
+  animation: float-line 4s linear infinite;
+}
+
+/* Gradient overlay */
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 50%, rgba(248, 249, 251, 0.95) 0%, transparent 70%),
+    radial-gradient(ellipse at 80% 20%, rgba(212, 168, 67, 0.04) 0%, transparent 50%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  padding: 4rem 0;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.4rem 1rem;
+  background: var(--gold-muted);
+  border: 1px solid rgba(212, 168, 67, 0.3);
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+}
+
+.hero-eyebrow-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.hero h1 {
+  margin-bottom: 1.5rem;
+  color: var(--navy);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--navy);
+  color: var(--white);
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--navy-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(27, 42, 74, 0.2);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--navy);
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: 1.5px solid var(--gray-300);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: var(--navy);
+  background: rgba(27, 42, 74, 0.03);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: var(--navy);
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-gold:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(212, 168, 67, 0.3);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--gray-200);
+}
+
+.hero-stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+
+.hero-stat-label {
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: auto; padding: 8rem 0 4rem; }
+  .hero-content { padding: 2rem 0; }
+  .hero-stats { gap: 2rem; flex-wrap: wrap; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+}
+
+/* ========================================
+   PLATFORM OVERVIEW
+   ======================================== */
+.platform-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem;
+}
+
+.platform-header .label {
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.platform-header h2 {
+  margin-bottom: 1rem;
+}
+
+.platform-header p {
+  font-size: 1.0625rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.platform-card {
+  position: relative;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.25s ease;
+  cursor: default;
+}
+
+.platform-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 32px rgba(27, 42, 74, 0.06), 0 0 0 1px var(--gold);
+  transform: translateY(-2px);
+}
+
+.platform-card-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  transition: all 0.25s ease;
+}
+
+.platform-card:hover .platform-card-icon {
+  background: var(--gold-muted);
+  border-color: rgba(212, 168, 67, 0.3);
+}
+
+.platform-card-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--navy);
+}
+
+.platform-card h3 {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--navy);
+}
+
+.platform-card p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.platform-card-tag {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.25rem 0.75rem;
+  background: var(--gray-50);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+}
+
+/* Platform connection lines */
+.platform-connections {
+  position: relative;
+}
+
+.platform-connections::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gray-200), var(--gold), var(--gray-200), transparent);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.platform-connections::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--gray-200), var(--gold), var(--gray-200), transparent);
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.platform-center-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  background: var(--navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(27, 42, 74, 0.2);
+}
+
+.platform-center-badge span {
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1024px) {
+  .platform-connections::before,
+  .platform-connections::after,
+  .platform-center-badge { display: none; }
+}
+
+/* ========================================
+   TRUST SIGNALS (Navy section)
+   ======================================== */
+.trust-section {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.trust-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(212, 168, 67, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.trust-item {
+  padding: 2rem 1rem;
+}
+
+.trust-value {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.trust-label {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.trust-divider {
+  width: 40px;
+  height: 2px;
+  background: rgba(212, 168, 67, 0.3);
+  margin: 0.75rem auto;
+}
+
+@media (max-width: 768px) {
+  .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .trust-item { padding: 1.5rem 1rem; }
+}
+
+/* ========================================
+   CASE STUDIES
+   ======================================== */
+.case-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  gap: 2rem;
+}
+
+.case-header-text { max-width: 600px; }
+.case-header .label { margin-bottom: 0.75rem; display: block; }
+
+.case-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.case-card:hover {
+  box-shadow: 0 12px 40px rgba(27, 42, 74, 0.08);
+  transform: translateY(-3px);
+}
+
+.case-card-top {
+  padding: 2rem 2rem 0;
+}
+
+.case-card-vertical {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  background: var(--gray-50);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.case-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.case-card p {
+  font-size: 0.9375rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.case-card-metrics {
+  padding: 1.5rem 2rem;
+  margin-top: 1.5rem;
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-100);
+  display: flex;
+  gap: 2rem;
+}
+
+.case-metric-value {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.case-metric-label {
+  font-size: 0.8125rem;
+  color: var(--text-tertiary);
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .case-header { flex-direction: column; align-items: flex-start; }
+  .case-card-metrics { flex-direction: column; gap: 1rem; }
+}
+
+/* ========================================
+   INDUSTRIES
+   ======================================== */
+.industries-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 3.5rem;
+}
+
+.industries-header .label { margin-bottom: 0.75rem; display: block; }
+
+.industry-card {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 12px;
+  transition: all 0.25s ease;
+}
+
+.industry-card:hover {
+  border-color: var(--navy);
+  box-shadow: 0 4px 16px rgba(27, 42, 74, 0.06);
+}
+
+.industry-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--gray-50);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+}
+
+.industry-icon svg {
+  width: 28px;
+  height: 28px;
+  color: var(--navy);
+}
+
+.industry-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.industry-card p {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .grid-5 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .grid-5 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ========================================
+   CTA SECTION
+   ======================================== */
+.cta-section {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(212, 168, 67, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(212, 168, 67, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cta-inner {
+  position: relative;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.cta-inner .label {
+  margin-bottom: 1rem;
+  display: block;
+  color: var(--gold);
+}
+
+.cta-inner h2 {
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.cta-inner p {
+  font-size: 1.0625rem;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+.cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--white);
+  color: var(--navy);
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-white:hover {
+  background: var(--gray-100);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: var(--white);
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+}
+
+.btn-outline-white:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.footer {
+  background: var(--navy-deep);
+  color: rgba(255, 255, 255, 0.5);
+  padding: 4rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.footer-brand .nav-logo {
+  color: var(--white);
+}
+
+.footer h4 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.25rem;
+}
+
+.footer ul {
+  list-style: none;
+}
+
+.footer ul li {
+  margin-bottom: 0.75rem;
+}
+
+.footer ul a {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.45);
+  transition: color 0.2s ease;
+}
+
+.footer ul a:hover {
+  color: var(--gold);
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-bottom p {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-bottom-links a {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.35);
+  transition: color 0.2s ease;
+}
+
+.footer-bottom-links a:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+}
+
+/* ========================================
+   UTILITIES & ANIMATIONS
+   ======================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gold-accent {
+  color: var(--gold);
+}
+
+.navy-text {
+  color: var(--navy);
+}
+
+/* Arrow icon for buttons */
+.arrow-right {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+.arrow-right::before {
+  content: '\2192';
+  font-size: 1.1em;
+}
+</style>
+</head>
+<body>
+
+<!-- ========================================
+     NAVIGATION
+     ======================================== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <div class="nav-logo-mark"></div>
+      SYSCOM
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#platform">Products</a></li>
+      <li><a href="#case-studies">Solutions</a></li>
+      <li><a href="#industries">Industries</a></li>
+      <li><a href="#cta" class="nav-cta">Contact Us</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ========================================
+     HERO
+     ======================================== -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <!-- CSS/SVG Data Visualization -->
+    <div class="hero-viz">
+      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <!-- Connection lines -->
+        <line x1="120" y1="150" x2="380" y2="280" class="hero-line" />
+        <line x1="380" y1="280" x2="650" y2="180" class="hero-line-gold hero-animated-line" />
+        <line x1="650" y1="180" x2="900" y2="320" class="hero-line" />
+        <line x1="900" y1="320" x2="1150" y2="200" class="hero-line-gold hero-animated-line" />
+        <line x1="1150" y1="200" x2="1350" y2="350" class="hero-line" />
+        <line x1="200" y1="450" x2="480" y2="380" class="hero-line" />
+        <line x1="480" y1="380" x2="720" y2="500" class="hero-line-gold hero-animated-line" />
+        <line x1="720" y1="500" x2="980" y2="420" class="hero-line" />
+        <line x1="980" y1="420" x2="1250" y2="550" class="hero-line" />
+        <line x1="300" y1="650" x2="550" y2="580" class="hero-line-gold hero-animated-line" />
+        <line x1="550" y1="580" x2="800" y2="680" class="hero-line" />
+        <line x1="800" y1="680" x2="1050" y2="600" class="hero-line" />
+        <line x1="1050" y1="600" x2="1300" y2="720" class="hero-line-gold hero-animated-line" />
+        <!-- Vertical connections -->
+        <line x1="380" y1="280" x2="480" y2="380" class="hero-line" />
+        <line x1="650" y1="180" x2="720" y2="500" class="hero-line-gold hero-animated-line" />
+        <line x1="900" y1="320" x2="980" y2="420" class="hero-line" />
+        <line x1="550" y1="580" x2="480" y2="380" class="hero-line" />
+        <line x1="800" y1="680" x2="720" y2="500" class="hero-line" />
+        <line x1="1050" y1="600" x2="980" y2="420" class="hero-line-gold hero-animated-line" />
+        <line x1="1150" y1="200" x2="1250" y2="550" class="hero-line" />
+        <!-- Nodes -->
+        <circle cx="120" cy="150" r="4" class="hero-node hero-pulse" />
+        <circle cx="380" cy="280" r="5" class="hero-node-gold hero-pulse-delay" />
+        <circle cx="650" cy="180" r="4" class="hero-node hero-pulse-delay2" />
+        <circle cx="900" cy="320" r="6" class="hero-node-gold hero-pulse" />
+        <circle cx="1150" cy="200" r="4" class="hero-node hero-pulse-delay" />
+        <circle cx="1350" cy="350" r="3" class="hero-node hero-pulse-delay2" />
+        <circle cx="200" cy="450" r="3" class="hero-node hero-pulse" />
+        <circle cx="480" cy="380" r="5" class="hero-node hero-pulse-delay2" />
+        <circle cx="720" cy="500" r="7" class="hero-node-gold hero-pulse" />
+        <circle cx="980" cy="420" r="5" class="hero-node hero-pulse-delay" />
+        <circle cx="1250" cy="550" r="4" class="hero-node hero-pulse-delay2" />
+        <circle cx="300" cy="650" r="3" class="hero-node hero-pulse-delay" />
+        <circle cx="550" cy="580" r="4" class="hero-node-gold hero-pulse" />
+        <circle cx="800" cy="680" r="5" class="hero-node hero-pulse-delay2" />
+        <circle cx="1050" cy="600" r="4" class="hero-node hero-pulse" />
+        <circle cx="1300" cy="720" r="3" class="hero-node-gold hero-pulse-delay" />
+        <!-- Additional scatter nodes -->
+        <circle cx="60" cy="350" r="2" class="hero-node hero-pulse-delay2" />
+        <circle cx="250" cy="100" r="2" class="hero-node hero-pulse" />
+        <circle cx="500" cy="700" r="2" class="hero-node hero-pulse-delay" />
+        <circle cx="1100" cy="100" r="2" class="hero-node hero-pulse" />
+        <circle cx="1400" cy="600" r="2" class="hero-node hero-pulse-delay2" />
+        <circle cx="750" cy="50" r="2" class="hero-node-gold hero-pulse" />
+        <circle cx="1000" cy="750" r="2" class="hero-node hero-pulse-delay" />
+      </svg>
+    </div>
+    <div class="hero-gradient"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-content fade-in">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-dot"></div>
+        Enterprise Content Intelligence
+      </div>
+      <h1 class="heading-xl">40 Years of Enterprise&nbsp;Intelligence</h1>
+      <p class="hero-subtitle">SYSCOM builds the systems that run government agencies and financial institutions. We capture, migrate, automate, and manage enterprise content at scale &mdash; now with AI at the core.</p>
+      <div class="hero-actions">
+        <a href="#platform" class="btn-primary">Explore the Platform <span class="arrow-right"></span></a>
+        <a href="#cta" class="btn-secondary">Request a Briefing</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-value">40+</div>
+          <div class="hero-stat-label">Years in Operation</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">300+</div>
+          <div class="hero-stat-label">Enterprise Clients</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">5</div>
+          <div class="hero-stat-label">Industry Verticals</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">70%+</div>
+          <div class="hero-stat-label">5-Year Retention</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     PLATFORM OVERVIEW
+     ======================================== -->
+<section class="section" id="platform">
+  <div class="container">
+    <div class="platform-header fade-in">
+      <span class="label">Integrated Platform</span>
+      <h2 class="heading-lg">One Platform. Every Content Challenge.</h2>
+      <p>Six integrated capabilities that work together to capture, manage, migrate, and automate enterprise content across your entire organization.</p>
+    </div>
+
+    <div class="grid-6 platform-connections fade-in">
+      <!-- Platform Center Badge -->
+      <div class="platform-center-badge">
+        <span>SYSCOM</span>
+      </div>
+
+      <!-- Card 1: IBIG -->
+      <div class="platform-card">
+        <div class="platform-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>IBIG</h3>
+        <p>AI-powered document intelligence gateway. SOA-based content services platform that deploys new ECM capabilities through simple configuration.</p>
+        <span class="platform-card-tag">Content Services Gateway</span>
+      </div>
+
+      <!-- Card 2: ASM -->
+      <div class="platform-card">
+        <div class="platform-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M8 3H3v5"/><path d="M12 22V8"/><path d="M21 3l-9 9"/><path d="M3 3l9 9"/></svg>
+        </div>
+        <h3>AnySource Migrator</h3>
+        <p>Proprietary content migration platform. Moves content between any ECM system with full metadata, security, and folder structure preservation.</p>
+        <span class="platform-card-tag">Content Migration</span>
+      </div>
+
+      <!-- Card 3: AI Mainframe -->
+      <div class="platform-card">
+        <div class="platform-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+        </div>
+        <h3>AI Mainframe Intelligence</h3>
+        <p>Mainframe modernization platform. Unlock legacy mainframe data and processes with AI-driven analysis, extraction, and transformation.</p>
+        <span class="platform-card-tag">Mainframe Modernization</span>
+      </div>
+
+      <!-- Card 4: Kofax/Tungsten -->
+      <div class="platform-card">
+        <div class="platform-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 9 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z"/></svg>
+        </div>
+        <h3>Kofax/Tungsten Solutions</h3>
+        <p>Intelligent capture automation. OCR, classification, and data extraction at enterprise scale with AI-enhanced accuracy.</p>
+        <span class="platform-card-tag">Capture Automation</span>
+      </div>
+
+      <!-- Card 5: ECM -->
+      <div class="platform-card">
+        <div class="platform-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Enterprise Content Management</h3>
+        <p>Full-lifecycle content management across IBM CM8, FileNet, Content Navigator, and ServiceNow. Repository, compliance, and records management.</p>
+        <span class="platform-card-tag">IBM &middot; FileNet &middot; ServiceNow</span>
+      </div>
+
+      <!-- Card 6: BPA -->
+      <div class="platform-card">
+        <div class="platform-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        </div>
+        <h3>Business Process Automation</h3>
+        <p>Workflow automation, business rules, and case management. Eliminate manual handoffs and accelerate decision-making across departments.</p>
+        <span class="platform-card-tag">Workflow &middot; Rules &middot; Case Mgmt</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     TRUST SIGNALS
+     ======================================== -->
+<section class="section trust-section" id="trust">
+  <div class="container">
+    <div class="trust-grid fade-in">
+      <div class="trust-item">
+        <div class="trust-value">300+</div>
+        <div class="trust-divider"></div>
+        <div class="trust-label">Enterprise clients across government and financial services</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-value">40+</div>
+        <div class="trust-divider"></div>
+        <div class="trust-label">Years of continuous operation in enterprise content management</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-value">Gov &amp; Fin</div>
+        <div class="trust-divider"></div>
+        <div class="trust-label">Deep expertise in government agencies and financial institutions</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-value">5</div>
+        <div class="trust-divider"></div>
+        <div class="trust-label">Industry verticals served with mission-critical solutions</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     CASE STUDIES
+     ======================================== -->
+<section class="section section-gray" id="case-studies">
+  <div class="container">
+    <div class="case-header fade-in">
+      <div class="case-header-text">
+        <span class="label">Proven Results</span>
+        <h2 class="heading-lg">Outcomes That Define Enterprise&nbsp;Scale</h2>
+      </div>
+      <a href="#cta" class="btn-secondary">View All Case Studies <span class="arrow-right"></span></a>
+    </div>
+
+    <div class="grid-3 fade-in">
+      <!-- Case 1 -->
+      <div class="case-card">
+        <div class="case-card-top">
+          <span class="case-card-vertical">State Government Agency</span>
+          <h3>Automated Document Processing for State DPS Operations</h3>
+          <p>Replaced a manual, paper-driven workflow with intelligent capture and automated classification. Processing times dropped from days to minutes, with AI-powered data extraction handling 15+ document types.</p>
+        </div>
+        <div class="case-card-metrics">
+          <div>
+            <div class="case-metric-value">65%</div>
+            <div class="case-metric-label">Reduction in Manual Processing</div>
+          </div>
+          <div>
+            <div class="case-metric-value">4x</div>
+            <div class="case-metric-label">Throughput Increase</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="case-card">
+        <div class="case-card-top">
+          <span class="case-card-vertical">Financial Services</span>
+          <h3>Enterprise Content Migration for Regional Credit Union</h3>
+          <p>Migrated 1M+ documents from a legacy Documentum repository to IBM FileNet using AnySource Migrator. Full metadata preservation, zero data loss, and zero downtime during the transition.</p>
+        </div>
+        <div class="case-card-metrics">
+          <div>
+            <div class="case-metric-value">1M+</div>
+            <div class="case-metric-label">Documents Migrated</div>
+          </div>
+          <div>
+            <div class="case-metric-value">0</div>
+            <div class="case-metric-label">Downtime Hours</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 3 -->
+      <div class="case-card">
+        <div class="case-card-top">
+          <span class="case-card-vertical">Healthcare / Insurance</span>
+          <h3>Zero-Downtime Platform Modernization for Claims Processing</h3>
+          <p>Modernized a legacy IBM ImagePlus-based claims processing system using AIS Bridge. The insurer maintained full operations throughout the transition while gaining modern infrastructure and AI-ready architecture.</p>
+        </div>
+        <div class="case-card-metrics">
+          <div>
+            <div class="case-metric-value">100%</div>
+            <div class="case-metric-label">Uptime During Migration</div>
+          </div>
+          <div>
+            <div class="case-metric-value">40%</div>
+            <div class="case-metric-label">Infrastructure Cost Savings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     INDUSTRIES
+     ======================================== -->
+<section class="section" id="industries">
+  <div class="container">
+    <div class="industries-header fade-in">
+      <span class="label">Industries We Serve</span>
+      <h2 class="heading-lg">Built for Regulated, Mission-Critical Environments</h2>
+      <p class="body-md" style="margin-top: 1rem;">We work where the stakes are highest &mdash; industries that require proven technology, deep compliance expertise, and zero margin for error.</p>
+    </div>
+
+    <div class="grid-5 fade-in">
+      <!-- Government -->
+      <div class="industry-card">
+        <div class="industry-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h6v4"/><path d="M9 10h.01"/><path d="M15 10h.01"/><path d="M9 14h.01"/><path d="M15 14h.01"/></svg>
+        </div>
+        <h3>Government</h3>
+        <p>State and federal agencies</p>
+      </div>
+
+      <!-- Financial Services -->
+      <div class="industry-card">
+        <div class="industry-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+        </div>
+        <h3>Financial Services</h3>
+        <p>Banks and credit unions</p>
+      </div>
+
+      <!-- Healthcare -->
+      <div class="industry-card">
+        <div class="industry-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h3>Healthcare</h3>
+        <p>Insurance and claims</p>
+      </div>
+
+      <!-- Higher Education -->
+      <div class="industry-card">
+        <div class="industry-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 8 3 12 0v-5"/></svg>
+        </div>
+        <h3>Higher Education</h3>
+        <p>Universities and systems</p>
+      </div>
+
+      <!-- Manufacturing -->
+      <div class="industry-card">
+        <div class="industry-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 002 2h16a2 2 0 002-2V8l-7 5V8l-7 5V4a2 2 0 00-2-2H4a2 2 0 00-2 2z"/></svg>
+        </div>
+        <h3>Manufacturing</h3>
+        <p>Industrial and telecom</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     CTA SECTION
+     ======================================== -->
+<section class="section cta-section" id="cta">
+  <div class="container">
+    <div class="cta-inner fade-in">
+      <span class="label">Get Started</span>
+      <h2 class="heading-lg">Ready to Modernize Your Enterprise Content Operations?</h2>
+      <p>Talk to our team about how SYSCOM's 40 years of enterprise content expertise and AI-powered platform can solve your most pressing content challenges.</p>
+      <div class="cta-actions">
+        <a href="mailto:sales@syscom.com" class="btn-gold">Contact Sales</a>
+        <a href="tel:+14105393737" class="btn-outline-white">Call (410) 539-3737</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================
+     FOOTER
+     ======================================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo">
+          <div class="nav-logo-mark"></div>
+          SYSCOM
+        </div>
+        <p>Enterprise content management, business process automation, and AI-driven document intelligence. Headquartered in Baltimore, Maryland since 1982.</p>
+        <p style="margin-top: 0.75rem;">400 East Pratt Street, Suite 600<br>Baltimore, MD 21202</p>
+      </div>
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#platform">IBIG</a></li>
+          <li><a href="#platform">AnySource Migrator</a></li>
+          <li><a href="#platform">AI Mainframe Intelligence</a></li>
+          <li><a href="#platform">Kofax/Tungsten</a></li>
+          <li><a href="#platform">Content Services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="#case-studies">Government</a></li>
+          <li><a href="#case-studies">Financial Services</a></li>
+          <li><a href="#case-studies">Healthcare</a></li>
+          <li><a href="#case-studies">Higher Education</a></li>
+          <li><a href="#case-studies">Manufacturing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="mailto:sales@syscom.com">Contact</a></li>
+          <li><a href="tel:+14105393737">(410) 539-3737</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SYSCOM, Inc. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ========================================
+     JAVASCRIPT
+     ======================================== -->
+<script>
+// Navigation scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// Mobile navigation toggle
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+// Close mobile nav when a link is clicked
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+  });
+});
+
+// Intersection Observer for fade-in animations
+const fadeElements = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -40px 0px'
+});
+
+fadeElements.forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offset = 80;
+      const position = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: position, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
