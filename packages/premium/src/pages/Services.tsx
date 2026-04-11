@@ -77,11 +77,11 @@ export default function Services() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-copper-500 mb-4 animate-fade-in">
             Our Expertise
           </p>
-          <h1 className="font-heading text-5xl md:text-7xl text-cream-100 animate-slide-up font-light">
+          <h1 className="font-heading text-5xl md:text-7xl text-charcoal-900 animate-slide-up font-light">
             What We Do
           </h1>
           <p
-            className="mt-8 text-cream-400 text-base md:text-lg max-w-xl mx-auto leading-relaxed font-light animate-slide-up"
+            className="mt-8 text-charcoal-500 text-base md:text-lg max-w-xl mx-auto leading-relaxed font-light animate-slide-up"
             style={{ animationDelay: '150ms' }}
           >
             Seven disciplines. Four decades of refinement. Each one backed by
@@ -103,13 +103,13 @@ export default function Services() {
                 }`}
               >
                 <div className="md:w-2/5 mb-8 md:mb-0">
-                  <div className="text-copper-500/50 mb-4">
+                  <div className="text-copper-500/60 mb-4">
                     {serviceIcons[service.id]}
                   </div>
-                  <h2 className="font-heading text-2xl md:text-3xl text-cream-100 mb-3 font-normal">
+                  <h2 className="font-heading text-2xl md:text-3xl text-charcoal-900 mb-3 font-normal">
                     {service.name}
                   </h2>
-                  <p className="text-cream-400 text-sm leading-relaxed font-light">
+                  <p className="text-charcoal-500 text-sm leading-relaxed font-light">
                     {service.description}
                   </p>
                 </div>
@@ -119,7 +119,7 @@ export default function Services() {
                     {serviceDetails[service.id]?.map((detail, i) => (
                       <div
                         key={i}
-                        className="flex items-start gap-4 text-sm text-cream-300"
+                        className="flex items-start gap-4 text-sm text-charcoal-600"
                       >
                         <span className="w-1 h-1 rounded-full bg-copper-500 mt-2 shrink-0" />
                         <span className="leading-relaxed font-light">
@@ -132,7 +132,7 @@ export default function Services() {
               </div>
 
               {index < services.length - 1 && (
-                <div className="border-t border-white/[0.04]" />
+                <div className="border-t border-charcoal-300/20" />
               )}
             </div>
           ))}

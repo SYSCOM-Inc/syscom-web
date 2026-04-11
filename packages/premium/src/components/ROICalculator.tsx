@@ -30,10 +30,10 @@ export default function ROICalculator() {
         <p className="text-[10px] uppercase tracking-[0.3em] text-copper-500 mb-4">
           Calculate Your Impact
         </p>
-        <h3 className="font-heading text-3xl md:text-4xl text-cream-100 mb-3">
+        <h3 className="font-heading text-3xl md:text-4xl text-charcoal-900 mb-3">
           Return on Investment
         </h3>
-        <p className="text-cream-400 text-sm max-w-md mx-auto font-light">
+        <p className="text-charcoal-500 text-sm max-w-md mx-auto font-light">
           Estimate the impact of automating your document processes with SYSCOM
           solutions.
         </p>
@@ -42,7 +42,7 @@ export default function ROICalculator() {
       {/* Inputs */}
       <div className="grid md:grid-cols-4 gap-8 md:gap-10 mb-14">
         <div>
-          <label className="block text-[10px] uppercase tracking-[0.2em] text-cream-300 mb-3">
+          <label className="block text-[10px] uppercase tracking-[0.2em] text-charcoal-500 mb-3">
             Document Volume
           </label>
           <input
@@ -54,13 +54,13 @@ export default function ROICalculator() {
             onChange={(e) => updateInput('documents', Number(e.target.value))}
             aria-label="Document volume"
           />
-          <p className="font-heading text-2xl text-cream-100 mt-3">
+          <p className="font-heading text-2xl text-charcoal-900 mt-3">
             {formatNumber(inputs.documents)}
           </p>
         </div>
 
         <div>
-          <label className="block text-[10px] uppercase tracking-[0.2em] text-cream-300 mb-3">
+          <label className="block text-[10px] uppercase tracking-[0.2em] text-charcoal-500 mb-3">
             Repositories
           </label>
           <input
@@ -72,13 +72,13 @@ export default function ROICalculator() {
             onChange={(e) => updateInput('repositories', Number(e.target.value))}
             aria-label="Number of repositories"
           />
-          <p className="font-heading text-2xl text-cream-100 mt-3">
+          <p className="font-heading text-2xl text-charcoal-900 mt-3">
             {inputs.repositories}
           </p>
         </div>
 
         <div>
-          <label className="block text-[10px] uppercase tracking-[0.2em] text-cream-300 mb-3">
+          <label className="block text-[10px] uppercase tracking-[0.2em] text-charcoal-500 mb-3">
             Manual Hours / Week
           </label>
           <input
@@ -92,13 +92,13 @@ export default function ROICalculator() {
             }
             aria-label="Manual hours per week"
           />
-          <p className="font-heading text-2xl text-cream-100 mt-3">
+          <p className="font-heading text-2xl text-charcoal-900 mt-3">
             {inputs.manualHoursPerWeek}h
           </p>
         </div>
 
         <div>
-          <label className="block text-[10px] uppercase tracking-[0.2em] text-cream-300 mb-3">
+          <label className="block text-[10px] uppercase tracking-[0.2em] text-charcoal-500 mb-3">
             Hourly Rate
           </label>
           <input
@@ -110,7 +110,7 @@ export default function ROICalculator() {
             onChange={(e) => updateInput('hourlyRate', Number(e.target.value))}
             aria-label="Hourly rate"
           />
-          <p className="font-heading text-2xl text-cream-100 mt-3">
+          <p className="font-heading text-2xl text-charcoal-900 mt-3">
             ${inputs.hourlyRate}
           </p>
         </div>
@@ -135,17 +135,17 @@ export default function ROICalculator() {
           {
             label: 'Capture Savings',
             value: results.captureSavings,
-            color: 'bg-cream-300',
+            color: 'bg-copper-700',
           },
         ].map((item) => (
           <div key={item.label}>
             <div className="flex justify-between text-sm mb-2">
-              <span className="text-cream-400 font-light">{item.label}</span>
-              <span className="text-cream-100 font-heading text-lg">
+              <span className="text-charcoal-500 font-light">{item.label}</span>
+              <span className="text-charcoal-900 font-heading text-lg">
                 {formatCurrency(item.value)}
               </span>
             </div>
-            <div className="w-full h-1.5 bg-dark-700 rounded-full overflow-hidden">
+            <div className="w-full h-1.5 bg-warm-400 rounded-full overflow-hidden">
               <div
                 className={`h-full ${item.color} rounded-full transition-all duration-700`}
                 style={{
@@ -159,13 +159,13 @@ export default function ROICalculator() {
 
       {/* Total */}
       <div className="text-center mb-10">
-        <p className="text-[10px] uppercase tracking-[0.3em] text-cream-400 mb-3">
+        <p className="text-[10px] uppercase tracking-[0.3em] text-charcoal-500 mb-3">
           Estimated Annual Savings
         </p>
         <p className="font-heading text-5xl md:text-6xl text-gradient-copper">
           {formatCurrency(results.totalSavings)}
         </p>
-        <p className="text-cream-400 text-sm mt-3 font-light">
+        <p className="text-charcoal-500 text-sm mt-3 font-light">
           {results.roiPercent}% projected return on current manual costs
         </p>
       </div>
@@ -174,7 +174,7 @@ export default function ROICalculator() {
       <div className="text-center">
         <Link
           to="/contact"
-          className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-copper-500 border border-copper-500/30 px-8 py-3.5 hover:bg-copper-500/10 hover:border-copper-500/60 transition-all duration-500 group"
+          className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-copper-600 border border-copper-500/30 px-8 py-3.5 hover:bg-copper-500/10 hover:border-copper-500/60 transition-all duration-500 group"
         >
           Schedule a Consultation
           <ArrowRight

@@ -140,7 +140,7 @@ export default function Careers() {
                 {cultureCards.map((item) => (
                   <div key={item.title} className="rounded-xl bg-card border border-border p-5">
                     <span className="text-2xl block mb-3">{item.emoji}</span>
-                    <h3 className="font-heading font-bold text-sm text-white mb-1.5">
+                    <h3 className="font-heading font-bold text-sm text-gray-900 mb-1.5">
                       {item.title}
                     </h3>
                     <p className="text-xs text-muted leading-relaxed">{item.desc}</p>
@@ -172,7 +172,7 @@ export default function Careers() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {skills.map((item) => (
                 <div key={item.title} className="rounded-xl bg-card border border-border p-6">
-                  <h3 className="font-heading font-bold text-sm text-white mb-2">{item.title}</h3>
+                  <h3 className="font-heading font-bold text-sm text-gray-900 mb-2">{item.title}</h3>
                   <p className="text-xs text-muted leading-relaxed">{item.desc}</p>
                 </div>
               ))}
@@ -242,13 +242,14 @@ export default function Careers() {
                 href={company.careerPortal}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+                style={{ color: '#ffffff' }}
               >
                 View Open Positions &rarr;
               </a>
               <a
                 href={`mailto:${company.email}?subject=Career Inquiry`}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold text-white/80 border border-border hover:bg-white/5 transition-colors"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold text-gray-600 border border-border hover:bg-gray-50 transition-colors"
               >
                 Email Your Resume
               </a>

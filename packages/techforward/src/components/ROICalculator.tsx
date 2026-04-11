@@ -70,7 +70,7 @@ export default function ROICalculator() {
             {/* Documents */}
             <div>
               <div className="flex justify-between items-center mb-3">
-                <label className="text-sm font-medium text-white/80">Total Documents</label>
+                <label className="text-sm font-medium text-gray-700">Total Documents</label>
                 <span className="font-heading font-bold text-cyan text-sm">
                   {formatSliderValue(inputs.documents)}
                 </span>
@@ -93,7 +93,7 @@ export default function ROICalculator() {
             {/* Repositories */}
             <div>
               <div className="flex justify-between items-center mb-3">
-                <label className="text-sm font-medium text-white/80">Repositories</label>
+                <label className="text-sm font-medium text-gray-700">Repositories</label>
                 <span className="font-heading font-bold text-cyan text-sm">
                   {inputs.repositories}
                 </span>
@@ -116,7 +116,7 @@ export default function ROICalculator() {
             {/* Weekly Manual Hours */}
             <div>
               <div className="flex justify-between items-center mb-3">
-                <label className="text-sm font-medium text-white/80">Weekly Manual Hours</label>
+                <label className="text-sm font-medium text-gray-700">Weekly Manual Hours</label>
                 <span className="font-heading font-bold text-cyan text-sm">
                   {inputs.manualHoursPerWeek} hrs
                 </span>
@@ -139,7 +139,7 @@ export default function ROICalculator() {
             {/* Hourly Rate */}
             <div>
               <div className="flex justify-between items-center mb-3">
-                <label className="text-sm font-medium text-white/80">Avg. Hourly Rate</label>
+                <label className="text-sm font-medium text-gray-700">Avg. Hourly Rate</label>
                 <span className="font-heading font-bold text-cyan text-sm">
                   ${inputs.hourlyRate}
                 </span>
@@ -181,7 +181,7 @@ export default function ROICalculator() {
               {/* ASM */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-white/80">AnySource Migrator</span>
+                  <span className="text-sm font-medium text-gray-700">AnySource Migrator</span>
                   <span className="font-heading font-bold text-cyan text-sm">
                     <AnimatedCounter target={results.asmSavings} prefix="$" />
                   </span>
@@ -197,7 +197,7 @@ export default function ROICalculator() {
               {/* IBIG */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-white/80">IBIG 2.0</span>
+                  <span className="text-sm font-medium text-gray-700">IBIG 2.0</span>
                   <span className="font-heading font-bold text-purple text-sm">
                     <AnimatedCounter target={results.ibigSavings} prefix="$" />
                   </span>
@@ -213,7 +213,7 @@ export default function ROICalculator() {
               {/* Capture */}
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-white/80">Enterprise Capture</span>
+                  <span className="text-sm font-medium text-gray-700">Enterprise Capture</span>
                   <span className="font-heading font-bold text-emerald text-sm">
                     <AnimatedCounter target={results.captureSavings} prefix="$" />
                   </span>
@@ -246,7 +246,8 @@ export default function ROICalculator() {
             {/* CTA */}
             <Link
               to="/contact"
-              className="block w-full py-4 rounded-xl text-center text-sm font-semibold text-white bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+              className="block w-full py-4 rounded-xl text-center text-sm font-semibold bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+              style={{ color: '#ffffff' }}
             >
               Schedule a Consultation
             </Link>

@@ -10,7 +10,7 @@ export default function Careers() {
           <p className="text-[10px] uppercase tracking-[0.3em] text-copper-500 mb-4 animate-fade-in">
             Careers at SYSCOM
           </p>
-          <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-cream-100 animate-slide-up font-light">
+          <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl text-charcoal-900 animate-slide-up font-light">
             Join Us
           </h1>
         </div>
@@ -19,7 +19,7 @@ export default function Careers() {
       {/* Culture */}
       <section className="py-16 md:py-24 px-6">
         <div className="max-w-3xl mx-auto">
-          <div className="space-y-8 text-cream-300 text-base md:text-lg leading-relaxed font-light">
+          <div className="space-y-8 text-charcoal-600 text-base md:text-lg leading-relaxed font-light">
             <p>
               SYSCOM is not a revolving door. Over 70% of our team has been here
               for five years or more -- not because they are comfortable, but
@@ -45,7 +45,7 @@ export default function Careers() {
       <section className="py-20 md:py-28 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl text-cream-100 font-light">
+            <h2 className="font-heading text-3xl md:text-4xl text-charcoal-900 font-light">
               What We Offer
             </h2>
           </div>
@@ -70,10 +70,10 @@ export default function Careers() {
               },
             ].map((item) => (
               <div key={item.title} className="glass-card rounded-lg p-8">
-                <h3 className="font-heading text-xl text-cream-100 mb-3 font-normal">
+                <h3 className="font-heading text-xl text-charcoal-900 mb-3 font-normal">
                   {item.title}
                 </h3>
-                <p className="text-cream-400 text-sm leading-relaxed font-light">
+                <p className="text-charcoal-500 text-sm leading-relaxed font-light">
                   {item.text}
                 </p>
               </div>
@@ -89,7 +89,7 @@ export default function Careers() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-copper-500 mb-4">
               Opportunities
             </p>
-            <h2 className="font-heading text-3xl md:text-4xl text-cream-100 font-light">
+            <h2 className="font-heading text-3xl md:text-4xl text-charcoal-900 font-light">
               Roles We Hire
             </h2>
           </div>
@@ -100,7 +100,7 @@ export default function Careers() {
                 key={role}
                 className="glass-card rounded-lg px-6 py-5 text-center"
               >
-                <p className="text-cream-200 text-sm font-light">{role}</p>
+                <p className="text-charcoal-700 text-sm font-light">{role}</p>
               </div>
             ))}
           </div>
@@ -114,7 +114,7 @@ export default function Careers() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-copper-500 mb-4">
               What We Work With
             </p>
-            <h2 className="font-heading text-3xl md:text-4xl text-cream-100 font-light">
+            <h2 className="font-heading text-3xl md:text-4xl text-charcoal-900 font-light">
               Skills in Demand
             </h2>
           </div>
@@ -123,7 +123,7 @@ export default function Careers() {
             {careerInfo.skillsInDemand.map((skill) => (
               <span
                 key={skill}
-                className="text-[10px] uppercase tracking-wider px-4 py-2 rounded-full bg-copper-500/8 border border-copper-500/15 text-copper-400"
+                className="text-[10px] uppercase tracking-wider px-4 py-2 rounded-full bg-copper-500/8 border border-copper-500/15 text-copper-600"
               >
                 {skill}
               </span>
@@ -135,10 +135,10 @@ export default function Careers() {
       {/* CTA */}
       <section className="py-32 md:py-40 px-6">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-heading text-3xl md:text-4xl text-cream-100 mb-4 font-light">
+          <h2 className="font-heading text-3xl md:text-4xl text-charcoal-900 mb-4 font-light">
             Interested?
           </h2>
-          <p className="text-cream-400 text-base mb-12 max-w-md mx-auto font-light">
+          <p className="text-charcoal-500 text-base mb-12 max-w-md mx-auto font-light">
             Explore our current openings or send us your resume.
             We read every application.
           </p>
@@ -147,7 +147,7 @@ export default function Careers() {
               href={company.careerPortal}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-copper-500 border border-copper-500/25 px-10 py-4 hover:bg-copper-500/8 hover:border-copper-500/50 transition-all duration-700 group"
+              className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-copper-600 border border-copper-500/25 px-10 py-4 hover:bg-copper-500/8 hover:border-copper-500/50 transition-all duration-700 group"
             >
               View Open Positions
               <ExternalLink
@@ -157,7 +157,7 @@ export default function Careers() {
             </a>
             <a
               href={`mailto:${company.email}?subject=Career%20Inquiry`}
-              className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-cream-400 hover:text-cream-100 transition-colors duration-500 group"
+              className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-charcoal-500 hover:text-charcoal-900 transition-colors duration-500 group"
             >
               Or email us directly
               <ArrowRight

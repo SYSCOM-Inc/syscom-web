@@ -39,12 +39,12 @@ export default function WorkflowAnimation({
     copper: {
       active: 'border-copper-500 bg-copper-500/10',
       line: 'bg-copper-500',
-      label: 'text-copper-400',
+      label: 'text-copper-600',
     },
     gold: {
       active: 'border-gold-400 bg-gold-400/10',
       line: 'bg-gold-400',
-      label: 'text-gold-400',
+      label: 'text-gold-500',
     },
   };
 
@@ -60,12 +60,12 @@ export default function WorkflowAnimation({
               className={`w-12 h-12 md:w-14 md:h-14 rounded-full border-2 flex items-center justify-center transition-all duration-700 ${
                 i <= activeStep
                   ? colors.active
-                  : 'border-dark-600 bg-dark-800/50'
+                  : 'border-warm-400 bg-warm-200'
               }`}
             >
               <span
                 className={`text-[10px] md:text-xs font-heading font-semibold transition-colors duration-500 ${
-                  i <= activeStep ? colors.label : 'text-cream-400'
+                  i <= activeStep ? colors.label : 'text-charcoal-400'
                 }`}
               >
                 {i + 1}
@@ -73,7 +73,7 @@ export default function WorkflowAnimation({
             </div>
             <span
               className={`mt-2 text-[9px] md:text-[10px] uppercase tracking-[0.15em] transition-colors duration-500 whitespace-nowrap ${
-                i <= activeStep ? 'text-cream-100' : 'text-cream-400'
+                i <= activeStep ? 'text-charcoal-900' : 'text-charcoal-400'
               }`}
             >
               {step.label}
@@ -82,7 +82,7 @@ export default function WorkflowAnimation({
 
           {/* Connector line */}
           {i < steps.length - 1 && (
-            <div className="w-6 md:w-10 lg:w-14 h-[2px] bg-dark-600 mx-1 md:mx-2 relative overflow-hidden flex-shrink-0">
+            <div className="w-6 md:w-10 lg:w-14 h-[2px] bg-warm-400 mx-1 md:mx-2 relative overflow-hidden flex-shrink-0">
               <div
                 className={`absolute inset-y-0 left-0 ${colors.line} transition-all duration-700`}
                 style={{

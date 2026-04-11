@@ -62,17 +62,17 @@ export default function Home() {
     <>
       {/* HERO - Maximum drama */}
       <section className="relative min-h-screen flex items-center justify-center px-6 noise-overlay">
-        {/* Barely visible copper radial glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,_rgba(196,147,94,0.04)_0%,_transparent_65%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,_rgba(212,184,150,0.02)_0%,_transparent_50%)]" />
+        {/* Subtle warm copper radial glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_40%,_rgba(196,147,94,0.06)_0%,_transparent_65%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,_rgba(212,184,150,0.04)_0%,_transparent_50%)]" />
 
         <div className="relative text-center max-w-5xl mx-auto z-10">
-          <h1 className="font-heading text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] text-cream-100 leading-[0.9] tracking-tight animate-fade-in font-light">
+          <h1 className="font-heading text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] text-charcoal-900 leading-[0.9] tracking-tight animate-fade-in font-light">
             Enterprise Content.
             <br />
             <span className="text-gradient-copper font-normal">Perfected.</span>
           </h1>
-          <p className="mt-10 text-cream-400 text-base md:text-lg max-w-lg mx-auto leading-relaxed font-light animate-slide-up">
+          <p className="mt-10 text-charcoal-500 text-base md:text-lg max-w-lg mx-auto leading-relaxed font-light animate-slide-up">
             Four decades of precision. Proprietary technology.
             <br className="hidden sm:block" />
             Quietly solving the hardest problems in content management.
@@ -83,7 +83,7 @@ export default function Home() {
           >
             <Link
               to="/about"
-              className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-copper-500 border border-copper-500/25 px-10 py-4 hover:bg-copper-500/8 hover:border-copper-500/50 transition-all duration-700 group"
+              className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-copper-600 border border-copper-500/25 px-10 py-4 hover:bg-copper-500/8 hover:border-copper-500/50 transition-all duration-700 group"
             >
               Discover Our Approach
               <ArrowRight
@@ -99,7 +99,7 @@ export default function Home() {
       <section className="py-28 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-[10px] uppercase tracking-[0.3em] text-copper-500 mb-6">Our Mission</p>
-          <blockquote className="font-heading text-2xl md:text-3xl text-cream-100 font-light leading-relaxed">
+          <blockquote className="font-heading text-2xl md:text-3xl text-charcoal-900 font-light leading-relaxed">
             &ldquo;{company.mission}&rdquo;
           </blockquote>
         </div>
@@ -112,7 +112,7 @@ export default function Home() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-copper-500 mb-4">
               What We Do
             </p>
-            <h2 className="font-heading text-3xl md:text-5xl text-cream-100 font-light">
+            <h2 className="font-heading text-3xl md:text-5xl text-charcoal-900 font-light">
               Our Expertise
             </h2>
           </div>
@@ -122,15 +122,15 @@ export default function Home() {
               <Link
                 key={service.id}
                 to="/services"
-                className="group glass-card rounded-lg p-8 hover:border-copper-500/15 transition-all duration-700"
+                className="group glass-card rounded-lg p-8 hover:border-copper-500/25 transition-all duration-700"
               >
-                <div className="text-cream-400 mb-5 group-hover:text-copper-500 transition-colors duration-700">
+                <div className="text-charcoal-400 mb-5 group-hover:text-copper-500 transition-colors duration-700">
                   {serviceIcons[service.id]}
                 </div>
-                <h3 className="font-heading text-xl text-cream-100 mb-3 font-normal">
+                <h3 className="font-heading text-xl text-charcoal-900 mb-3 font-normal">
                   {service.name}
                 </h3>
-                <p className="text-cream-400 text-sm leading-relaxed font-light line-clamp-3">
+                <p className="text-charcoal-500 text-sm leading-relaxed font-light line-clamp-3">
                   {service.description}
                 </p>
               </Link>
@@ -146,7 +146,7 @@ export default function Home() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-copper-500 mb-4">
               Our Products
             </p>
-            <h2 className="font-heading text-3xl md:text-5xl text-cream-100 font-light">
+            <h2 className="font-heading text-3xl md:text-5xl text-charcoal-900 font-light">
               Built, Not Bought
             </h2>
           </div>
@@ -155,23 +155,23 @@ export default function Home() {
           <div className="mb-20 glass-card rounded-lg p-8 md:p-16">
             <div className="md:flex items-start gap-14">
               <div className="flex-1">
-                <span className="inline-block text-[9px] uppercase tracking-[0.3em] text-copper-500 border border-copper-500/25 px-3 py-1 rounded-full mb-5">
+                <span className="inline-block text-[9px] uppercase tracking-[0.3em] text-copper-600 border border-copper-500/25 px-3 py-1 rounded-full mb-5">
                   {products[0].badge}
                 </span>
-                <h3 className="font-heading text-4xl md:text-5xl text-cream-100 mb-2 font-light">
+                <h3 className="font-heading text-4xl md:text-5xl text-charcoal-900 mb-2 font-light">
                   {products[0].name}
                 </h3>
-                <p className="font-heading text-lg text-cream-300 italic mb-6 font-light">
+                <p className="font-heading text-lg text-charcoal-600 italic mb-6 font-light">
                   {products[0].tagline}
                 </p>
-                <p className="text-cream-400 text-sm leading-relaxed mb-8 font-light">
+                <p className="text-charcoal-500 text-sm leading-relaxed mb-8 font-light">
                   {products[0].description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-8">
                   {products[0].connectors.map((c) => (
                     <span
                       key={c}
-                      className="text-[9px] uppercase tracking-wider px-3 py-1 rounded-full bg-copper-500/8 border border-copper-500/15 text-copper-400"
+                      className="text-[9px] uppercase tracking-wider px-3 py-1 rounded-full bg-copper-500/8 border border-copper-500/15 text-copper-600"
                     >
                       {c}
                     </span>
@@ -179,7 +179,7 @@ export default function Home() {
                 </div>
                 <Link
                   to="/products"
-                  className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-copper-500 hover:text-copper-400 transition-colors duration-500 group"
+                  className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-copper-600 hover:text-copper-500 transition-colors duration-500 group"
                 >
                   Explore ASM
                   <ArrowRight
@@ -197,10 +197,10 @@ export default function Home() {
                     >
                       <span className="w-1 h-1 rounded-full bg-copper-500 mt-2.5 shrink-0" />
                       <div>
-                        <p className="text-cream-100 text-sm font-medium mb-1">
+                        <p className="text-charcoal-900 text-sm font-medium mb-1">
                           {feature.title}
                         </p>
-                        <p className="text-cream-400 text-xs leading-relaxed font-light">
+                        <p className="text-charcoal-500 text-xs leading-relaxed font-light">
                           {feature.description}
                         </p>
                       </div>
@@ -217,18 +217,18 @@ export default function Home() {
               <Link
                 key={product.id}
                 to="/products"
-                className="group glass-card rounded-lg p-8 hover:border-copper-500/15 transition-all duration-700"
+                className="group glass-card rounded-lg p-8 hover:border-copper-500/25 transition-all duration-700"
               >
-                <span className="inline-block text-[9px] uppercase tracking-[0.3em] text-copper-500/70 mb-4">
+                <span className="inline-block text-[9px] uppercase tracking-[0.3em] text-copper-500 mb-4">
                   {product.badge}
                 </span>
-                <h3 className="font-heading text-2xl text-cream-100 mb-1 font-normal">
+                <h3 className="font-heading text-2xl text-charcoal-900 mb-1 font-normal">
                   {product.name}
                 </h3>
-                <p className="font-heading text-sm text-cream-300 italic mb-4 font-light">
+                <p className="font-heading text-sm text-charcoal-600 italic mb-4 font-light">
                   {product.tagline}
                 </p>
-                <p className="text-cream-400 text-sm leading-relaxed font-light line-clamp-3">
+                <p className="text-charcoal-500 text-sm leading-relaxed font-light line-clamp-3">
                   {product.description}
                 </p>
               </Link>
@@ -239,7 +239,7 @@ export default function Home() {
           <div className="text-center">
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-copper-500 hover:text-copper-400 transition-colors duration-500 group"
+              className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-copper-600 hover:text-copper-500 transition-colors duration-500 group"
             >
               View all products
               <ArrowRight
@@ -258,14 +258,14 @@ export default function Home() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-copper-500 mb-4">
               Intelligence
             </p>
-            <h2 className="font-heading text-3xl md:text-5xl text-cream-100 font-light mb-6">
+            <h2 className="font-heading text-3xl md:text-5xl text-charcoal-900 font-light mb-6">
               AI That Serves the Mission
             </h2>
           </div>
 
           {/* Pull quote */}
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <p className="text-cream-400 text-base leading-relaxed font-light italic">
+            <p className="text-charcoal-500 text-base leading-relaxed font-light italic">
               We do not chase trends. We integrate AI where it solves real problems --
               zero-shot classification that eliminates manual sorting, semantic search
               that finds what keyword search misses, and compliance automation that
@@ -279,13 +279,13 @@ export default function Home() {
                 key={cap.title}
                 className="glass-card rounded-lg p-6 text-center"
               >
-                <div className="text-copper-500/60 flex justify-center mb-4">
+                <div className="text-copper-500/70 flex justify-center mb-4">
                   {aiIcons[cap.icon]}
                 </div>
-                <h3 className="font-heading text-base text-cream-100 mb-2 font-normal">
+                <h3 className="font-heading text-base text-charcoal-900 mb-2 font-normal">
                   {cap.title}
                 </h3>
-                <p className="text-cream-400 text-xs leading-relaxed font-light">
+                <p className="text-charcoal-500 text-xs leading-relaxed font-light">
                   {cap.description}
                 </p>
               </div>
@@ -301,7 +301,7 @@ export default function Home() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-copper-500 mb-4">
               Industries We Serve
             </p>
-            <h2 className="font-heading text-3xl md:text-4xl text-cream-100 font-light">
+            <h2 className="font-heading text-3xl md:text-4xl text-charcoal-900 font-light">
               Deep Vertical Expertise
             </h2>
           </div>
@@ -312,16 +312,16 @@ export default function Home() {
                 key={vertical.name}
                 className="glass-card rounded-lg p-7 text-center"
               >
-                <div className="text-copper-500/50 flex justify-center mb-4">
+                <div className="text-copper-500/60 flex justify-center mb-4">
                   {verticalIcons[vertical.icon]}
                 </div>
-                <h3 className="font-heading text-lg text-cream-100 mb-1 font-normal">
+                <h3 className="font-heading text-lg text-charcoal-900 mb-1 font-normal">
                   {vertical.name}
                 </h3>
-                <p className="text-[10px] uppercase tracking-[0.15em] text-copper-500/60 mb-3">
+                <p className="text-[10px] uppercase tracking-[0.15em] text-copper-500/70 mb-3">
                   {vertical.subtitle}
                 </p>
-                <p className="text-cream-400 text-xs leading-relaxed font-light">
+                <p className="text-charcoal-500 text-xs leading-relaxed font-light">
                   {vertical.description}
                 </p>
               </div>
@@ -333,16 +333,16 @@ export default function Home() {
       {/* CTA */}
       <section className="py-36 md:py-44 px-6">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="font-heading text-4xl md:text-5xl text-cream-100 mb-6 font-light">
+          <h2 className="font-heading text-4xl md:text-5xl text-charcoal-900 mb-6 font-light">
             Begin a Conversation
           </h2>
-          <p className="text-cream-400 text-base mb-12 max-w-md mx-auto font-light">
+          <p className="text-charcoal-500 text-base mb-12 max-w-md mx-auto font-light">
             {company.yearsInBusiness} years of solving enterprise content
             challenges. Let us solve yours.
           </p>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-copper-500 border border-copper-500/25 px-10 py-4 hover:bg-copper-500/8 hover:border-copper-500/50 transition-all duration-700 group"
+            className="inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.25em] text-copper-600 border border-copper-500/25 px-10 py-4 hover:bg-copper-500/8 hover:border-copper-500/50 transition-all duration-700 group"
           >
             Get in Touch
             <ArrowRight

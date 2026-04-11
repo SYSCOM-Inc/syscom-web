@@ -43,7 +43,7 @@ export default function About() {
       <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-28 overflow-hidden">
         <div className="absolute inset-0 dot-grid opacity-30" />
         <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full"
-          style={{ background: 'radial-gradient(circle, rgba(34,211,238,0.06) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(8,145,178,0.05) 0%, transparent 70%)' }} />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <p className="text-xs font-heading font-bold uppercase tracking-[3px] text-cyan mb-3">
@@ -73,7 +73,7 @@ export default function About() {
                 </h2>
                 <div className="rounded-xl bg-cyan/5 border border-cyan/20 p-5 mb-6">
                   <p className="text-xs font-heading font-bold uppercase tracking-[3px] text-cyan mb-2">Our Mission</p>
-                  <p className="text-white/90 leading-relaxed italic">
+                  <p className="text-gray-700 leading-relaxed italic">
                     &ldquo;{company.mission}&rdquo;
                   </p>
                 </div>
@@ -101,7 +101,7 @@ export default function About() {
                   <div className="text-xs font-heading font-bold uppercase tracking-[3px] text-cyan mb-2">
                     Headquarters
                   </div>
-                  <p className="text-white/80">
+                  <p className="text-gray-700">
                     {company.address.street}<br />
                     {company.address.city}, {company.address.state} {company.address.zip}
                   </p>
@@ -110,13 +110,13 @@ export default function About() {
                   <div className="text-xs font-heading font-bold uppercase tracking-[3px] text-cyan mb-2">
                     Founded
                   </div>
-                  <p className="text-white/80">{company.founded}</p>
+                  <p className="text-gray-700">{company.founded}</p>
                 </div>
                 <div>
                   <div className="text-xs font-heading font-bold uppercase tracking-[3px] text-cyan mb-2">
                     Focus Areas
                   </div>
-                  <p className="text-white/80">
+                  <p className="text-gray-700">
                     {services.map(s => s.shortName).join(', ')}
                   </p>
                 </div>
@@ -124,7 +124,7 @@ export default function About() {
                   <div className="text-xs font-heading font-bold uppercase tracking-[3px] text-cyan mb-2">
                     Key Verticals
                   </div>
-                  <p className="text-white/80">
+                  <p className="text-gray-700">
                     Government, Financial Services, Insurance, Healthcare, Transportation &amp; Logistics
                   </p>
                 </div>
@@ -138,7 +138,7 @@ export default function About() {
       <section className="py-16 border-y border-border">
         <FadeSection className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-xs font-heading font-bold uppercase tracking-[3px] text-cyan mb-4">Our Mission</p>
-          <blockquote className="text-xl sm:text-2xl text-white/90 leading-relaxed italic max-w-3xl mx-auto">
+          <blockquote className="text-xl sm:text-2xl text-gray-700 leading-relaxed italic max-w-3xl mx-auto">
             &ldquo;{company.mission}&rdquo;
           </blockquote>
         </FadeSection>
@@ -289,7 +289,8 @@ export default function About() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+              style={{ color: '#ffffff' }}
             >
               Get in Touch &rarr;
             </Link>

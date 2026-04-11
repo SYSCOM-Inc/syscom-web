@@ -5,13 +5,13 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-bg border-t border-border" role="contentinfo">
+    <footer className="relative bg-white border-t border-border" role="contentinfo" style={{ backgroundColor: '#ffffff' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Company info */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link to="/" className="inline-flex items-center gap-0 mb-4">
-              <span className="font-heading font-bold text-xl tracking-[-2px] text-white">
+              <span className="font-heading font-bold text-xl tracking-[-2px] text-gray-900">
                 SYSCOM
               </span>
               <span className="font-heading font-bold text-xl text-cyan">_</span>

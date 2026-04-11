@@ -64,7 +64,7 @@ export default function Contact() {
   };
 
   const inputClass =
-    'w-full px-4 py-3 rounded-xl bg-card border border-border text-white placeholder-muted/50 text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/20 transition-all';
+    'w-full px-4 py-3 rounded-xl bg-white border border-border text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:border-cyan/50 focus:ring-1 focus:ring-cyan/20 transition-all';
 
   return (
     <>
@@ -112,7 +112,7 @@ export default function Contact() {
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-white/80 mb-1.5">
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">
                           Name <span className="text-cyan">*</span>
                         </label>
                         <input
@@ -127,7 +127,7 @@ export default function Contact() {
                         />
                       </div>
                       <div>
-                        <label htmlFor="email" className="block text-sm font-medium text-white/80 mb-1.5">
+                        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
                           Email <span className="text-cyan">*</span>
                         </label>
                         <input
@@ -145,7 +145,7 @@ export default function Contact() {
 
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
-                        <label htmlFor="company" className="block text-sm font-medium text-white/80 mb-1.5">
+                        <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1.5">
                           Company <span className="text-cyan">*</span>
                         </label>
                         <input
@@ -160,7 +160,7 @@ export default function Contact() {
                         />
                       </div>
                       <div>
-                        <label htmlFor="phone" className="block text-sm font-medium text-white/80 mb-1.5">
+                        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">
                           Phone <span className="text-xs text-muted">(optional)</span>
                         </label>
                         <input
@@ -176,7 +176,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label htmlFor="service" className="block text-sm font-medium text-white/80 mb-1.5">
+                      <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1.5">
                         Service Interest
                       </label>
                       <select
@@ -186,17 +186,17 @@ export default function Contact() {
                         onChange={handleChange}
                         className={inputClass + ' appearance-none'}
                       >
-                        <option value="" className="bg-card">Select a service area...</option>
+                        <option value="" className="bg-white">Select a service area...</option>
                         {services.map((s) => (
-                          <option key={s.id} value={s.id} className="bg-card">{s.name}</option>
+                          <option key={s.id} value={s.id} className="bg-white">{s.name}</option>
                         ))}
-                        <option value="products" className="bg-card">Products (ASM, AIS Bridge, IBIG, and more)</option>
-                        <option value="other" className="bg-card">Other / General Inquiry</option>
+                        <option value="products" className="bg-white">Products (ASM, AIS Bridge, IBIG, and more)</option>
+                        <option value="other" className="bg-white">Other / General Inquiry</option>
                       </select>
                     </div>
 
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium text-white/80 mb-1.5">
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">
                         Message <span className="text-cyan">*</span>
                       </label>
                       <textarea
@@ -213,7 +213,8 @@ export default function Contact() {
 
                     <button
                       type="submit"
-                      className="px-7 py-3.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+                      className="px-7 py-3.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+                      style={{ color: '#ffffff' }}
                     >
                       Send Message &rarr;
                     </button>
@@ -247,7 +248,7 @@ export default function Contact() {
                     </a>
                     <a
                       href={`tel:${company.phoneTollfreeNumeric}`}
-                      className="text-sm font-heading font-bold text-white hover:text-cyan transition-colors block mt-1"
+                      className="text-sm font-heading font-bold text-gray-900 hover:text-cyan transition-colors block mt-1"
                     >
                       {company.phoneTollfree} (Toll-Free)
                     </a>
@@ -312,11 +313,11 @@ export default function Contact() {
 
                 {/* Map placeholder */}
                 <div className="rounded-2xl bg-card border border-border p-6 overflow-hidden">
-                  <div className="rounded-xl bg-bg border border-border h-48 flex items-center justify-center relative">
+                  <div className="rounded-xl bg-gray-50 border border-border h-48 flex items-center justify-center relative">
                     <div className="absolute inset-0 dot-grid opacity-20" />
                     <div className="relative z-10 text-center">
                       <span className="text-3xl block mb-2">{'\u{1F4CD}'}</span>
-                      <p className="text-sm font-heading font-bold text-white">Baltimore, MD</p>
+                      <p className="text-sm font-heading font-bold text-gray-900">Baltimore, MD</p>
                       <p className="text-xs text-muted mt-1">Inner Harbor / Pratt Street</p>
                     </div>
                   </div>

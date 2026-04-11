@@ -4,16 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: '#09090b',
-        card: '#111113',
-        border: '#1e1e22',
-        cyan: '#22d3ee',
-        purple: '#a78bfa',
-        emerald: '#34d399',
-        rose: '#fb7185',
-        amber: '#fbbf24',
-        white: '#fafafa',
-        muted: '#71717a',
+        bg: '#F8FAFC',
+        card: '#FFFFFF',
+        border: '#E2E8F0',
+        cyan: '#0891B2',
+        purple: '#7C3AED',
+        emerald: '#059669',
+        rose: '#E11D48',
+        amber: '#D97706',
+        white: '#111827',
+        muted: '#4B5563',
       },
       fontFamily: {
         heading: ['"Space Mono"', 'monospace'],

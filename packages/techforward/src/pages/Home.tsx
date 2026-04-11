@@ -91,9 +91,9 @@ export default function Home() {
 
         {/* Radial gradient orbs */}
         <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full animate-glow"
-          style={{ background: 'radial-gradient(circle, rgba(34,211,238,0.12) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(circle, rgba(8,145,178,0.07) 0%, transparent 70%)' }} />
         <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full animate-glow"
-          style={{ background: 'radial-gradient(circle, rgba(167,139,250,0.08) 0%, transparent 70%)', animationDelay: '1.5s' }} />
+          style={{ background: 'radial-gradient(circle, rgba(124,58,237,0.05) 0%, transparent 70%)', animationDelay: '1.5s' }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 w-full">
           <div className="max-w-4xl">
@@ -107,7 +107,7 @@ export default function Home() {
 
             {/* Heading */}
             <h1 className="font-heading font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-[-3px] leading-[0.95] mb-8">
-              <span className="block text-white opacity-0 animate-fade-up-1">Your documents.</span>
+              <span className="block text-gray-900 opacity-0 animate-fade-up-1">Your documents.</span>
               <span className="block gradient-text opacity-0 animate-fade-up-2">Understood.</span>
             </h1>
 
@@ -121,7 +121,8 @@ export default function Home() {
             <div className="flex flex-wrap gap-4 opacity-0 animate-fade-up-4">
               <Link
                 to="/contact"
-                className="px-7 py-3.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+                className="px-7 py-3.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+                style={{ color: '#ffffff' }}
               >
                 Schedule a Consultation
               </Link>
@@ -133,7 +134,7 @@ export default function Home() {
               </Link>
               <Link
                 to="/products"
-                className="px-7 py-3.5 rounded-xl text-sm font-semibold text-white/80 border border-border hover:bg-white/5 transition-colors"
+                className="px-7 py-3.5 rounded-xl text-sm font-semibold text-gray-600 border border-border hover:bg-gray-50 transition-colors"
               >
                 Explore Products
               </Link>
@@ -143,14 +144,14 @@ export default function Home() {
           {/* Mission */}
           <div className="mt-20 pt-10 border-t border-border opacity-0 animate-fade-up-5 max-w-3xl">
             <p className="text-xs font-heading font-bold uppercase tracking-[3px] text-cyan mb-3">Our Mission</p>
-            <blockquote className="text-lg sm:text-xl text-white/80 leading-relaxed italic">
+            <blockquote className="text-lg sm:text-xl text-gray-700 leading-relaxed italic">
               &ldquo;{company.mission}&rdquo;
             </blockquote>
           </div>
         </div>
 
         {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#F8FAFC] to-transparent" />
       </section>
 
       {/* ═══════════ SERVICES ═══════════ */}
@@ -309,7 +310,7 @@ export default function Home() {
               </p>
 
               <blockquote className="border-l-2 border-cyan pl-4 py-2 mb-8">
-                <p className="text-white/90 italic text-sm leading-relaxed">
+                <p className="text-gray-700 italic text-sm leading-relaxed">
                   &ldquo;A bicycle for the mind. AI is the electric motor we just bolted onto it.&rdquo;
                 </p>
               </blockquote>
@@ -321,7 +322,7 @@ export default function Home() {
                       {cap.icon === 'brain' ? '\u{1F9E0}' : cap.icon === 'shield' ? '\u{1F6E1}\uFE0F' : cap.icon === 'bar-chart' ? '\u{1F4CA}' : '\u{2699}\uFE0F'}
                     </span>
                     <div>
-                      <h4 className="font-heading font-bold text-sm text-white">{cap.title}</h4>
+                      <h4 className="font-heading font-bold text-sm text-gray-900">{cap.title}</h4>
                       <p className="text-xs text-muted leading-relaxed">{cap.description}</p>
                     </div>
                   </div>
@@ -332,8 +333,8 @@ export default function Home() {
             <FadeSection delay={0.15}>
               <div className="relative flex items-center justify-center">
                 <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full flex items-center justify-center"
-                  style={{ background: 'conic-gradient(from 0deg, #22d3ee, #a78bfa, #fb7185, #fbbf24, #34d399, #22d3ee)', padding: '2px' }}>
-                  <div className="w-full h-full rounded-full bg-bg flex items-center justify-center">
+                  style={{ background: 'conic-gradient(from 0deg, #0891B2, #7C3AED, #E11D48, #D97706, #059669, #0891B2)', padding: '2px' }}>
+                  <div className="w-full h-full rounded-full flex items-center justify-center" style={{ backgroundColor: '#F8FAFC' }}>
                     <span className="font-heading font-bold text-6xl sm:text-8xl gradient-text tracking-[-4px]">
                       AI
                     </span>
@@ -376,7 +377,7 @@ export default function Home() {
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {verticals.map((v) => (
                   <div key={v.name} className="rounded-xl bg-card border border-border p-4">
-                    <h4 className="font-heading font-bold text-xs text-white mb-0.5">{v.name}</h4>
+                    <h4 className="font-heading font-bold text-xs text-gray-900 mb-0.5">{v.name}</h4>
                     <p className="text-[11px] text-muted">{v.subtitle}</p>
                   </div>
                 ))}
@@ -388,7 +389,7 @@ export default function Home() {
                 <p className="text-xs font-heading font-bold uppercase tracking-[3px] text-cyan mb-6">
                   Our Mission
                 </p>
-                <blockquote className="text-xl sm:text-2xl text-white/90 font-body leading-relaxed mb-6">
+                <blockquote className="text-xl sm:text-2xl text-gray-700 font-body leading-relaxed mb-6">
                   &ldquo;{company.mission}&rdquo;
                 </blockquote>
                 <p className="text-sm text-muted">
@@ -415,7 +416,8 @@ export default function Home() {
             <div className="flex flex-wrap justify-center gap-4 mb-8">
               <Link
                 to="/contact"
-                className="px-8 py-4 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+                className="px-8 py-4 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+                style={{ color: '#ffffff' }}
               >
                 Schedule a Consultation
               </Link>
@@ -427,7 +429,7 @@ export default function Home() {
               </Link>
               <a
                 href={`tel:${company.phoneTollfree}`}
-                className="px-8 py-4 rounded-xl text-sm font-semibold text-white/80 border border-border hover:bg-white/5 transition-colors"
+                className="px-8 py-4 rounded-xl text-sm font-semibold text-gray-600 border border-border hover:bg-gray-50 transition-colors"
               >
                 {company.phoneTollfree}
               </a>

@@ -136,7 +136,8 @@ export default function Products() {
 
                     <Link
                       to="/contact"
-                      className="inline-flex px-6 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+                      className="inline-flex px-6 py-3 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+                    style={{ color: '#ffffff' }}
                     >
                       Schedule a Consultation
                     </Link>
@@ -156,7 +157,7 @@ export default function Products() {
                     <div className="grid grid-cols-2 gap-3">
                       {product.features.slice(0, 4).map((feat) => (
                         <div key={feat.title} className="rounded-xl bg-card border border-border p-4">
-                          <h5 className="font-heading font-bold text-xs text-white mb-1">{feat.title}</h5>
+                          <h5 className="font-heading font-bold text-xs text-gray-900 mb-1">{feat.title}</h5>
                           <p className="text-[11px] text-muted leading-relaxed">{feat.description}</p>
                         </div>
                       ))}
@@ -165,7 +166,7 @@ export default function Products() {
                       <div className="grid grid-cols-2 gap-3 mt-3">
                         {product.features.slice(4).map((feat) => (
                           <div key={feat.title} className="rounded-xl bg-card border border-border p-4">
-                            <h5 className="font-heading font-bold text-xs text-white mb-1">{feat.title}</h5>
+                            <h5 className="font-heading font-bold text-xs text-gray-900 mb-1">{feat.title}</h5>
                             <p className="text-[11px] text-muted leading-relaxed">{feat.description}</p>
                           </div>
                         ))}
@@ -239,7 +240,8 @@ export default function Products() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+              style={{ color: '#ffffff' }}
             >
               Request a Demo &rarr;
             </Link>

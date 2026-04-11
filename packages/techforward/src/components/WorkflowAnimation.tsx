@@ -48,16 +48,16 @@ export default function WorkflowAnimation({ steps, accentColor }: WorkflowAnimat
             <div
               className="w-10 h-10 rounded-xl flex items-center justify-center text-lg transition-all duration-500"
               style={{
-                backgroundColor: i <= activeStep ? `${accentColor}20` : 'rgba(30,30,34,0.6)',
-                boxShadow: i === activeStep ? `0 0 20px ${accentColor}30` : 'none',
-                border: i === activeStep ? `1px solid ${accentColor}50` : '1px solid rgba(30,30,34,0.8)',
+                backgroundColor: i <= activeStep ? `${accentColor}15` : 'rgba(241,245,249,0.8)',
+                boxShadow: i === activeStep ? `0 0 20px ${accentColor}20` : 'none',
+                border: i === activeStep ? `1px solid ${accentColor}40` : '1px solid rgba(226,232,240,0.8)',
               }}
             >
               {iconMap[step.icon] || '\u{2699}'}
             </div>
             <span
               className="text-[10px] font-heading font-bold uppercase tracking-wider transition-colors duration-500"
-              style={{ color: i <= activeStep ? accentColor : '#71717a' }}
+              style={{ color: i <= activeStep ? accentColor : '#9CA3AF' }}
             >
               {step.label}
             </span>

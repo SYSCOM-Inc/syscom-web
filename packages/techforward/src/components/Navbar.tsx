@@ -28,7 +28,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled || mobileOpen
-          ? 'bg-[rgba(9,9,11,0.92)] backdrop-blur-md border-b border-border/50'
+          ? 'bg-[rgba(255,255,255,0.92)] backdrop-blur-md border-b border-border/50 shadow-sm'
           : 'bg-transparent'
       }`}
       role="navigation"
@@ -38,7 +38,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-0 group">
-            <span className="font-heading font-bold text-xl tracking-[-2px] text-white">
+            <span className="font-heading font-bold text-xl tracking-[-2px] text-gray-900">
               SYSCOM
             </span>
             <span className="font-heading font-bold text-xl text-cyan">_</span>
@@ -52,8 +52,8 @@ export default function Navbar() {
                 to={link.to}
                 className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200 ${
                   location.pathname === link.to
-                    ? 'text-white'
-                    : 'text-muted hover:text-white'
+                    ? 'text-gray-900'
+                    : 'text-muted hover:text-gray-900'
                 }`}
               >
                 {link.label}
@@ -71,7 +71,8 @@ export default function Navbar() {
             </Link>
             <Link
               to="/contact"
-              className="ml-4 px-5 py-2.5 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+              className="ml-4 px-5 py-2.5 rounded-xl text-sm font-semibold bg-gradient-to-r from-cyan to-purple hover:opacity-90 transition-opacity"
+              style={{ color: '#ffffff' }}
             >
               Get Started
             </Link>
@@ -80,7 +81,7 @@ export default function Navbar() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="lg:hidden p-2 rounded-lg text-muted hover:text-white transition-colors"
+            className="lg:hidden p-2 rounded-lg text-muted hover:text-gray-900 transition-colors"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
@@ -115,8 +116,8 @@ export default function Navbar() {
               to={link.to}
               className={`block px-4 py-3 rounded-lg text-sm font-medium transition-colors ${
                 location.pathname === link.to
-                  ? 'text-white bg-white/5'
-                  : 'text-muted hover:text-white hover:bg-white/5'
+                  ? 'text-gray-900 bg-gray-100'
+                  : 'text-muted hover:text-gray-900 hover:bg-gray-100'
               }`}
             >
               {link.label}
@@ -124,13 +125,14 @@ export default function Navbar() {
           ))}
           <Link
             to="/roi"
-            className="block px-4 py-3 rounded-lg text-sm font-medium text-emerald hover:bg-white/5 transition-colors"
+            className="block px-4 py-3 rounded-lg text-sm font-medium text-emerald hover:bg-gray-100 transition-colors"
           >
             ROI Calculator
           </Link>
           <Link
             to="/contact"
-            className="block mt-2 px-4 py-3 rounded-xl text-sm font-semibold text-center text-white bg-gradient-to-r from-cyan to-purple"
+            className="block mt-2 px-4 py-3 rounded-xl text-sm font-semibold text-center bg-gradient-to-r from-cyan to-purple"
+            style={{ color: '#ffffff' }}
           >
             Get Started
           </Link>
