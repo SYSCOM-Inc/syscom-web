@@ -1,0 +1,12 @@
+# Cloudflare Pages _redirects — one rule per line.
+# Syntax: <source> <destination> <status>
+#
+# Examples:
+#   /old-path           /new-path            301
+#   /docs/*             /documentation/:splat 301
+#   /api/legacy/*       /api/:splat          302
+#
+# SPA fallback is NOT needed here — Cloudflare Pages serves index.html for
+# unmatched routes automatically when the output is a single-page app.
+#
+# Add real rules below this line as the site evolves.

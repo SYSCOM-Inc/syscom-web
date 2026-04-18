@@ -15,6 +15,11 @@
     "build:all": "npm run build:techforward && npm run build:govfriendly && npm run build:premium",
     "preview:techforward": "npm run preview --workspace=packages/techforward",
     "preview:govfriendly": "npm run preview --workspace=packages/govfriendly",
-    "preview:premium": "npm run preview --workspace=packages/premium"
+    "preview:premium": "npm run preview --workspace=packages/premium",
+    "dev": "wrangler pages dev packages/govfriendly/dist",
+    "deploy": "wrangler pages deploy packages/govfriendly/dist"
+  },
+  "devDependencies": {
+    "wrangler": "^3.80.0"
   }
 }

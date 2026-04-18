@@ -147,21 +147,14 @@ npm run preview:govfriendly
 npm run preview:premium
 ```
 
-### Deploy to GitHub Pages
-The GitHub Actions workflow at `.github/workflows/deploy.yml` supports two modes:
+## Hosting
 
-1. **Push to main** — automatically builds and deploys the `techforward` variant (default)
-2. **Manual dispatch** — go to Actions > "Deploy to GitHub Pages" > Run workflow > select variant from dropdown
+This repo deploys to two hosts in parallel:
 
-To deploy a different variant by default, change the fallback in the workflow file:
-```yaml
-VARIANT="${{ github.event.inputs.variant || 'techforward' }}"
-```
+- **GitHub Pages** — combined showroom of all three variants at `chrisbenedetti.github.io/ClaudeSYSCOMwebsite/`. Triggered by pushes to `main` via `.github/workflows/deploy.yml`. Useful for stakeholder review.
+- **Cloudflare Pages** — production host for the Government-Friendly variant at `<project>.pages.dev`. Custom domain (`syscom.com`) is deferred until DNS migration completes.
 
-### Future GitHub Pages URLs
-Once the repo is pushed to GitHub with Pages enabled:
-- `https://chrisbenedetti.github.io/ClaudeSYSCOMwebsite/`
-- Or pointed to `syscom.com` via custom domain configuration
+Full setup, env vars, dashboard configuration, and the eventual custom-domain cutover are documented in [DEPLOYMENT.md](./DEPLOYMENT.md). Read that **before** triggering the first Cloudflare build — there's a required `VITE_BASE_PATH=/` env var without which the site ships broken.
 
 ## Bundle Sizes
 

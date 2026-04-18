@@ -57,9 +57,46 @@ Each variant should be independently buildable and deployable to GitHub Pages.
 - **Framework**: React 18+ with TypeScript
 - **Build Tool**: Vite
 - **Styling**: Tailwind CSS 3+
-- **Hosting Target**: GitHub Pages (static output)
-- **Deployment**: GitHub Actions (push to deploy)
+- **Hosting**: Two parallel targets — see "Hosting & Deployment" below
 - **Package Manager**: npm workspaces or pnpm
+
+## Hosting & Deployment
+
+This repo deploys to **two hosts in parallel**:
+
+| Host | What it serves | Why |
+|------|----------------|-----|
+| **GitHub Pages** | Combined showroom of all 3 variants + samples at `chrisbenedetti.github.io/ClaudeSYSCOMwebsite/` | Internal review tool — lets stakeholders compare variants side-by-side. Stays live even after a variant is chosen. |
+| **Cloudflare Pages** | Production deploy of the **Government-Friendly** variant only, at `<project>.pages.dev` (custom domain `syscom.com` deferred) | Production host. Faster CDN, real serverless functions for forms/APIs, PR previews, instant rollback. |
+
+**Do not disable GitHub Pages.** Both deploys trigger from `main`. Full setup is in [DEPLOYMENT.md](./DEPLOYMENT.md).
+
+### `VITE_BASE_PATH` — the conditional base path
+
+`packages/govfriendly/vite.config.ts` reads `process.env.VITE_BASE_PATH` and falls back to `/ClaudeSYSCOMwebsite/govfriendly/` when unset. This lets the same code build correctly for both hosts:
+
+- **GitHub Pages** (no env var set) → asset URLs prefixed with the subpath. Site lives under a project-page subdirectory.
+- **Cloudflare Pages** (`VITE_BASE_PATH=/`) → asset URLs at root. Site lives at the root of `*.pages.dev`.
+
+If you change the GH Pages subpath or add a new host, update the fallback or the env var — never hardcode a new base in the config.
+
+### Cloudflare Pages Functions
+
+Server-side endpoints (contact form, future webhooks, etc.) live at `/functions/` at the **repo root** — NOT inside `packages/`. Cloudflare Pages discovers them there regardless of the build output directory.
+
+File-based routing:
+- `functions/api/contact.js` → `POST /api/contact`
+- `functions/api/[id].js` → dynamic `/api/:id`
+- Export `onRequestGet`, `onRequestPost`, etc., or generic `onRequest`.
+
+**Runtime is Cloudflare Workers (Web Fetch API), NOT Node.** No `fs`, no `process`, no `require`. Use `context.env.SECRET_NAME` for env vars and secrets. Secrets are added via `wrangler pages secret put` or the dashboard.
+
+### Brand colors (use for any new placeholders)
+
+| Color | Hex |
+|-------|-----|
+| Navy | `#1B3A5C` |
+| Gold | `#DFB443` |
 
 ## Company Information
 
@@ -197,7 +234,6 @@ Individual product pages for:
 
 ### Performance
 - Lighthouse score target: 90+ across all categories
-- Bundle size: Keep under 500KB per variant
 - Lazy load images and heavy components
 - Preload critical fonts
 
