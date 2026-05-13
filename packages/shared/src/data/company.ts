@@ -34,6 +34,11 @@ export const company = {
   retentionRate: "Exceptional",
   equalOpportunityEmployer: true,
   careerPortal: "https://syscom.catsone.com/careers/95588-General/",
+  social: {
+    // TODO: verify these URLs point to the correct SYSCOM accounts.
+    // Set to null to hide the corresponding icon in the footer.
+    linkedin: "https://www.linkedin.com/company/syscom-inc-" as string | null,
+  },
 };
 
 export const leadership = [
@@ -655,14 +660,14 @@ export const verticals = [
     subtitle: "Government & Compliance",
     description:
       "Family investment, social services, and child support programs. Over 15 years of experience with human services agencies processing complex case documentation.",
-    icon: "heart-pulse",
+    icon: "users-round",
   },
   {
     name: "Healthcare",
     subtitle: "Payers & Providers",
     description:
       "Claims processing, adjudication workflows, and document management for healthcare payers managing complex member records. HIPAA compliance.",
-    icon: "activity",
+    icon: "stethoscope",
   },
   {
     name: "Transportation & Logistics",

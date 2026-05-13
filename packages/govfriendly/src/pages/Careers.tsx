@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
 import { company, careerInfo } from '@shared/data/company';
+import { Building2, FileText, MapPin, ShieldCheck, Rocket, Users } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 export default function Careers() {
   return (
@@ -107,48 +108,53 @@ export default function Careers() {
             What We Offer
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
+            {([
               {
-                emoji: '\u{1F3E2}',
+                Icon: Building2,
                 title: 'Stability',
                 desc: '40+ years in business. We are not a startup that might not be here next year.',
               },
               {
-                emoji: '\u{1F4C4}',
+                Icon: FileText,
                 title: 'Meaningful Work',
                 desc: 'Build systems that process millions of documents for government agencies and financial institutions.',
               },
               {
-                emoji: '\u{1F4CD}',
+                Icon: MapPin,
                 title: 'Baltimore Location',
                 desc: 'Downtown Inner Harbor office with easy access to transit. Flexible work arrangements available.',
               },
               {
-                emoji: '\u{2705}',
+                Icon: ShieldCheck,
                 title: 'Benefits',
                 desc: 'Competitive salary, health insurance, retirement plan, and professional development support.',
               },
               {
-                emoji: '\u{1F680}',
+                Icon: Rocket,
                 title: 'Growth',
                 desc: 'Work with AI, cloud platforms, and enterprise technologies. Learn from people who have been doing this for decades.',
               },
               {
-                emoji: '\u{1F465}',
+                Icon: Users,
                 title: 'Team',
                 desc: 'Small, focused teams where your contributions are visible and valued. No bureaucracy.',
               },
-            ].map((item) => (
+            ] as Array<{ Icon: LucideIcon; title: string; desc: string }>).map(({ Icon, title, desc }) => (
               <div
-                key={item.title}
+                key={title}
                 className="bg-white rounded-warm p-6 border border-warm-border"
               >
-                <span className="text-2xl" aria-hidden="true">{item.emoji}</span>
+                <span
+                  className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-teal/10 text-teal"
+                  aria-hidden="true"
+                >
+                  <Icon className="w-5 h-5" strokeWidth={1.75} />
+                </span>
                 <h3 className="mt-3 font-heading font-semibold text-base text-navy">
-                  {item.title}
+                  {title}
                 </h3>
                 <p className="mt-2 text-sm text-slate leading-relaxed">
-                  {item.desc}
+                  {desc}
                 </p>
               </div>
             ))}

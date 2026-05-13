@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ErrorBoundary } from '@shared/components/ErrorBoundary';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -16,7 +16,7 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 function App() {
   return (
     <ErrorBoundary>
-    <HashRouter>
+    <BrowserRouter>
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main id="main-content" className="flex-1 pt-16">
@@ -35,7 +35,7 @@ function App() {
         <Footer />
         <ChatWidget />
       </div>
-    </HashRouter>
+    </BrowserRouter>
     </ErrorBoundary>
   );
 }

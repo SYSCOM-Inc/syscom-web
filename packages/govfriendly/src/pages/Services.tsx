@@ -1,15 +1,6 @@
 import { Link } from 'react-router-dom';
 import { services } from '@shared/data/company';
-
-const SERVICE_EMOJIS: Record<string, string> = {
-  ecm: '\u{1F4C1}',
-  bpa: '\u{2699}\u{FE0F}',
-  capture: '\u{1F4F7}',
-  migration: '\u{1F500}',
-  ai: '\u{1F9E0}',
-  staffing: '\u{1F465}',
-  'custom-apps': '\u{1F4BB}',
-};
+import { SyscomIcon } from '../lib/icons';
 
 const serviceDetails: Record<string, { capabilities: string[]; detail: string }> = {
   ecm: {
@@ -130,8 +121,11 @@ export default function Services() {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
                 <div>
                   <div className="flex items-start gap-4 mb-4">
-                    <span className="text-3xl mt-1 shrink-0" aria-hidden="true">
-                      {SERVICE_EMOJIS[service.id] || '\u{1F4E6}'}
+                    <span
+                      className="inline-flex items-center justify-center w-12 h-12 mt-0.5 shrink-0 rounded-lg bg-teal/10 text-teal"
+                      aria-hidden="true"
+                    >
+                      <SyscomIcon name={service.icon} className="w-6 h-6" />
                     </span>
                     <div>
                       <h2

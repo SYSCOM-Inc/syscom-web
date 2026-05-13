@@ -1,15 +1,6 @@
 import { Link } from 'react-router-dom';
 import { company, services, products, verticals } from '@shared/data/company';
-
-const SERVICE_EMOJIS: Record<string, string> = {
-  ecm: '\u{1F4C1}',
-  bpa: '\u{2699}\u{FE0F}',
-  capture: '\u{1F4F7}',
-  migration: '\u{1F500}',
-  ai: '\u{1F9E0}',
-  staffing: '\u{1F465}',
-  'custom-apps': '\u{1F4BB}',
-};
+import { SyscomIcon } from '../lib/icons';
 
 const PRODUCT_COLORS: Record<string, { badge: string; border: string }> = {
   asm: { badge: 'bg-teal/10 text-teal', border: 'border-teal/30' },
@@ -23,61 +14,96 @@ const PRODUCT_COLORS: Record<string, { badge: string; border: string }> = {
   'mvs-connect': { badge: 'bg-slate-50 text-slate-700', border: 'border-slate-200' },
 };
 
-const VERTICAL_EMOJIS: Record<string, string> = {
-  landmark: '\u{1F3DB}\u{FE0F}',
-  building: '\u{1F3E6}',
-  factory: '\u{1F3ED}',
-  'heart-pulse': '\u{1FA7A}',
-  shield: '\u{1F6E1}\u{FE0F}',
-  activity: '\u{1FA7A}',
-  truck: '\u{1F69A}',
-};
-
 export default function Home() {
   return (
     <div>
       {/* Hero */}
       <section className="bg-gradient-to-b from-warm-cream to-warm-bg py-20 sm:py-28" aria-label="Introduction">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <p className="text-sm font-medium text-teal uppercase tracking-wider mb-3">
-              Trusted Partner Since {company.founded}
-            </p>
-            <h1 className="font-heading text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-navy leading-[1.15]">
-              Trusted Enterprise Content Management
-            </h1>
-            <p className="mt-2 font-heading text-xl sm:text-2xl text-warm-brown italic">
-              Since 1982
-            </p>
-            <p className="mt-6 text-lg text-slate leading-relaxed max-w-2xl">
-              {company.yearsInBusiness} years of proven solutions for government agencies,
-              financial institutions, and healthcare organizations. We solve complex content
-              challenges with technology that works.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <div
-                role="group"
-                aria-label="Browse our offerings"
-                className="inline-flex rounded-lg overflow-hidden bg-[#001f3f] shadow-sm"
-              >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            {/* Headline + CTAs */}
+            <div className="lg:col-span-7">
+              <p className="text-sm font-medium text-teal uppercase tracking-wider mb-3">
+                Trusted Partner Since {company.founded}
+              </p>
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-[3.5rem] font-bold text-navy leading-[1.15]">
+                Trusted Enterprise Content Management
+              </h1>
+              <p className="mt-2 font-heading text-xl sm:text-2xl text-warm-brown italic">
+                Since 1982
+              </p>
+              <p className="mt-6 text-lg text-slate leading-relaxed max-w-2xl">
+                {company.yearsInBusiness} years of proven solutions for government agencies,
+                financial institutions, and healthcare organizations. We solve complex content
+                challenges with technology that works.
+              </p>
+              <div className="mt-8 flex flex-wrap items-center gap-4">
+                <Link to="/contact" className="btn-teal">
+                  Schedule a Consultation
+                </Link>
                 <Link
                   to="/services"
-                  className="px-6 py-3 text-white font-semibold hover:bg-[#001a2e] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-teal-light"
+                  className="inline-flex items-center text-sm font-semibold text-navy hover:text-teal transition-colors"
                 >
-                  Services
+                  Explore Services
+                  <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </Link>
-                <span aria-hidden="true" className="self-stretch w-px bg-white/25" />
                 <Link
                   to="/products"
-                  className="px-6 py-3 text-white font-semibold hover:bg-[#001a2e] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-teal-light"
+                  className="inline-flex items-center text-sm font-semibold text-navy hover:text-teal transition-colors"
                 >
-                  Products
+                  Explore Products
+                  <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </Link>
               </div>
-              <Link to="/contact" className="btn-teal">
-                Schedule Consultation
-              </Link>
             </div>
+
+            {/* Credibility stats panel (balances the right side of the hero) */}
+            <aside
+              className="lg:col-span-5 bg-white border border-warm-border rounded-warm p-6 sm:p-8 shadow-sm"
+              aria-label="At a glance"
+            >
+              <p className="text-xs font-heading font-bold uppercase tracking-wider text-teal mb-5">
+                At a Glance
+              </p>
+              <dl className="grid grid-cols-2 gap-x-6 gap-y-6">
+                <div>
+                  <dt className="text-xs font-medium text-muted uppercase tracking-wider">Years in business</dt>
+                  <dd className="mt-1 font-heading text-3xl font-bold text-navy">{company.yearsInBusiness}+</dd>
+                </div>
+                <div>
+                  <dt className="text-xs font-medium text-muted uppercase tracking-wider">Service areas</dt>
+                  <dd className="mt-1 font-heading text-3xl font-bold text-navy">{services.length}</dd>
+                </div>
+                <div>
+                  <dt className="text-xs font-medium text-muted uppercase tracking-wider">Software products</dt>
+                  <dd className="mt-1 font-heading text-3xl font-bold text-navy">{products.length}</dd>
+                </div>
+                <div>
+                  <dt className="text-xs font-medium text-muted uppercase tracking-wider">Industries served</dt>
+                  <dd className="mt-1 font-heading text-3xl font-bold text-navy">{verticals.length}</dd>
+                </div>
+              </dl>
+              <div className="mt-6 pt-6 border-t border-warm-border">
+                <p className="text-xs font-heading font-bold uppercase tracking-wider text-teal mb-3">
+                  Compliance &amp; Frameworks
+                </p>
+                <ul className="flex flex-wrap gap-2">
+                  {['NIST 800-53', 'CJIS', 'IRS Pub 1075', 'HIPAA', 'SOX'].map((badge) => (
+                    <li
+                      key={badge}
+                      className="inline-flex items-center px-2.5 py-1 rounded-full bg-warm-cream border border-warm-border text-xs font-semibold text-navy"
+                    >
+                      {badge}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </aside>
           </div>
 
           {/* Mission */}
@@ -112,8 +138,11 @@ export default function Home() {
                 to={`/services#${service.id}`}
                 className="group block bg-white border border-warm-border rounded-warm p-6 transition-all hover:shadow-md hover:border-warm-brown/20"
               >
-                <span className="text-2xl" aria-hidden="true">
-                  {SERVICE_EMOJIS[service.id] || '\u{1F4E6}'}
+                <span
+                  className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-teal/10 text-teal"
+                  aria-hidden="true"
+                >
+                  <SyscomIcon name={service.icon} className="w-5 h-5" />
                 </span>
                 <h3 className="mt-3 font-heading font-semibold text-lg text-navy group-hover:text-teal transition-colors">
                   {service.name}
@@ -231,10 +260,13 @@ export default function Home() {
                 key={vertical.name}
                 className="bg-warm-light rounded-warm p-8 text-center border border-warm-border"
               >
-                <span className="text-3xl" aria-hidden="true">
-                  {VERTICAL_EMOJIS[vertical.icon] || '\u{1F3E2}'}
+                <span
+                  className="inline-flex items-center justify-center w-14 h-14 mx-auto rounded-full bg-warm-cream text-navy ring-1 ring-warm-border"
+                  aria-hidden="true"
+                >
+                  <SyscomIcon name={vertical.icon} className="w-7 h-7" />
                 </span>
-                <h3 className="mt-3 font-heading font-semibold text-lg text-navy">
+                <h3 className="mt-4 font-heading font-semibold text-lg text-navy">
                   {vertical.name}
                 </h3>
                 <p className="text-xs text-warm-brown font-medium">{vertical.subtitle}</p>
