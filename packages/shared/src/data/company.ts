@@ -34,6 +34,11 @@ export const company = {
   retentionRate: "Exceptional",
   equalOpportunityEmployer: true,
   careerPortal: "https://syscom.catsone.com/careers/95588-General/",
+  social: {
+    // TODO: verify these URLs point to the correct SYSCOM accounts.
+    // Set to null to hide the corresponding icon in the footer.
+    linkedin: "https://www.linkedin.com/company/syscom-inc-" as string | null,
+  },
 };
 
 export const leadership = [
@@ -71,10 +76,10 @@ export const leadership = [
       "University of Cincinnati, BBA — Information Systems & Management",
     ],
     certifications: [
-      "Kofax Capture Certified (v8–v11.2)",
+      "Tungsten Capture Certified (v8–v11.2)",
       "AWS Certified Solutions Architect",
       "Microsoft Certified Technology Specialist",
-      "IBM Certified Solutions Designer — DB2 Content Manager v8.3",
+      "IBM Certified Solutions Designer",
     ],
   },
 ];
@@ -578,7 +583,7 @@ export const products = [
       {
         title: "Capture Integration",
         description:
-          "Direct integration with Kofax Ascent Capture and other enterprise capture platforms.",
+          "Direct integration with Tungsten Capture.",
       },
       {
         title: "Mainframe Native",
@@ -588,7 +593,7 @@ export const products = [
     ],
     connectors: [
       "IBM ImagePlus/390",
-      "Kofax Capture",
+      "Tungsten Capture",
       "MVS",
       "Mainframe I/O",
     ],
@@ -655,14 +660,14 @@ export const verticals = [
     subtitle: "Government & Compliance",
     description:
       "Family investment, social services, and child support programs. Over 15 years of experience with human services agencies processing complex case documentation.",
-    icon: "heart-pulse",
+    icon: "users-round",
   },
   {
     name: "Healthcare",
     subtitle: "Payers & Providers",
     description:
       "Claims processing, adjudication workflows, and document management for healthcare payers managing complex member records. HIPAA compliance.",
-    icon: "activity",
+    icon: "stethoscope",
   },
   {
     name: "Transportation & Logistics",
@@ -740,15 +745,20 @@ export const careerInfo = {
   retentionStat: "70%+ employee tenure exceeding 5 years",
   portalUrl: "https://syscom.catsone.com/careers/95588-General/",
   skillsInDemand: [
+    "Claude",
     "Java",
-    ".NET",
-    "SQL Server",
-    "Oracle",
-    "Workday",
-    "Hadoop",
+    "Tungsten Capture",
     "Azure",
+    ".NET",
+    "LangChain",
+    "Oracle",
+    "Total Agility",
     "AWS",
+    "Azure OpenAI",
+    "SQL Server",
+    "Workday",
     "EPIC",
+    "Hadoop",
   ],
   roleCategories: [
     "Project Managers",

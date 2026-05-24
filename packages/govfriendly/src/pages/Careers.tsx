@@ -1,7 +1,33 @@
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { company, careerInfo } from '@shared/data/company';
+import { Building2, FileText, MapPin, ShieldCheck, Rocket, Users, Heart } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+
+// Rotating work-life perks for the careers hero callout.
+const LIFE_BENEFITS = [
+  'Work-from-home opportunities',
+  'Flexible scheduling around your life',
+  'Health, dental & vision coverage',
+  '401(k) retirement plan',
+  'Paid professional development & certifications',
+  'Generous PTO and paid holidays',
+];
+
+const BENEFIT_INTERVAL_MS = 5000;
 
 export default function Careers() {
+  const [benefitIndex, setBenefitIndex] = useState(0);
+  const reduceMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setBenefitIndex((i) => (i + 1) % LIFE_BENEFITS.length);
+    }, BENEFIT_INTERVAL_MS);
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <div>
       {/* Hero */}
@@ -15,6 +41,34 @@ export default function Careers() {
             for decades, your work ships to production, and you solve real problems for
             government and enterprise clients.
           </p>
+
+          {/* Rotating work-life perks callout */}
+          <div className="mt-8 max-w-md bg-white border border-warm-border rounded-warm p-6 shadow-sm">
+            <p className="inline-flex items-center gap-1.5 text-xs font-heading font-bold uppercase tracking-wider text-teal mb-4">
+              <Heart className="w-3.5 h-3.5" strokeWidth={2} aria-hidden="true" />
+              Life Benefits
+            </p>
+            <div className="min-h-[3.5rem] flex items-center" aria-live="polite">
+              <p
+                key={benefitIndex}
+                className={`font-heading text-lg sm:text-xl font-semibold text-navy leading-snug ${
+                  reduceMotion ? '' : 'animate-fade-up'
+                }`}
+              >
+                {LIFE_BENEFITS[benefitIndex]}
+              </p>
+            </div>
+            <div className="mt-4 flex gap-1.5" aria-hidden="true">
+              {LIFE_BENEFITS.map((_, i) => (
+                <span
+                  key={i}
+                  className={`h-1 rounded-full transition-all duration-500 ${
+                    i === benefitIndex ? 'w-5 bg-teal' : 'w-1.5 bg-warm-border'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -44,14 +98,16 @@ export default function Careers() {
 
               <div className="mt-8 grid grid-cols-2 gap-4">
                 <div className="bg-warm-cream rounded-warm p-4 text-center border border-warm-border">
-                  <p className="font-heading text-2xl font-bold text-navy">
-                    {company.yearsInBusiness}+
+                  <p className="font-heading text-xl font-bold text-navy leading-tight">
+                    Real Impact
                   </p>
-                  <p className="text-xs text-muted mt-1">Years in Business</p>
+                  <p className="text-xs text-muted mt-1">Build systems that serve millions</p>
                 </div>
                 <div className="bg-warm-cream rounded-warm p-4 text-center border border-warm-border">
-                  <p className="font-heading text-2xl font-bold text-navy">70%+</p>
-                  <p className="text-xs text-muted mt-1">5+ Year Tenure</p>
+                  <p className="font-heading text-xl font-bold text-navy leading-tight">
+                    Mentorship
+                  </p>
+                  <p className="text-xs text-muted mt-1">Learn beside decades of expertise</p>
                 </div>
               </div>
             </div>
@@ -107,48 +163,53 @@ export default function Careers() {
             What We Offer
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
+            {([
               {
-                emoji: '\u{1F3E2}',
+                Icon: Building2,
                 title: 'Stability',
                 desc: '40+ years in business. We are not a startup that might not be here next year.',
               },
               {
-                emoji: '\u{1F4C4}',
+                Icon: FileText,
                 title: 'Meaningful Work',
                 desc: 'Build systems that process millions of documents for government agencies and financial institutions.',
               },
               {
-                emoji: '\u{1F4CD}',
+                Icon: MapPin,
                 title: 'Baltimore Location',
                 desc: 'Downtown Inner Harbor office with easy access to transit. Flexible work arrangements available.',
               },
               {
-                emoji: '\u{2705}',
+                Icon: ShieldCheck,
                 title: 'Benefits',
                 desc: 'Competitive salary, health insurance, retirement plan, and professional development support.',
               },
               {
-                emoji: '\u{1F680}',
+                Icon: Rocket,
                 title: 'Growth',
                 desc: 'Work with AI, cloud platforms, and enterprise technologies. Learn from people who have been doing this for decades.',
               },
               {
-                emoji: '\u{1F465}',
+                Icon: Users,
                 title: 'Team',
                 desc: 'Small, focused teams where your contributions are visible and valued. No bureaucracy.',
               },
-            ].map((item) => (
+            ] as Array<{ Icon: LucideIcon; title: string; desc: string }>).map(({ Icon, title, desc }) => (
               <div
-                key={item.title}
+                key={title}
                 className="bg-white rounded-warm p-6 border border-warm-border"
               >
-                <span className="text-2xl" aria-hidden="true">{item.emoji}</span>
+                <span
+                  className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-teal/10 text-teal"
+                  aria-hidden="true"
+                >
+                  <Icon className="w-5 h-5" strokeWidth={1.75} />
+                </span>
                 <h3 className="mt-3 font-heading font-semibold text-base text-navy">
-                  {item.title}
+                  {title}
                 </h3>
                 <p className="mt-2 text-sm text-slate leading-relaxed">
-                  {item.desc}
+                  {desc}
                 </p>
               </div>
             ))}

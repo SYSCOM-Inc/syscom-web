@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { company, services, directions } from '@shared/data/company';
+import { CheckCircle2, MapPin } from 'lucide-react';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -54,7 +55,12 @@ export default function Contact() {
                   className="bg-warm-light border border-teal/30 rounded-warm p-8 text-center"
                   role="alert"
                 >
-                  <span className="text-4xl" aria-hidden="true">{'\u{2705}'}</span>
+                  <span
+                    className="inline-flex items-center justify-center w-14 h-14 mx-auto rounded-full bg-teal/10 text-teal"
+                    aria-hidden="true"
+                  >
+                    <CheckCircle2 className="w-8 h-8" strokeWidth={1.75} />
+                  </span>
                   <h3 className="mt-3 font-heading font-semibold text-xl text-navy">
                     Message Sent
                   </h3>
@@ -255,8 +261,13 @@ export default function Contact() {
 
               {/* Map placeholder */}
               <div className="mt-8 bg-warm-cream rounded-warm border border-warm-border p-6 text-center">
-                <span className="text-3xl" aria-hidden="true">{'\u{1F4CD}'}</span>
-                <p className="font-heading font-semibold text-navy text-sm mt-2">
+                <span
+                  className="inline-flex items-center justify-center w-11 h-11 mx-auto rounded-full bg-terracotta/10 text-terracotta"
+                  aria-hidden="true"
+                >
+                  <MapPin className="w-5 h-5" strokeWidth={1.75} />
+                </span>
+                <p className="font-heading font-semibold text-navy text-sm mt-3">
                   Baltimore Inner Harbor
                 </p>
                 <p className="text-xs text-slate mt-1">

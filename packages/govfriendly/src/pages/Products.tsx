@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { products } from '@shared/data/company';
 import WorkflowAnimation from '../components/WorkflowAnimation';
+import { Replace, ShieldCheck, Brain, Zap, FileText, Plug } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 const PRODUCT_ACCENTS: Record<string, { accent: string; badgeClass: string; label: string }> = {
   asm: { accent: 'teal', badgeClass: 'bg-teal/10 text-teal', label: 'Flagship' },
@@ -121,21 +123,26 @@ export default function Products() {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { emoji: '\u{1F500}', title: 'Migrate', desc: 'ASM moves content from legacy platforms to modern repositories with full fidelity. IP2CM handles high-speed ImagePlus-to-CM migrations.', color: 'text-teal' },
-              { emoji: '\u{1F6E1}\u{FE0F}', title: 'Preserve', desc: 'AIS Bridge maintains critical ImagePlus workflows while modernizing infrastructure. AIS+EE provides enhanced access to IBM content repositories.', color: 'text-terracotta' },
-              { emoji: '\u{1F9E0}', title: 'Understand', desc: 'IBIG 2.0 crawls your repositories and builds a semantic knowledge layer with AI-powered search.', color: 'text-navy' },
-              { emoji: '\u{26A1}', title: 'Deliver', desc: 'SCS provides config-driven workflows that deploy in days. Content Viewer gives zero-install document access across repositories.', color: 'text-sage' },
-              { emoji: '\u{1F4C4}', title: 'View & Import', desc: 'Content Viewer renders any document in any browser. ASImport handles high-speed content ingestion into IBM Content Manager.', color: 'text-navy' },
-              { emoji: '\u{1F517}', title: 'Connect', desc: 'MVS Connect bridges mainframe environments with enterprise capture platforms for seamless document storage.', color: 'text-teal' },
-            ].map((item) => (
-              <div key={item.title} className="bg-warm-light rounded-warm p-6 border border-warm-border text-center">
-                <span className="text-2xl" aria-hidden="true">{item.emoji}</span>
-                <h3 className={`mt-3 font-heading font-semibold text-lg ${item.color}`}>
-                  {item.title}
+            {([
+              { Icon: Replace, title: 'Migrate', desc: 'ASM moves content from legacy platforms to modern repositories with full fidelity. IP2CM handles high-speed ImagePlus-to-CM migrations.', color: 'text-teal', iconBg: 'bg-teal/10' },
+              { Icon: ShieldCheck, title: 'Preserve', desc: 'AIS Bridge maintains critical ImagePlus workflows while modernizing infrastructure. AIS+EE provides enhanced access to IBM content repositories.', color: 'text-terracotta', iconBg: 'bg-terracotta/10' },
+              { Icon: Brain, title: 'Understand', desc: 'IBIG 2.0 crawls your repositories and builds a semantic knowledge layer with AI-powered search.', color: 'text-navy', iconBg: 'bg-navy/10' },
+              { Icon: Zap, title: 'Deliver', desc: 'SCS provides config-driven workflows that deploy in days. Content Viewer gives zero-install document access across repositories.', color: 'text-sage', iconBg: 'bg-sage/10' },
+              { Icon: FileText, title: 'View & Import', desc: 'Content Viewer renders any document in any browser. ASImport handles high-speed content ingestion into IBM Content Manager.', color: 'text-navy', iconBg: 'bg-navy/10' },
+              { Icon: Plug, title: 'Connect', desc: 'MVS Connect bridges mainframe environments with enterprise capture platforms for seamless document storage.', color: 'text-teal', iconBg: 'bg-teal/10' },
+            ] as Array<{ Icon: LucideIcon; title: string; desc: string; color: string; iconBg: string }>).map(({ Icon, title, desc, color, iconBg }) => (
+              <div key={title} className="bg-warm-light rounded-warm p-6 border border-warm-border text-center">
+                <span
+                  className={`inline-flex items-center justify-center w-12 h-12 mx-auto rounded-lg ${iconBg} ${color}`}
+                  aria-hidden="true"
+                >
+                  <Icon className="w-6 h-6" strokeWidth={1.75} />
+                </span>
+                <h3 className={`mt-4 font-heading font-semibold text-lg ${color}`}>
+                  {title}
                 </h3>
                 <p className="mt-2 text-sm text-slate leading-relaxed">
-                  {item.desc}
+                  {desc}
                 </p>
               </div>
             ))}

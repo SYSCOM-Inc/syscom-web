@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Linkedin } from 'lucide-react';
 import { company, services, products } from '@shared/data/company';
 
 export default function Footer() {
@@ -18,6 +19,19 @@ export default function Footer() {
               {company.address.street}<br />
               {company.address.city}, {company.address.state} {company.address.zip}
             </p>
+            {company.social?.linkedin && (
+              <div className="mt-5 flex items-center gap-3">
+                <a
+                  href={company.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="SYSCOM on LinkedIn"
+                  className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-white/20 text-white/70 hover:text-white hover:border-white/40 transition-colors"
+                >
+                  <Linkedin className="w-4 h-4" strokeWidth={2} aria-hidden="true" />
+                </a>
+              </div>
+            )}
           </div>
 
           {/* Services */}
@@ -32,7 +46,7 @@ export default function Footer() {
                     to={`/services#${s.id}`}
                     className="text-sm text-white/70 hover:text-white transition-colors"
                   >
-                    {s.shortName}
+                    {s.name}
                   </Link>
                 </li>
               ))}
@@ -51,7 +65,7 @@ export default function Footer() {
                     to={`/products#${p.id}`}
                     className="text-sm text-white/70 hover:text-white transition-colors"
                   >
-                    {p.shortName}
+                    {p.name}
                   </Link>
                 </li>
               ))}

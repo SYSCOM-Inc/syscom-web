@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { company, leadership, methodology, partnerships } from '@shared/data/company';
+import { Handshake, MessageCircle, Target } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 export default function About() {
   return (
@@ -93,31 +95,36 @@ export default function About() {
             Our Values
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
+            {([
               {
-                emoji: '\u{1F91D}',
+                Icon: Handshake,
                 title: 'Reliability',
                 description:
                   'Our clients depend on us for mission-critical systems. We deliver on time, every time, and we stand behind our work with long-term support.',
               },
               {
-                emoji: '\u{1F4AC}',
+                Icon: MessageCircle,
                 title: 'Integrity',
                 description:
                   'We give honest assessments, recommend the right solution (not the most expensive one), and maintain transparency throughout every engagement.',
               },
               {
-                emoji: '\u{1F3AF}',
+                Icon: Target,
                 title: 'Expertise',
                 description:
                   'Every team member is a specialist, not a generalist. Our deep platform knowledge means faster deployments, fewer surprises, and better outcomes.',
               },
-            ].map((value) => (
+            ] as Array<{ Icon: LucideIcon; title: string; description: string }>).map((value) => (
               <div
                 key={value.title}
                 className="bg-white rounded-warm p-6 border border-warm-border"
               >
-                <span className="text-2xl" aria-hidden="true">{value.emoji}</span>
+                <span
+                  className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-teal/10 text-teal"
+                  aria-hidden="true"
+                >
+                  <value.Icon className="w-5 h-5" strokeWidth={1.75} />
+                </span>
                 <h3 className="mt-3 font-heading font-semibold text-lg text-navy">
                   {value.title}
                 </h3>

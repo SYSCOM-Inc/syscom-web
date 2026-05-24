@@ -1,12 +1,17 @@
 # Cloudflare Pages _redirects — one rule per line.
 # Syntax: <source> <destination> <status>
 #
+# Real fix for client-side routing lives in App.tsx (BrowserRouter).
+# This file ensures Cloudflare Pages serves index.html for any path
+# the SPA owns, so a direct visit to /about loads the React app and
+# react-router renders the correct view.
+#
 # Examples:
 #   /old-path           /new-path            301
 #   /docs/*             /documentation/:splat 301
-#   /api/legacy/*       /api/:splat          302
 #
-# SPA fallback is NOT needed here — Cloudflare Pages serves index.html for
-# unmatched routes automatically when the output is a single-page app.
-#
-# Add real rules below this line as the site evolves.
+# Add real redirect rules above this line as the site evolves.
+
+# SPA fallback — must be the LAST rule. Pages Functions in /functions
+# match before this rule, so /api/* endpoints still hit the function.
+/*    /index.html   200
