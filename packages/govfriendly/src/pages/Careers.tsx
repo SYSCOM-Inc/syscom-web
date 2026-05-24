@@ -8,7 +8,7 @@ const LIFE_BENEFITS = [
   'Work-from-home opportunities',
   'Flexible scheduling around your life',
   'Health, dental & vision coverage',
-  '401(k) retirement plan with company match',
+  '401(k) retirement plan',
   'Paid professional development & certifications',
   'Generous PTO and paid holidays',
 ];
