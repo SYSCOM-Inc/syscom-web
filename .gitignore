@@ -7,3 +7,17 @@ dist/
 .vite/
 .wrangler/
 .dev.vars
+
+# Vite transient config build artifacts
+vite.config.ts.timestamp-*.mjs
+
+# Stray editor/script backup copies
+*.tsx.git
+*.ts.git
+
+# Local scratch / skill-testing artifacts (not part of the site)
+/ClaudeCoworkTesting/
+/SKILL.md
+/SYSCOM_Skill_Smoke_Test.docx
+/docx-patterns.md
+/pdf-patterns.md
