@@ -1,8 +1,33 @@
+import { useEffect, useState } from 'react';
 import { company, careerInfo } from '@shared/data/company';
-import { Building2, FileText, MapPin, ShieldCheck, Rocket, Users } from 'lucide-react';
+import { Building2, FileText, MapPin, ShieldCheck, Rocket, Users, Heart } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
+// Rotating work-life perks for the careers hero callout.
+const LIFE_BENEFITS = [
+  'Work-from-home opportunities',
+  'Flexible scheduling around your life',
+  'Health, dental & vision coverage',
+  '401(k) retirement plan with company match',
+  'Paid professional development & certifications',
+  'Generous PTO and paid holidays',
+];
+
+const BENEFIT_INTERVAL_MS = 5000;
+
 export default function Careers() {
+  const [benefitIndex, setBenefitIndex] = useState(0);
+  const reduceMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setBenefitIndex((i) => (i + 1) % LIFE_BENEFITS.length);
+    }, BENEFIT_INTERVAL_MS);
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <div>
       {/* Hero */}
@@ -16,6 +41,34 @@ export default function Careers() {
             for decades, your work ships to production, and you solve real problems for
             government and enterprise clients.
           </p>
+
+          {/* Rotating work-life perks callout */}
+          <div className="mt-8 max-w-md bg-white border border-warm-border rounded-warm p-6 shadow-sm">
+            <p className="inline-flex items-center gap-1.5 text-xs font-heading font-bold uppercase tracking-wider text-teal mb-4">
+              <Heart className="w-3.5 h-3.5" strokeWidth={2} aria-hidden="true" />
+              Life Benefits
+            </p>
+            <div className="min-h-[3.5rem] flex items-center" aria-live="polite">
+              <p
+                key={benefitIndex}
+                className={`font-heading text-lg sm:text-xl font-semibold text-navy leading-snug ${
+                  reduceMotion ? '' : 'animate-fade-up'
+                }`}
+              >
+                {LIFE_BENEFITS[benefitIndex]}
+              </p>
+            </div>
+            <div className="mt-4 flex gap-1.5" aria-hidden="true">
+              {LIFE_BENEFITS.map((_, i) => (
+                <span
+                  key={i}
+                  className={`h-1 rounded-full transition-all duration-500 ${
+                    i === benefitIndex ? 'w-5 bg-teal' : 'w-1.5 bg-warm-border'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -45,14 +98,16 @@ export default function Careers() {
 
               <div className="mt-8 grid grid-cols-2 gap-4">
                 <div className="bg-warm-cream rounded-warm p-4 text-center border border-warm-border">
-                  <p className="font-heading text-2xl font-bold text-navy">
-                    {company.yearsInBusiness}+
+                  <p className="font-heading text-xl font-bold text-navy leading-tight">
+                    Real Impact
                   </p>
-                  <p className="text-xs text-muted mt-1">Years in Business</p>
+                  <p className="text-xs text-muted mt-1">Build systems that serve millions</p>
                 </div>
                 <div className="bg-warm-cream rounded-warm p-4 text-center border border-warm-border">
-                  <p className="font-heading text-2xl font-bold text-navy">70%+</p>
-                  <p className="text-xs text-muted mt-1">5+ Year Tenure</p>
+                  <p className="font-heading text-xl font-bold text-navy leading-tight">
+                    Mentorship
+                  </p>
+                  <p className="text-xs text-muted mt-1">Learn beside decades of expertise</p>
                 </div>
               </div>
             </div>

@@ -16,7 +16,7 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 function App() {
   return (
     <ErrorBoundary>
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main id="main-content" className="flex-1 pt-16">

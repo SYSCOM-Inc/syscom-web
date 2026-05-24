@@ -1,6 +1,20 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Sparkles } from 'lucide-react';
 import { company, services, products, verticals } from '@shared/data/company';
 import { SyscomIcon } from '../lib/icons';
+
+// Rotating AI-reinvention provocations for the hero panel.
+const AI_QUOTES = [
+  'Steve Jobs called the computer a bicycle for the mind. AI just strapped a motor on it — time to ride!',
+  'Four decades mastering content. AI is how we make it think.',
+  "AI doesn't replace expertise — it amplifies it. Forty years of know-how, now at machine speed.",
+  "Every document you've ever filed is a question waiting to be answered. AI finally learned to listen.",
+  'Automation took the busywork. AI takes the judgment calls. Your team takes the credit.',
+  'The next decade belongs to the organizations that reinvent fastest — not the ones with the most data.',
+];
+
+const QUOTE_INTERVAL_MS = 7000;
 
 const PRODUCT_COLORS: Record<string, { badge: string; border: string }> = {
   asm: { badge: 'bg-teal/10 text-teal', border: 'border-teal/30' },
@@ -15,6 +29,18 @@ const PRODUCT_COLORS: Record<string, { badge: string; border: string }> = {
 };
 
 export default function Home() {
+  const [quoteIndex, setQuoteIndex] = useState(0);
+  const reduceMotion =
+    typeof window !== 'undefined' &&
+    window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setQuoteIndex((i) => (i + 1) % AI_QUOTES.length);
+    }, QUOTE_INTERVAL_MS);
+    return () => window.clearInterval(id);
+  }, []);
+
   return (
     <div>
       {/* Hero */}
@@ -30,7 +56,7 @@ export default function Home() {
                 Trusted Enterprise Content Management
               </h1>
               <p className="mt-2 font-heading text-xl sm:text-2xl text-warm-brown italic">
-                Since 1982
+                Built to last. Built to evolve.
               </p>
               <p className="mt-6 text-lg text-slate leading-relaxed max-w-2xl">
                 {company.yearsInBusiness} years of proven solutions for government agencies,
@@ -65,29 +91,32 @@ export default function Home() {
             {/* Credibility stats panel (balances the right side of the hero) */}
             <aside
               className="lg:col-span-5 bg-white border border-warm-border rounded-warm p-6 sm:p-8 shadow-sm"
-              aria-label="At a glance"
+              aria-label="The AI era at SYSCOM"
             >
-              <p className="text-xs font-heading font-bold uppercase tracking-wider text-teal mb-5">
-                At a Glance
+              <p className="inline-flex items-center gap-1.5 text-xs font-heading font-bold uppercase tracking-wider text-teal mb-5">
+                <Sparkles className="w-3.5 h-3.5" strokeWidth={2} aria-hidden="true" />
+                The AI Era
               </p>
-              <dl className="grid grid-cols-2 gap-x-6 gap-y-6">
-                <div>
-                  <dt className="text-xs font-medium text-muted uppercase tracking-wider">Years in business</dt>
-                  <dd className="mt-1 font-heading text-3xl font-bold text-navy">{company.yearsInBusiness}+</dd>
-                </div>
-                <div>
-                  <dt className="text-xs font-medium text-muted uppercase tracking-wider">Service areas</dt>
-                  <dd className="mt-1 font-heading text-3xl font-bold text-navy">{services.length}</dd>
-                </div>
-                <div>
-                  <dt className="text-xs font-medium text-muted uppercase tracking-wider">Software products</dt>
-                  <dd className="mt-1 font-heading text-3xl font-bold text-navy">{products.length}</dd>
-                </div>
-                <div>
-                  <dt className="text-xs font-medium text-muted uppercase tracking-wider">Industries served</dt>
-                  <dd className="mt-1 font-heading text-3xl font-bold text-navy">{verticals.length}</dd>
-                </div>
-              </dl>
+              <div className="min-h-[11rem] flex items-center" aria-live="polite">
+                <blockquote
+                  key={quoteIndex}
+                  className={`font-heading text-2xl sm:text-3xl font-semibold text-navy leading-snug ${
+                    reduceMotion ? '' : 'animate-fade-up'
+                  }`}
+                >
+                  {AI_QUOTES[quoteIndex]}
+                </blockquote>
+              </div>
+              <div className="mt-4 flex gap-1.5" aria-hidden="true">
+                {AI_QUOTES.map((_, i) => (
+                  <span
+                    key={i}
+                    className={`h-1 rounded-full transition-all duration-500 ${
+                      i === quoteIndex ? 'w-5 bg-teal' : 'w-1.5 bg-warm-border'
+                    }`}
+                  />
+                ))}
+              </div>
               <div className="mt-6 pt-6 border-t border-warm-border">
                 <p className="text-xs font-heading font-bold uppercase tracking-wider text-teal mb-3">
                   Compliance &amp; Frameworks
