@@ -3,6 +3,27 @@ import { Link } from 'react-router-dom';
 import { Sparkles } from 'lucide-react';
 import { company, services, products, verticals } from '@shared/data/company';
 import { SyscomIcon } from '../lib/icons';
+import Seo from '../components/Seo';
+
+const ORG_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'SYSCOM, Inc.',
+  url: 'https://syscom.com',
+  foundingDate: '1982',
+  description:
+    'Enterprise content management, business process automation, and intelligent capture for government, financial services, and healthcare — 40+ years, Baltimore, MD.',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '400 East Pratt Street, Suite 600',
+    addressLocality: 'Baltimore',
+    addressRegion: 'MD',
+    postalCode: '21202',
+    addressCountry: 'US',
+  },
+  telephone: '+1-410-539-3737',
+  email: 'sales@syscom.com',
+};
 
 // Rotating AI-reinvention provocations for the hero panel.
 const AI_QUOTES = [
@@ -43,6 +64,12 @@ export default function Home() {
 
   return (
     <div>
+      <Seo
+        title="SYSCOM, Inc. — Enterprise Content Management & Automation | Baltimore, MD"
+        description="40+ years of proven enterprise content management, business process automation, and intelligent capture for government, financial, and healthcare organizations. Baltimore, MD."
+        path="/"
+        jsonLd={ORG_JSON_LD}
+      />
       {/* Hero */}
       <section className="bg-gradient-to-b from-warm-cream to-warm-bg py-20 sm:py-28" aria-label="Introduction">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -2,10 +2,16 @@ import { Link } from 'react-router-dom';
 import { company, leadership, methodology, partnerships } from '@shared/data/company';
 import { Handshake, MessageCircle, Target } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import Seo from '../components/Seo';
 
 export default function About() {
   return (
     <div>
+      <Seo
+        title="About SYSCOM — 40+ Years in Enterprise Content Management | Baltimore"
+        description="Founded in 1982 in Baltimore, SYSCOM builds and owns its IP across ECM, capture, and automation. Meet our leadership and the partnerships (IBM, Tungsten Automation) behind our work."
+        path="/about"
+      />
       {/* Hero */}
       <section className="bg-gradient-to-b from-warm-cream to-warm-bg py-16 sm:py-20" aria-label="About hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

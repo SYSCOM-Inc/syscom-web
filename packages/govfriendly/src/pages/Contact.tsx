@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { company, services, directions } from '@shared/data/company';
 import { CheckCircle2, MapPin } from 'lucide-react';
+import Seo from '../components/Seo';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -24,6 +25,11 @@ export default function Contact() {
 
   return (
     <div>
+      <Seo
+        title="Contact SYSCOM — Baltimore, MD | Enterprise Content Management"
+        description="Talk to SYSCOM about your enterprise content, capture, and automation challenges. 400 East Pratt Street, Suite 600, Baltimore, MD 21202 · (410) 539-3737 · sales@syscom.com."
+        path="/contact"
+      />
       {/* Hero */}
       <section className="bg-gradient-to-b from-warm-cream to-warm-bg py-16 sm:py-20" aria-label="Contact hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

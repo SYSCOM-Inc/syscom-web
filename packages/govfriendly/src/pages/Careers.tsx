@@ -34,7 +34,7 @@ export default function Careers() {
       <section className="bg-gradient-to-b from-warm-cream to-warm-bg py-16 sm:py-20" aria-label="Careers hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="font-heading text-4xl sm:text-5xl font-bold text-navy">
-            Careers at SYSCOM
+            Job Opportunities at SYSCOM
           </h1>
           <p className="mt-4 text-lg text-slate max-w-3xl leading-relaxed">
             Build enterprise software that matters. Join a team where senior engineers stay

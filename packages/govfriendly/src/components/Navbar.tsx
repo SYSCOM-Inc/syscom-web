@@ -7,7 +7,7 @@ const NAV_LINKS = [
   { to: '/services', label: 'Services' },
   { to: '/products', label: 'Products' },
   { to: '/contact', label: 'Contact' },
-  { to: '/careers', label: 'Careers' },
+  { to: '/careers', label: 'Opportunities' },
 ];
 
 export default function Navbar() {
