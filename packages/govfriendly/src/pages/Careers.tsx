@@ -271,6 +271,12 @@ export default function Careers() {
             We are always looking for talented people with enterprise content management,
             automation, or AI experience. Explore open positions or send us your resume.
           </p>
+          <p className="mt-4 text-sm text-white/60 max-w-2xl mx-auto leading-relaxed">
+            Openings change over time and range from full-time positions to contract roles, so the
+            benefits available vary by opportunity — not every full-time benefit applies to every
+            role. See what's open today under &ldquo;View Open Positions&rdquo; below, and reach out
+            anytime for specifics on the benefits and compensation tied to a particular listing.
+          </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
               href={company.careerPortal}
