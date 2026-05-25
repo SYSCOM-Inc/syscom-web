@@ -86,9 +86,9 @@ export const searchPages = [
   },
   {
     url: '/products#alpha-z',
-    title: 'Alpha-Z — Mainframe Modernization (In Development)',
+    title: 'Alpha-Z — Mainframe AI Platform (In Development)',
     content:
-      "SYSCOM's mainframe modernization initiative. AI-powered analysis and documentation of legacy mainframe applications: COBOL, JCL, IMS, DB2, CICS. Automated compiler listing analysis, call-chain mapping, AI-generated application documentation, and modernization assessment support. Currently in active development.",
+      "Alpha-Z is SYSCOM's in-development AI platform for reverse-engineering, documenting, and mapping legacy IBM mainframe code: COBOL, Assembler, PL/I, JCL, BMS, CICS, IMS, DB2, and z/OS. It produces natural-language documentation, architecture diagrams, dependency maps, and multi-language call-chain tracing, paired with 40 years of IBM platform expertise. Available in the cloud (Anthropic Claude) or air-gapped on-premise (local LLMs) for FedRAMP, CMMC, ITAR, and HIPAA environments. Mainframe modernization, code documentation, reverse engineering, compiler listing analysis.",
   },
   {
     url: '/contact',

@@ -280,11 +280,11 @@ export default function Home() {
                       <h3 className="mt-3 font-heading font-bold text-lg text-navy group-hover:text-teal transition-colors">
                         Alpha-Z
                       </h3>
-                      <p className="mt-1 text-xs font-medium text-warm-brown">Mainframe modernization, accelerated by AI</p>
+                      <p className="mt-1 text-xs font-medium text-warm-brown">AI-driven reverse engineering for legacy IBM mainframes</p>
                       <p className="mt-3 text-sm text-slate leading-relaxed line-clamp-3">
-                        AI-powered analysis and documentation of legacy mainframe applications (COBOL, JCL,
-                        IMS, DB2, CICS) — turning decades of institutional knowledge into current, searchable
-                        documentation.
+                        Reverse-engineers and documents legacy IBM mainframe code — COBOL, Assembler,
+                        PL/I, JCL, CICS, IMS, DB2 — pairing LLM analysis with 40 years of IBM expertise
+                        to produce natural-language documentation, architecture diagrams, and dependency maps.
                       </p>
                       <span className="mt-4 inline-flex items-center text-sm font-medium text-teal group-hover:underline">
                         Learn More

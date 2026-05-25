@@ -45,6 +45,7 @@ export default function WorkflowAnimation({ steps, accentColor = 'teal' }: Workf
     terracotta: { activeBorder: 'border-terracotta', activeBg: 'bg-terracotta/10', activeText: 'text-terracotta' },
     navy: { activeBorder: 'border-navy', activeBg: 'bg-navy/10', activeText: 'text-navy' },
     sage: { activeBorder: 'border-sage', activeBg: 'bg-sage/10', activeText: 'text-sage' },
+    gold: { activeBorder: 'border-gold', activeBg: 'bg-gold/10', activeText: 'text-gold' },
   };
 
   const colors = colorMap[accentColor] || colorMap.teal;
