@@ -38,6 +38,68 @@ export default function Products() {
         </div>
       </section>
 
+      {/* Alpha-Z — in-development initiative, featured at the top. Govfriendly-only,
+          distinct "card" treatment (not in shared product data) so the code name stays
+          off other variants and gets its own visual identity. No detail page in this pass. */}
+      <section id="alpha-z" className="py-16 sm:py-20 bg-warm-cream" aria-labelledby="product-alpha-z-heading">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative rounded-warm border-2 border-gold/40 bg-gradient-to-b from-gold/[0.06] to-white p-8 sm:p-10 shadow-sm">
+            <div className="text-center">
+              <span className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-lg bg-gold/15 text-gold" aria-hidden="true">
+                <Cpu className="w-6 h-6" strokeWidth={1.75} />
+              </span>
+              <div>
+                <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-gold/15 text-navy border border-gold/40">
+                  <Sparkles className="w-3.5 h-3.5 text-gold" aria-hidden="true" />
+                  In Development
+                </span>
+              </div>
+              <h2
+                id="product-alpha-z-heading"
+                className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-navy"
+              >
+                Alpha-Z
+              </h2>
+              <p className="mt-2 text-warm-brown font-medium">Mainframe modernization, accelerated by AI</p>
+              <p className="mt-4 text-slate max-w-2xl mx-auto leading-relaxed">
+                SYSCOM's mainframe modernization initiative. AI-powered analysis and documentation
+                of legacy mainframe applications (COBOL, JCL, IMS, DB2, CICS), turning decades of
+                institutional knowledge into current, searchable documentation that accelerates
+                modernization decisions.
+              </p>
+            </div>
+
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                'Automated compiler listing analysis',
+                'Call-chain mapping across program layers',
+                'AI-generated application documentation',
+                'Modernization assessment support',
+              ].map((feature) => (
+                <div
+                  key={feature}
+                  className="flex items-start gap-3 bg-white rounded-lg border border-gold/20 p-4"
+                >
+                  <span className="text-gold mt-0.5 shrink-0" aria-hidden="true">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </span>
+                  <span className="text-sm text-slate">{feature}</span>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-6 text-center text-sm text-muted">
+              Currently in active development.{' '}
+              <Link to="/contact" className="text-teal font-semibold hover:underline">
+                Talk to us about early access.
+              </Link>
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Product Sections */}
       {products.map((product, index) => {
         const meta = PRODUCT_ACCENTS[product.id] || PRODUCT_ACCENTS.asm;
@@ -110,68 +172,6 @@ export default function Products() {
           </section>
         );
       })}
-
-      {/* Alpha-Z — in-development initiative. Govfriendly-only, distinct "card" treatment
-          (not in shared product data) so the code name stays off other variants and gets
-          its own visual identity. No detail page in this pass. */}
-      <section id="alpha-z" className="py-16 sm:py-20 bg-warm-cream" aria-labelledby="product-alpha-z-heading">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-warm border-2 border-gold/40 bg-gradient-to-b from-gold/[0.06] to-white p-8 sm:p-10 shadow-sm">
-            <div className="text-center">
-              <span className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-lg bg-gold/15 text-gold" aria-hidden="true">
-                <Cpu className="w-6 h-6" strokeWidth={1.75} />
-              </span>
-              <div>
-                <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-gold/15 text-navy border border-gold/40">
-                  <Sparkles className="w-3.5 h-3.5 text-gold" aria-hidden="true" />
-                  In Development
-                </span>
-              </div>
-              <h2
-                id="product-alpha-z-heading"
-                className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-navy"
-              >
-                Alpha-Z
-              </h2>
-              <p className="mt-2 text-warm-brown font-medium">Mainframe modernization, accelerated by AI</p>
-              <p className="mt-4 text-slate max-w-2xl mx-auto leading-relaxed">
-                SYSCOM's mainframe modernization initiative. AI-powered analysis and documentation
-                of legacy mainframe applications (COBOL, JCL, IMS, DB2, CICS), turning decades of
-                institutional knowledge into current, searchable documentation that accelerates
-                modernization decisions.
-              </p>
-            </div>
-
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                'Automated compiler listing analysis',
-                'Call-chain mapping across program layers',
-                'AI-generated application documentation',
-                'Modernization assessment support',
-              ].map((feature) => (
-                <div
-                  key={feature}
-                  className="flex items-start gap-3 bg-white rounded-lg border border-gold/20 p-4"
-                >
-                  <span className="text-gold mt-0.5 shrink-0" aria-hidden="true">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <span className="text-sm text-slate">{feature}</span>
-                </div>
-              ))}
-            </div>
-
-            <p className="mt-6 text-center text-sm text-muted">
-              Currently in active development.{' '}
-              <Link to="/contact" className="text-teal font-semibold hover:underline">
-                Talk to us about early access.
-              </Link>
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* How They Work Together */}
       <section

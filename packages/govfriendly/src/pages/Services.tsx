@@ -132,7 +132,7 @@ export default function Services() {
             Our Services
           </h1>
           <p className="mt-4 text-lg text-slate max-w-3xl leading-relaxed">
-            Seven specialized service areas, each backed by decades of real-world
+            Specialized service areas, each backed by decades of real-world
             deployments. We don't just advise. We build, implement, and support.
           </p>
         </div>
