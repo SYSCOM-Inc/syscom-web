@@ -1,9 +1,32 @@
-import { lazy, Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { lazy, Suspense, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { ErrorBoundary } from '@shared/components/ErrorBoundary';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
+
+// Scrolls to a #section when a route carries a hash (e.g. search results that
+// deep-link to /services#capture). Lazy pages render after a tick, so retry
+// briefly until the target exists. No-op (and no scroll change) without a hash.
+function ScrollToHash() {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (!hash) return;
+    const id = decodeURIComponent(hash.slice(1));
+    let tries = 0;
+    const tryScroll = () => {
+      const el = document.getElementById(id);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 72; // fixed navbar offset
+        window.scrollTo({ top, behavior: 'smooth' });
+      } else if (tries++ < 12) {
+        window.setTimeout(tryScroll, 60);
+      }
+    };
+    tryScroll();
+  }, [pathname, hash]);
+  return null;
+}
 
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
@@ -17,6 +40,7 @@ function App() {
   return (
     <ErrorBoundary>
     <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <ScrollToHash />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main id="main-content" className="flex-1 pt-16">

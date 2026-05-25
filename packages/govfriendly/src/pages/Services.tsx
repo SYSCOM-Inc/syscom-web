@@ -1,8 +1,34 @@
 import { Link } from 'react-router-dom';
 import { services } from '@shared/data/company';
 import { SyscomIcon } from '../lib/icons';
+import Seo from '../components/Seo';
 
-const serviceDetails: Record<string, { capabilities: string[]; detail: string }> = {
+// Schema.org structured data identifying the Enterprise Capture service and the
+// Tungsten TotalAgility platform (incl. the "Total Agility" spelling people search).
+const SERVICES_JSON_LD = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Enterprise Capture & Intelligent Document Processing',
+    serviceType: 'Enterprise Capture',
+    provider: { '@type': 'Organization', name: 'SYSCOM, Inc.', url: 'https://syscom.com' },
+    areaServed: 'US',
+    description:
+      'Intelligent document capture, classification, and process automation built on Tungsten TotalAgility (formerly Kofax) and IBM Datacap.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: 'Tungsten TotalAgility',
+    alternateName: ['Total Agility', 'Kofax TotalAgility'],
+    category: 'Intelligent Automation Platform',
+    brand: { '@type': 'Brand', name: 'Tungsten Automation (formerly Kofax)' },
+    description:
+      'Tungsten TotalAgility intelligent capture and process automation, deployed and supported by SYSCOM, Inc. as part of its Enterprise Capture practice.',
+  },
+];
+
+const serviceDetails: Record<string, { capabilities: string[]; detail: string; platform?: string }> = {
   ecm: {
     detail:
       'Our ECM practice helps organizations manage the full lifecycle of enterprise content, from creation through archival. We design and implement repository solutions that ensure compliance, enable rapid retrieval, and integrate with existing business systems.',
@@ -28,8 +54,9 @@ const serviceDetails: Record<string, { capabilities: string[]; detail: string }>
     ],
   },
   capture: {
+    platform: 'Built on Tungsten TotalAgility',
     detail:
-      'Our capture solutions turn paper and unstructured content into actionable data. With a 30+ year Tungsten Automation (Kofax) partnership, we deploy remote and central capture, advanced recognition, and AI-powered classification.',
+      "Our capture solutions turn paper and unstructured content into actionable data. We build on Tungsten TotalAgility — the intelligent automation platform many teams still search for as “Total Agility” — to deliver remote and central capture, advanced recognition, AI-powered classification, and end-to-end process automation. It's all backed by a 30+ year Tungsten Automation (formerly Kofax) partnership and deep IBM Datacap deployment experience.",
     capabilities: [
       'Remote and central capture deployment',
       'Scanner and VRS configuration',
@@ -92,6 +119,12 @@ const serviceDetails: Record<string, { capabilities: string[]; detail: string }>
 export default function Services() {
   return (
     <div>
+      <Seo
+        title="Enterprise Capture & Tungsten TotalAgility Services | SYSCOM, Inc."
+        description="SYSCOM's Enterprise Capture practice is built on Tungsten TotalAgility (Total Agility) and IBM Datacap — intelligent capture, classification, and process automation, backed by 40+ years of ECM expertise."
+        path="/services"
+        jsonLd={SERVICES_JSON_LD}
+      />
       {/* Hero */}
       <section className="bg-gradient-to-b from-warm-cream to-warm-bg py-16 sm:py-20" aria-label="Services hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -142,6 +175,11 @@ export default function Services() {
                   <p className="text-slate leading-relaxed">
                     {service.description}
                   </p>
+                  {details?.platform && (
+                    <h3 className="mt-4 font-heading text-lg font-semibold text-teal">
+                      {details.platform}
+                    </h3>
+                  )}
                   {details && (
                     <p className="mt-4 text-slate leading-relaxed">
                       {details.detail}

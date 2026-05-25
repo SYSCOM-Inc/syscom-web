@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Search, X } from 'lucide-react';
+import SearchBar from './SearchBar';
 
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
@@ -7,12 +9,13 @@ const NAV_LINKS = [
   { to: '/services', label: 'Services' },
   { to: '/products', label: 'Products' },
   { to: '/contact', label: 'Contact' },
-  { to: '/careers', label: 'Careers' },
+  { to: '/careers', label: 'Opportunities' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -23,6 +26,7 @@ export default function Navbar() {
 
   useEffect(() => {
     setMobileOpen(false);
+    setSearchOpen(false);
   }, [location]);
 
   return (
@@ -37,14 +41,19 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link
-            to="/"
-            className="font-heading text-2xl font-bold text-navy tracking-tight hover:text-teal transition-colors"
-            aria-label="SYSCOM home"
-          >
-            SYSCOM
-          </Link>
+          {/* Left: logo + inline search (search shows on md+, left of the menu) */}
+          <div className="flex items-center gap-4 min-w-0">
+            <Link
+              to="/"
+              className="font-heading text-2xl font-bold text-navy tracking-tight hover:text-teal transition-colors shrink-0"
+              aria-label="SYSCOM home"
+            >
+              SYSCOM
+            </Link>
+            <div className="hidden md:block w-44 lg:w-64">
+              <SearchBar />
+            </div>
+          </div>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
@@ -70,30 +79,55 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            type="button"
-            className="md:hidden p-2 rounded-lg text-navy hover:bg-warm-cream transition-colors"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-menu"
-            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
+          {/* Mobile controls: search toggle + hamburger (icon-trigger search on mobile only) */}
+          <div className="md:hidden flex items-center gap-1">
+            <button
+              type="button"
+              className="p-2 rounded-lg text-navy hover:bg-warm-cream transition-colors"
+              onClick={() => {
+                setSearchOpen((v) => !v);
+                setMobileOpen(false);
+              }}
+              aria-expanded={searchOpen}
+              aria-controls="mobile-search"
+              aria-label={searchOpen ? 'Close search' : 'Open search'}
             >
-              {mobileOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
+              {searchOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Search className="w-6 h-6" aria-hidden="true" />}
+            </button>
+            <button
+              type="button"
+              className="p-2 rounded-lg text-navy hover:bg-warm-cream transition-colors"
+              onClick={() => {
+                setMobileOpen(!mobileOpen);
+                setSearchOpen(false);
+              }}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
+              aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                {mobileOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
+          </div>
         </div>
+
+        {/* Mobile search panel (icon-triggered) */}
+        {searchOpen && (
+          <div id="mobile-search" className="md:hidden pb-3 animate-fade-in">
+            <SearchBar autoFocus onNavigate={() => setSearchOpen(false)} />
+          </div>
+        )}
       </div>
 
       {/* Mobile menu */}

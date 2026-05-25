@@ -109,7 +109,7 @@ export const services = [
     name: "Business Process Automation",
     shortName: "BPA",
     description:
-      "End-to-end workflow design and optimization. Process analysis, redesign, and orchestration using IBM Business Automation Workflow and Tungsten platforms. Case management, business rules, and human-in-the-loop automation. Increasingly AI-enhanced — we integrate intelligent document classification, automated decision support, and predictive routing into BPA workflows so processes get smarter over time, not just faster.",
+      "End-to-end workflow design and optimization. Process analysis, redesign, and orchestration using IBM Business Automation Workflow and Tungsten TotalAgility. Case management, business rules, and human-in-the-loop automation. Increasingly AI-enhanced — we integrate intelligent document classification, automated decision support, and predictive routing into BPA workflows so processes get smarter over time, not just faster.",
     icon: "workflow",
   },
   {
@@ -117,7 +117,7 @@ export const services = [
     name: "Enterprise Capture",
     shortName: "Capture",
     description:
-      "30+ year Tungsten Automation (Kofax) partnership. Remote and central capture, scanner and VRS configuration, high-availability and disaster recovery, advanced recognition and classification, custom validation and release scripts, IBM Datacap deployment.",
+      "30+ year Tungsten Automation (Kofax) partnership, with deep expertise in Tungsten TotalAgility for intelligent capture, classification, and process automation. Remote and central capture, scanner and VRS configuration, high-availability and disaster recovery, advanced recognition and classification, custom validation and release scripts, IBM Datacap deployment.",
     icon: "scan",
   },
   {
@@ -175,7 +175,7 @@ export const products = [
       {
         title: "25+ Connectors",
         description:
-          "FileNet P8, Content Manager, ImagePlus, SharePoint, CMIS, EMC Documentum, OLEDB, File Systems, and a custom connector framework.",
+          "FileNet P8, IBM Content Manager, ImagePlus, Hyland OnBase, SharePoint, CMIS, EMC Documentum, OLEDB, File Systems, and a custom connector framework.",
       },
       {
         title: "AI Auto-Mapping (2.0)",
@@ -205,8 +205,9 @@ export const products = [
     ],
     connectors: [
       "FileNet P8",
-      "Content Manager",
+      "IBM Content Manager",
       "ImagePlus",
+      "Hyland OnBase",
       "SharePoint",
       "CMIS",
       "EMC Documentum",
