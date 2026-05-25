@@ -5,26 +5,32 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
 
-// Scrolls to a #section when a route carries a hash (e.g. search results that
-// deep-link to /services#capture). Lazy pages render after a tick, so retry
-// briefly until the target exists. No-op (and no scroll change) without a hash.
-function ScrollToHash() {
-  const { pathname, hash } = useLocation();
+// Manages scroll on navigation:
+//  - With a hash (e.g. search-result deep links to /services#capture), scroll to
+//    that section. Lazy pages render after a tick, so retry briefly.
+//  - Without a hash, reset to the top for a fresh view on every navigation —
+//    including clicking the logo/Home while already on a page (keyed on
+//    location.key, which changes on each navigation even to the same path).
+function ScrollManager() {
+  const { pathname, hash, key } = useLocation();
   useEffect(() => {
-    if (!hash) return;
-    const id = decodeURIComponent(hash.slice(1));
-    let tries = 0;
-    const tryScroll = () => {
-      const el = document.getElementById(id);
-      if (el) {
-        const top = el.getBoundingClientRect().top + window.scrollY - 72; // fixed navbar offset
-        window.scrollTo({ top, behavior: 'smooth' });
-      } else if (tries++ < 12) {
-        window.setTimeout(tryScroll, 60);
-      }
-    };
-    tryScroll();
-  }, [pathname, hash]);
+    if (hash) {
+      const id = decodeURIComponent(hash.slice(1));
+      let tries = 0;
+      const tryScroll = () => {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY - 72; // fixed navbar offset
+          window.scrollTo({ top, behavior: 'smooth' });
+        } else if (tries++ < 12) {
+          window.setTimeout(tryScroll, 60);
+        }
+      };
+      tryScroll();
+      return;
+    }
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, [pathname, hash, key]);
   return null;
 }
 
@@ -40,7 +46,7 @@ function App() {
   return (
     <ErrorBoundary>
     <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <ScrollToHash />
+      <ScrollManager />
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <main id="main-content" className="flex-1 pt-16">
