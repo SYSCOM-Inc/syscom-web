@@ -49,6 +49,10 @@ const PRODUCT_COLORS: Record<string, { badge: string; border: string }> = {
   'mvs-connect': { badge: 'bg-slate-50 text-slate-700', border: 'border-slate-200' },
 };
 
+// Utility products promoted to full "Our Products" cards on the home page to
+// round out the grid (govfriendly-only; shared product categories unchanged).
+const HOME_EXTRA_FEATURED = ['content-viewer', 'ip2cm'];
+
 export default function Home() {
   const [quoteIndex, setQuoteIndex] = useState(0);
   const reduceMotion =
@@ -235,7 +239,7 @@ export default function Home() {
 
           {/* Flagship & Core Products — full cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.filter((p) => p.category === 'flagship' || p.category === 'core').map((product) => {
+            {products.filter((p) => p.category === 'flagship' || p.category === 'core' || HOME_EXTRA_FEATURED.includes(p.id)).map((product) => {
               const colors = PRODUCT_COLORS[product.id] || PRODUCT_COLORS.asm;
               return (
                 <Link
@@ -264,6 +268,31 @@ export default function Home() {
                 </Link>
               );
             })}
+
+            {/* Alpha-Z — in-development initiative (govfriendly-only, gold treatment) */}
+            <Link
+              to="/products#alpha-z"
+              className="group block bg-gradient-to-b from-gold/[0.06] to-white border-2 border-gold/40 rounded-warm p-6 transition-all hover:shadow-md"
+            >
+              <span className="inline-flex items-center text-xs font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-gold/15 text-navy border border-gold/40">
+                In Development
+              </span>
+              <h3 className="mt-3 font-heading font-bold text-lg text-navy group-hover:text-teal transition-colors">
+                Alpha-Z
+              </h3>
+              <p className="mt-1 text-xs font-medium text-warm-brown">Mainframe modernization, accelerated by AI</p>
+              <p className="mt-3 text-sm text-slate leading-relaxed line-clamp-3">
+                AI-powered analysis and documentation of legacy mainframe applications (COBOL, JCL,
+                IMS, DB2, CICS) — turning decades of institutional knowledge into current, searchable
+                documentation.
+              </p>
+              <span className="mt-4 inline-flex items-center text-sm font-medium text-teal group-hover:underline">
+                Learn More
+                <svg className="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
           </div>
 
           {/* Utility Products — compact cards */}
@@ -272,7 +301,7 @@ export default function Home() {
               Specialized Tools
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-              {products.filter((p) => p.category === 'utility').map((product) => (
+              {products.filter((p) => p.category === 'utility' && !HOME_EXTRA_FEATURED.includes(p.id)).map((product) => (
                 <Link
                   key={product.id}
                   to={`/products#${product.id}`}
