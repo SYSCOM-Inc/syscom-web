@@ -49,6 +49,12 @@ export const searchPages = [
       'Enterprise Capture and intelligent document processing built on Tungsten TotalAgility, formerly known as Kofax TotalAgility. TotalAgility (commonly searched as "Total Agility," or "Kofax Total Agility") is the Tungsten Automation (formerly Kofax) intelligent automation and capture platform. Remote and central capture, scanner and VRS configuration, advanced recognition and classification, AI-powered classification, custom validation and release scripts, and IBM Datacap deployment. Tungsten Capture, Kofax Capture, TotalAgility, Total Agility, Kofax TotalAgility, Kofax Total Agility, intelligent document processing, OCR.',
   },
   {
+    url: '/platforms',
+    title: 'Platforms We Implement & Support',
+    content:
+      'SYSCOM implements and supports platforms across the IBM and Tungsten Automation (formerly Kofax) ecosystems: Tungsten TotalAgility (Kofax TotalAgility), Tungsten Capture (Kofax Capture), Kofax Transformation Modules (KTM), Kofax Front Office Server (KFS), IBM FileNet P8, IBM Content Manager (CM8), IBM Datacap, IBM Business Automation Workflow (BAW), IBM ImagePlus, IBM Content Manager OnDemand (CMOD), Hyland OnBase, Microsoft SharePoint, OpenText Documentum. Kofax is now Tungsten Automation.',
+  },
+  {
     // Dedicated platform partner page. Carries all four TotalAgility spelling
     // variants so any of them returns this page as well as Enterprise Capture.
     url: '/platforms/tungsten-totalagility',

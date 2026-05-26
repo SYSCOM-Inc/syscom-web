@@ -4,6 +4,7 @@
   <url><loc>https://syscom.com/about</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://syscom.com/services</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://syscom.com/products</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://syscom.com/platforms</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://syscom.com/platforms/tungsten-totalagility</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://syscom.com/contact</loc><changefreq>yearly</changefreq><priority>0.8</priority></url>
   <url><loc>https://syscom.com/careers</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
