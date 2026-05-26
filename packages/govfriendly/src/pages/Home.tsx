@@ -100,7 +100,7 @@ export default function Home() {
                   to="/services"
                   className="inline-flex items-center text-sm font-semibold text-navy hover:text-teal transition-colors"
                 >
-                  Explore Services
+                  Services
                   <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -109,7 +109,7 @@ export default function Home() {
                   to="/products"
                   className="inline-flex items-center text-sm font-semibold text-navy hover:text-teal transition-colors"
                 >
-                  Explore Products
+                  Products
                   <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -118,7 +118,7 @@ export default function Home() {
                   to="/platforms"
                   className="inline-flex items-center text-sm font-semibold text-navy hover:text-teal transition-colors"
                 >
-                  Explore Platforms
+                  Platforms
                   <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
