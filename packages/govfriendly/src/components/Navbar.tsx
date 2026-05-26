@@ -42,7 +42,9 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Left: logo + inline search (search shows on md+, left of the menu) */}
+          {/* Left: logo + inline search. Full nav + inline search activate at lg;
+              below lg (incl. tablet) we use the icon-triggered search + menu so the
+              7 nav items + search bar don't collide. */}
           <div className="flex items-center gap-4 min-w-0">
             <Link
               to="/"
@@ -51,13 +53,13 @@ export default function Navbar() {
             >
               SYSCOM
             </Link>
-            <div className="hidden md:block w-44 lg:w-64">
+            <div className="hidden lg:block w-64">
               <SearchBar />
             </div>
           </div>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.to}
@@ -80,8 +82,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile controls: search toggle + hamburger (icon-trigger search on mobile only) */}
-          <div className="md:hidden flex items-center gap-1">
+          {/* Mobile/tablet controls: search toggle + hamburger (below the lg breakpoint) */}
+          <div className="lg:hidden flex items-center gap-1">
             <button
               type="button"
               className="p-2 rounded-lg text-navy hover:bg-warm-cream transition-colors"
@@ -125,7 +127,7 @@ export default function Navbar() {
 
         {/* Mobile search panel (icon-triggered) */}
         {searchOpen && (
-          <div id="mobile-search" className="md:hidden pb-3 animate-fade-in">
+          <div id="mobile-search" className="lg:hidden pb-3 animate-fade-in">
             <SearchBar autoFocus onNavigate={() => setSearchOpen(false)} />
           </div>
         )}
@@ -135,7 +137,7 @@ export default function Navbar() {
       {mobileOpen && (
         <div
           id="mobile-menu"
-          className="md:hidden bg-white border-t border-warm-border shadow-lg animate-fade-in"
+          className="lg:hidden bg-white border-t border-warm-border shadow-lg animate-fade-in"
         >
           <div className="px-4 py-3 space-y-1">
             {NAV_LINKS.map((link) => (
