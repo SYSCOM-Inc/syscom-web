@@ -8,8 +8,8 @@ export default function About() {
   return (
     <div>
       <Seo
-        title="About SYSCOM — 40+ Years in Enterprise Content Management | Baltimore"
-        description="Founded in 1982 in Baltimore, SYSCOM builds and owns its IP across ECM, capture, and automation. Meet our leadership and the partnerships (IBM, Tungsten Automation) behind our work."
+        title="About SYSCOM | ECM Implementation Partner Since 1982"
+        description="Founded in 1982 in Baltimore, SYSCOM builds and owns its IP across ECM, capture, and automation — partnering with IBM and Tungsten Automation (formerly Kofax) for 40+ years."
         path="/about"
       />
       {/* Hero */}

@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { to: '/about', label: 'About' },
   { to: '/services', label: 'Services' },
   { to: '/products', label: 'Products' },
+  { to: '/platforms/tungsten-totalagility', label: 'Platforms' },
   { to: '/contact', label: 'Contact' },
   { to: '/careers', label: 'Opportunities' },
 ];

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { company, careerInfo } from '@shared/data/company';
 import { Building2, FileText, MapPin, ShieldCheck, Rocket, Users, Heart } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import Seo from '../components/Seo';
 
 // Rotating work-life perks for the careers hero callout.
 const LIFE_BENEFITS = [
@@ -30,6 +31,11 @@ export default function Careers() {
 
   return (
     <div>
+      <Seo
+        title="Careers & Contract Opportunities | SYSCOM, Baltimore MD"
+        description="Explore careers and contract opportunities at SYSCOM — enterprise content management, automation, and AI roles in Baltimore. Openings vary; see current listings."
+        path="/careers"
+      />
       {/* Hero */}
       <section className="bg-gradient-to-b from-warm-cream to-warm-bg py-16 sm:py-20" aria-label="Careers hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

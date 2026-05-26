@@ -71,15 +71,15 @@ export default function Products() {
   return (
     <div>
       <Seo
-        title="Products — AnySource Migrator, AIS Bridge & IBIG | SYSCOM, Inc."
-        description="Proprietary software SYSCOM builds and owns: AnySource Migrator (ECM migration), AIS Bridge (IBM ImagePlus modernization), IBIG content services, and more — supporting FileNet, IBM Content Manager, Hyland OnBase, and SharePoint."
+        title="Products: AnySource Migrator, AIS Bridge & IBIG | SYSCOM"
+        description="Software SYSCOM builds and owns — AnySource Migrator (ECM migration), AIS Bridge (IBM ImagePlus modernization), IBIG content services, and Alpha-Z mainframe AI."
         path="/products"
       />
       {/* Hero */}
       <section className="bg-gradient-to-b from-warm-cream to-warm-bg py-16 sm:py-20" aria-label="Products hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="font-heading text-4xl sm:text-5xl font-bold text-navy">
-            Our Products
+            Enterprise Content &amp; Automation Software
           </h1>
           <p className="mt-4 text-lg text-slate max-w-3xl leading-relaxed">
             Software we built because off-the-shelf didn't solve the problem. We own the code,

@@ -21,8 +21,9 @@ const ORG_JSON_LD = {
     postalCode: '21202',
     addressCountry: 'US',
   },
-  telephone: '+1-410-539-3737',
+  telephone: '+1-800-779-7266',
   email: 'sales@syscom.com',
+  sameAs: [],
 };
 
 // Rotating AI-reinvention provocations for the hero panel.
@@ -65,8 +66,8 @@ export default function Home() {
   return (
     <div>
       <Seo
-        title="SYSCOM, Inc. — Enterprise Content Management & Automation | Baltimore, MD"
-        description="40+ years of proven enterprise content management, business process automation, and intelligent capture for government, financial, and healthcare organizations. Baltimore, MD."
+        title="SYSCOM | ECM, Tungsten & IBM Implementation Partner"
+        description="SYSCOM is a Baltimore-based implementation partner for ECM, Tungsten TotalAgility, and IBM FileNet — 44 years serving government and financial services since 1982."
         path="/"
         jsonLd={ORG_JSON_LD}
       />
