@@ -75,18 +75,10 @@ export default function Footer() {
               </li>
               <li className="pt-2">
                 <a
-                  href={`tel:${company.phone}`}
+                  href={`tel:${company.phone.replace(/[^0-9+]/g, '')}`}
                   className="hover:text-copper-600 transition-colors duration-500"
                 >
                   {company.phone}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`tel:${company.phoneTollfreeNumeric}`}
-                  className="hover:text-copper-600 transition-colors duration-500"
-                >
-                  {company.phoneTollfree}
                 </a>
               </li>
               <li>

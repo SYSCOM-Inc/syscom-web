@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef } from 'react';
 import type { ChatMessage } from '../types';
 
-const SYSCOM_KNOWLEDGE = `You are the SYSCOM AI Assistant embedded on syscom.com. You represent SYSCOM, Inc., an enterprise content management company based in Baltimore, MD (Inner Harbor Center, 400 East Pratt Street, Suite 600, 21202). Phone: 1-800-7-SYSCOM (1-800-779-7266) / (410) 539-3737. Email: sales@syscom.com. Support: supportcenter@syscom.com.
+const SYSCOM_KNOWLEDGE = `You are the SYSCOM AI Assistant embedded on syscom.com. You represent SYSCOM, Inc., an enterprise content management company based in Baltimore, MD (Inner Harbor Center, 400 East Pratt Street, Suite 600, 21202). Phone: (410) 539-3737 (press 4 for Technical Support). Email: sales@syscom.com. Support: supportcenter@syscom.com.
 
 COMPANY OVERVIEW:
 - Founded 1982, 40+ years of enterprise IT solutions
@@ -9,7 +9,7 @@ COMPANY OVERVIEW:
 - Three divisions: Professional Services, Sales & Marketing, Corporate Services
 - Long-term client relationships spanning decades, 70%+ employee tenure over 5 years
 - Serves government (federal & state), financial services, insurance, health & human services, healthcare, transportation, manufacturing & telecom
-- Key partnerships: IBM (decades), Tungsten Automation/Kofax (30+ years)
+- Key partnerships: IBM (decades), Tungsten Automation/Kofax (Silver-level partner, 30+ years)
 - PMP-certified project managers, PMBOK methodology
 
 PRODUCTS (10):
@@ -23,7 +23,7 @@ PRODUCTS (10):
 9. IP2CM - ImagePlus to Content Manager migration. ~1 million docs/hour.
 10. MVS Connect - High-speed mainframe-to-capture integration for IBM ImagePlus/390.
 
-SERVICES: ECM (IBM FileNet, Content Manager, ImagePlus, OnDemand), Enterprise Capture (30+ yr Kofax partnership), BPA (IBM BAW, case management, business rules), Content Migration (gradual, overnight, federated strategies), AI & Intelligent Automation, Custom Application Services, Staffing & Workforce Augmentation.
+SERVICES: ECM (IBM FileNet, Content Manager, ImagePlus, OnDemand), Enterprise Capture (Silver-level Kofax/Tungsten partner, 30+ yrs), BPA (IBM BAW, case management, business rules), Content Migration (gradual, overnight, federated strategies), AI & Intelligent Automation, Custom Application Services, Staffing & Workforce Augmentation.
 
 AI CAPABILITIES: Zero-shot classification, SecureCapture Gateway (FedRAMP-aligned, NIST 800-53, CJIS, IRS Pub 1075), Compliance-as-Code, on-prem models (Llama, Mistral) for air-gapped environments.
 
@@ -50,7 +50,7 @@ const FALLBACK_RESPONSES: Record<string, { keywords: string[]; response: string 
   capture: {
     keywords: ['capture', 'kofax', 'tungsten', 'scanner', 'ocr', 'datacap'],
     response:
-      "Our **Enterprise Capture** practice has a 30+ year Tungsten Automation (Kofax) partnership. We specialize in remote/central capture, advanced recognition, and AI-powered zero-shot classification that works without templates — new document types onboarded in hours, not weeks.",
+      "Our **Enterprise Capture** practice is a **Silver-level Tungsten Automation (Kofax) partner** with 30+ years of experience. We specialize in remote/central capture, advanced recognition, and AI-powered zero-shot classification that works without templates — new document types onboarded in hours, not weeks.",
   },
   security: {
     keywords: ['security', 'fedramp', 'nist', 'cjis', 'compliance', 'zero trust', 'secure'],
@@ -70,7 +70,7 @@ const FALLBACK_RESPONSES: Record<string, { keywords: string[]; response: string 
   pricing: {
     keywords: ['pricing', 'price', 'cost', 'how much', 'budget', 'quote'],
     response:
-      "Pricing varies by scope. Product licensing depends on repository count and connectors. Projects are scoped during discovery. I'd recommend scheduling a consultation: **sales@syscom.com** or **800-7SYSCOM**.",
+      "Pricing varies by scope. Product licensing depends on repository count and connectors. Projects are scoped during discovery. I'd recommend scheduling a consultation: **sales@syscom.com** or **(410) 539-3737**.",
   },
   content: {
     keywords: ['content services', 'scs', 'soa', 'ecm platform'],
@@ -95,7 +95,7 @@ const FALLBACK_RESPONSES: Record<string, { keywords: string[]; response: string 
   contact: {
     keywords: ['contact', 'reach', 'call', 'email', 'phone', 'address'],
     response:
-      "Reach us at **sales@syscom.com** or **1-800-7-SYSCOM** (410-539-3737). For support: **supportcenter@syscom.com**. We're at Inner Harbor Center, 400 East Pratt Street, Suite 600, Baltimore, MD 21202. Business hours: Monday-Friday, 8:00 AM - 5:00 PM ET.",
+      "Reach us at **sales@syscom.com** or **(410) 539-3737** (press 4 for Technical Support). For support: **supportcenter@syscom.com**. We're at Inner Harbor Center, 400 East Pratt Street, Suite 600, Baltimore, MD 21202. Business hours: Monday-Friday, 8:00 AM - 5:00 PM ET.",
   },
   government: {
     keywords: ['government', 'federal', 'state', 'agency', 'public sector', 'gov'],
@@ -117,7 +117,7 @@ function getFallbackResponse(query: string): string {
   if (lower.includes('hello') || lower.includes('hi ') || lower === 'hi' || lower === 'hey')
     return "Hello! I'm SYSCOM's AI assistant. I can help with our products (ASM, AIS Bridge, IBIG 2.0, Content Services, Content Viewer, and more), services (ECM, capture, migration, BPA, AI, staffing), or security & compliance. What would you like to know?";
   if (lower.includes('what') && (lower.includes('do') || lower.includes('offer')))
-    return "SYSCOM provides enterprise content management, intelligent capture, business process automation, and AI-powered solutions. Our product suite includes AnySource Migrator, AIS Bridge, IBIG 2.0, Content Services, Content Viewer, and more. Plus enterprise capture consulting (30+ year Kofax partnership) and staffing & workforce augmentation. What area interests you?";
+    return "SYSCOM provides enterprise content management, intelligent capture, business process automation, and AI-powered solutions. Our product suite includes AnySource Migrator, AIS Bridge, IBIG 2.0, Content Services, Content Viewer, and more. Plus enterprise capture consulting (Silver-level Kofax/Tungsten partner, 30+ years) and staffing & workforce augmentation. What area interests you?";
   return "I can help with **products** (ASM, AIS Bridge, IBIG, Content Services, Viewer, and more), **services** (ECM, capture, migration, BPA, AI, staffing), **security & compliance**, or **company info**. What would you like to explore?";
 }
 

@@ -72,7 +72,7 @@ export default function About() {
                   'Deep IBM ecosystem expertise (CM8, FileNet, BAW)',
                   'We use proven platforms and build our own where needed',
                   'AI-forward strategy led by a dedicated CTO',
-                  '30+ year Tungsten Automation (Kofax) partnership',
+                  'Silver-level Tungsten Automation (Kofax) partner, 30+ years',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="text-teal mt-0.5 shrink-0" aria-hidden="true">

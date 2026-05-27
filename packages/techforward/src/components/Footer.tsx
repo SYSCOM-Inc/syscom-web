@@ -110,7 +110,7 @@ export default function Footer() {
             &copy; {currentYear} {company.name} All rights reserved.
           </p>
           <p className="text-xs text-muted/60">
-            {company.address.city}, {company.address.state} &middot; {company.phone} &middot; {company.phoneTollfree} &middot;{' '}
+            {company.address.city}, {company.address.state} &middot; {company.phone} &middot;{' '}
             <a href={`mailto:${company.supportEmail}`} className="hover:text-cyan transition-colors">
               {company.supportEmail}
             </a>

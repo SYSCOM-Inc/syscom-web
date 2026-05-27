@@ -1,3 +1,22 @@
+/* Self-hosted fonts (was render-blocking Google Fonts <link>). Both families
+   ship as a single variable woff2 covering weights 400–700 (latin subset).
+   Vite hashes these and rewrites the URL for whichever base path is active. */
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('./fonts/dm-sans-400-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('./fonts/source-sans-3-400-700.woff2') format('woff2');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

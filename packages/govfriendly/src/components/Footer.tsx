@@ -92,11 +92,6 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href={`tel:${company.phoneTollfree}`} className="hover:text-white transition-colors">
-                  {company.phoneTollfree}
-                </a>
-              </li>
-              <li>
                 <a href={`mailto:${company.email}`} className="hover:text-white transition-colors">
                   {company.email}
                 </a>

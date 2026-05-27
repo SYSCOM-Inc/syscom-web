@@ -241,16 +241,10 @@ export default function Contact() {
                       Phone
                     </p>
                     <a
-                      href={`tel:${company.phone}`}
+                      href={`tel:${company.phone.replace(/[^0-9+]/g, '')}`}
                       className="text-sm text-muted hover:text-cyan transition-colors block"
                     >
                       {company.phone}
-                    </a>
-                    <a
-                      href={`tel:${company.phoneTollfreeNumeric}`}
-                      className="text-sm font-heading font-bold text-gray-900 hover:text-cyan transition-colors block mt-1"
-                    >
-                      {company.phoneTollfree} (Toll-Free)
                     </a>
                   </div>
 

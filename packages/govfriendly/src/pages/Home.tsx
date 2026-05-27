@@ -22,7 +22,7 @@ const ORG_JSON_LD = {
     postalCode: '21202',
     addressCountry: 'US',
   },
-  telephone: '+1-800-779-7266',
+  telephone: '+1-410-539-3737',
   email: 'sales@syscom.com',
   sameAs: [],
 };
