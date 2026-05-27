@@ -94,7 +94,7 @@ export default function SearchBar({ onNavigate, autoFocus }: SearchBarProps) {
     setResults([]);
     onNavigate?.();
     // Pagefind returns URLs with the deploy base already prepended (e.g.
-    // /ClaudeSYSCOMwebsite/govfriendly/services#capture). react-router's
+    // /syscom-web/govfriendly/services#capture). react-router's
     // navigate() re-applies basename, so strip the base back off first to
     // avoid a doubled path. Works for base "/" (Cloudflare) too.
     const base = import.meta.env.BASE_URL;
