@@ -65,36 +65,49 @@ export default function PlatformsIndex() {
               >
                 {vendor}
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {items.map((p) => (
-                  <Link
-                    key={p.name}
-                    to={p.href}
-                    className={`group block bg-white rounded-warm border p-5 transition-all hover:shadow-md ${
-                      p.featured ? 'border-teal/40 ring-1 ring-teal/20' : 'border-warm-border'
-                    }`}
-                  >
-                    <div className="flex items-center gap-2">
-                      <h3 className="font-heading font-semibold text-base text-navy group-hover:text-teal transition-colors">
-                        {p.name}
-                      </h3>
-                      {p.featured && (
-                        <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-teal/10 text-teal">
-                          Partner page
-                        </span>
-                      )}
-                    </div>
-                    {p.formerly && <p className="mt-0.5 text-xs text-muted italic">{p.formerly}</p>}
-                    <p className="mt-2 text-sm text-slate leading-relaxed">{p.blurb}</p>
-                    <span className="mt-3 inline-flex items-center text-sm font-medium text-teal group-hover:underline">
-                      {p.featured ? 'View partner page' : 'How we help'}
-                      <svg className="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </span>
-                  </Link>
-                ))}
-              </div>
+              {vendor === 'Other ECM' ? (
+                <div className="rounded-warm border border-warm-border bg-white p-6 sm:p-8 max-w-3xl">
+                  <p className="text-slate leading-relaxed">
+                    Running a different ECM platform? With 25+ AnySource Migrator connectors and four
+                    decades across the content-management landscape — {items.map((p) => p.name).join(', ')},
+                    and many more — we can most likely support yours too.{' '}
+                    <Link to="/contact" className="text-teal font-semibold hover:underline">
+                      Just ask.
+                    </Link>
+                  </p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {items.map((p) => (
+                    <Link
+                      key={p.name}
+                      to={p.href}
+                      className={`group block bg-white rounded-warm border p-5 transition-all hover:shadow-md ${
+                        p.featured ? 'border-teal/40 ring-1 ring-teal/20' : 'border-warm-border'
+                      }`}
+                    >
+                      <div className="flex items-center gap-2">
+                        <h3 className="font-heading font-semibold text-base text-navy group-hover:text-teal transition-colors">
+                          {p.name}
+                        </h3>
+                        {p.featured && (
+                          <span className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-teal/10 text-teal">
+                            Partner page
+                          </span>
+                        )}
+                      </div>
+                      {p.formerly && <p className="mt-0.5 text-xs text-muted italic">{p.formerly}</p>}
+                      <p className="mt-2 text-sm text-slate leading-relaxed">{p.blurb}</p>
+                      <span className="mt-3 inline-flex items-center text-sm font-medium text-teal group-hover:underline">
+                        {p.featured ? 'View partner page' : 'How we help'}
+                        <svg className="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
           </section>
         );
