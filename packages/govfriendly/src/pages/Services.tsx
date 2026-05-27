@@ -28,7 +28,10 @@ const SERVICES_JSON_LD = [
   },
 ];
 
-const serviceDetails: Record<string, { capabilities: string[]; detail: string; platform?: string }> = {
+const serviceDetails: Record<
+  string,
+  { capabilities: string[]; detail: string; platform?: string; platformLink?: { href: string; label: string } }
+> = {
   ecm: {
     detail:
       'Our ECM practice helps organizations manage the full lifecycle of enterprise content, from creation through archival. We design and implement repository solutions that ensure compliance, enable rapid retrieval, and integrate with existing business systems.',
@@ -43,7 +46,8 @@ const serviceDetails: Record<string, { capabilities: string[]; detail: string; p
   },
   bpa: {
     detail:
-      'We design and build automation solutions that replace manual, paper-based processes with streamlined digital workflows. Our BPA implementations reduce processing time, eliminate errors, and provide complete audit trails.',
+      'We design and build automation solutions that replace manual, paper-based processes with streamlined digital workflows — often on Tungsten TotalAgility (also written Total Agility). Our BPA implementations reduce processing time, eliminate errors, and provide complete audit trails.',
+    platformLink: { href: '/platforms/tungsten-totalagility', label: 'Tungsten Total Agility for BPA' },
     capabilities: [
       'End-to-end workflow definition and optimization',
       'Process analysis and redesign',
@@ -54,9 +58,10 @@ const serviceDetails: Record<string, { capabilities: string[]; detail: string; p
     ],
   },
   capture: {
-    platform: 'Built on Tungsten TotalAgility',
+    platform: 'Built on Tungsten TotalAgility (formerly Kofax TotalAgility)',
     detail:
-      "Our capture solutions turn paper and unstructured content into actionable data. We build on Tungsten TotalAgility — the intelligent automation platform many teams still search for as “Total Agility” — to deliver remote and central capture, advanced recognition, AI-powered classification, and end-to-end process automation. It's all backed by a 30+ year Tungsten Automation (formerly Kofax) partnership and deep IBM Datacap deployment experience.",
+      "Our capture solutions turn paper and unstructured content into actionable data. We build on Tungsten TotalAgility — the intelligent automation platform many teams still search for as “Total Agility” — to deliver remote and central capture, advanced recognition, AI-powered classification, and end-to-end process automation. It's all backed by a 30+ year Tungsten Automation (formerly Kofax) partnership — many teams still know the platform as Kofax TotalAgility or Kofax Total Agility — plus deep IBM Datacap deployment experience.",
+    platformLink: { href: '/platforms/tungsten-totalagility', label: 'Tungsten TotalAgility implementation' },
     capabilities: [
       'Remote and central capture deployment',
       'Scanner and VRS configuration',
@@ -120,8 +125,8 @@ export default function Services() {
   return (
     <div>
       <Seo
-        title="Enterprise Capture & Tungsten TotalAgility Services | SYSCOM, Inc."
-        description="SYSCOM's Enterprise Capture practice is built on Tungsten TotalAgility (Total Agility) and IBM Datacap — intelligent capture, classification, and process automation, backed by 40+ years of ECM expertise."
+        title="ECM, Capture, Migration & Automation Services | SYSCOM"
+        description="SYSCOM delivers enterprise content management, capture, migration, and AI automation services — IBM FileNet, Tungsten Capture, and Datacap expertise since 1982."
         path="/services"
         jsonLd={SERVICES_JSON_LD}
       />
@@ -129,7 +134,7 @@ export default function Services() {
       <section className="bg-gradient-to-b from-warm-cream to-warm-bg py-16 sm:py-20" aria-label="Services hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="font-heading text-4xl sm:text-5xl font-bold text-navy">
-            Our Services
+            Enterprise Content &amp; Automation Services
           </h1>
           <p className="mt-4 text-lg text-slate max-w-3xl leading-relaxed">
             Specialized service areas, each backed by decades of real-world
@@ -184,6 +189,17 @@ export default function Services() {
                     <p className="mt-4 text-slate leading-relaxed">
                       {details.detail}
                     </p>
+                  )}
+                  {details?.platformLink && (
+                    <Link
+                      to={details.platformLink.href}
+                      className="mt-3 inline-flex items-center text-sm font-semibold text-teal hover:underline"
+                    >
+                      {details.platformLink.label}
+                      <svg className="w-3.5 h-3.5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
                   )}
                 </div>
 

@@ -32,7 +32,7 @@ export const searchPages = [
     url: '/services#ecm',
     title: 'Enterprise Content Management (ECM)',
     content:
-      'IBM FileNet P8, Content Manager Enterprise Edition, Content Manager for iSeries, ImagePlus, Content Manager OnDemand. Document management, records management, compliance, repository solutions, federation, and migration between platforms.',
+      'IBM FileNet P8, Content Manager Enterprise Edition, Content Manager for iSeries, ImagePlus, Content Manager OnDemand. Document management, records management, compliance, repository solutions, federation, and migration between platforms. Keywords: FileNet, File Net, IBM Content Manager, IBM Datacap, IBM Business Automation Workflow, BAW.',
   },
   {
     url: '/services#bpa',
@@ -46,13 +46,27 @@ export const searchPages = [
     url: '/services#capture',
     title: 'Enterprise Capture — Tungsten TotalAgility',
     content:
-      'Enterprise Capture and intelligent document processing built on Tungsten TotalAgility. TotalAgility (commonly searched as "Total Agility") is the Tungsten Automation (formerly Kofax) intelligent automation and capture platform. Remote and central capture, scanner and VRS configuration, advanced recognition and classification, AI-powered classification, custom validation and release scripts, and IBM Datacap deployment. Tungsten Capture, Kofax Capture, TotalAgility, Total Agility, intelligent document processing, OCR.',
+      'Enterprise Capture and intelligent document processing built on Tungsten TotalAgility, formerly known as Kofax TotalAgility. TotalAgility (commonly searched as "Total Agility," or "Kofax Total Agility") is the Tungsten Automation (formerly Kofax) intelligent automation and capture platform. Remote and central capture, scanner and VRS configuration, advanced recognition and classification, AI-powered classification, custom validation and release scripts, and IBM Datacap deployment. Tungsten Capture, Kofax Capture, TotalAgility, Total Agility, Kofax TotalAgility, Kofax Total Agility, intelligent document processing, OCR.',
+  },
+  {
+    url: '/platforms',
+    title: 'Platforms We Implement & Support',
+    content:
+      'SYSCOM implements and supports platforms across the IBM and Tungsten Automation (formerly Kofax) ecosystems: Tungsten TotalAgility (Kofax TotalAgility), Tungsten Capture (Kofax Capture), Kofax Transformation Modules (KTM), Kofax Front Office Server (KFS), IBM FileNet P8, IBM Content Manager (CM8), IBM Datacap, IBM Business Automation Workflow (BAW), IBM ImagePlus, IBM Content Manager OnDemand (CMOD), Hyland OnBase, Microsoft SharePoint, OpenText Documentum. Kofax is now Tungsten Automation.',
+  },
+  {
+    // Dedicated platform partner page. Carries all four TotalAgility spelling
+    // variants so any of them returns this page as well as Enterprise Capture.
+    url: '/platforms/tungsten-totalagility',
+    title: 'Tungsten TotalAgility Implementation Partner',
+    content:
+      'SYSCOM is a Tungsten TotalAgility implementation partner. We implement, upgrade, migrate, support, and train on Tungsten TotalAgility — also written Total Agility, and formerly sold as Kofax TotalAgility or Kofax Total Agility. Migration from Kofax Capture and older Kofax TotalAgility releases to current Tungsten TotalAgility. Use cases: accounts payable automation, customer and citizen onboarding, claims processing, government forms processing. 44 years of automation experience, 30+ year Tungsten Automation (Kofax) partnership, Baltimore mid-Atlantic, government and financial services. TotalAgility, Total Agility, Kofax TotalAgility, Kofax Total Agility.',
   },
   {
     url: '/services#migration',
     title: 'Content Migration',
     content:
-      'Move content between any ECM platform with full metadata, security, and folder structure preservation. Powered by AnySource Migrator (ASM) with 25+ pre-built connectors including FileNet, IBM Content Manager, Hyland OnBase, SharePoint, and EMC Documentum.',
+      'Move content between any ECM platform with full metadata, security, and folder structure preservation. Powered by AnySource Migrator (ASM) with 25+ pre-built connectors including FileNet (also File Net), IBM Content Manager, Hyland OnBase (also written On Base), SharePoint, and EMC Documentum.',
   },
   {
     url: '/services#ai',
@@ -86,9 +100,9 @@ export const searchPages = [
   },
   {
     url: '/products#alpha-z',
-    title: 'Alpha-Z — Mainframe Modernization (In Development)',
+    title: 'Alpha-Z — Mainframe AI Platform (In Development)',
     content:
-      "SYSCOM's mainframe modernization initiative. AI-powered analysis and documentation of legacy mainframe applications: COBOL, JCL, IMS, DB2, CICS. Automated compiler listing analysis, call-chain mapping, AI-generated application documentation, and modernization assessment support. Currently in active development.",
+      "Alpha-Z is SYSCOM's in-development AI platform for reverse-engineering, documenting, and mapping legacy IBM mainframe code: COBOL, Assembler, PL/I, JCL, BMS, CICS, IMS, DB2, and z/OS. It produces natural-language documentation, architecture diagrams, dependency maps, and multi-language call-chain tracing, paired with 40 years of IBM platform expertise. Available in the cloud (Anthropic Claude) or air-gapped on-premise (local LLMs) for FedRAMP, CMMC, ITAR, and HIPAA environments. Mainframe modernization, code documentation, reverse engineering, compiler listing analysis.",
   },
   {
     url: '/contact',

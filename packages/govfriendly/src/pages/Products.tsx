@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { products } from '@shared/data/company';
 import WorkflowAnimation from '../components/WorkflowAnimation';
-import { Replace, ShieldCheck, Brain, Zap, FileText, Plug, Cpu, Sparkles } from 'lucide-react';
+import { Replace, ShieldCheck, Brain, Zap, FileText, Plug, Sparkles } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import Seo from '../components/Seo';
 
@@ -17,19 +17,69 @@ const PRODUCT_ACCENTS: Record<string, { accent: string; badgeClass: string; labe
   'mvs-connect': { accent: 'slate', badgeClass: 'bg-slate-50 text-slate-700', label: 'Integration' },
 };
 
+// Alpha-Z (code name) — SYSCOM's in-development mainframe AI platform. Kept
+// govfriendly-only and hand-coded (not in shared product data), but laid out
+// like the shipping products: workflow highlights, feature grid, and chips.
+const ALPHA_Z_DESCRIPTION =
+  'Alpha-Z reverse-engineers, documents, and maps legacy IBM mainframe codebases — COBOL, Assembler, PL/I, JCL, BMS, CICS, IMS, and DB2. It pairs large-language-model analysis with four decades of IBM platform expertise to turn 20-to-40-year-old systems that have outlived their original engineers into navigable, well-documented assets: natural-language documentation, architecture diagrams, and dependency maps — not raw data or a forced migration.';
+
+const ALPHA_Z_WORKFLOW = [
+  { icon: 'folder', label: 'Ingest' },
+  { icon: 'settings', label: 'Compile' },
+  { icon: 'brain', label: 'Analyze' },
+  { icon: 'link', label: 'Trace' },
+  { icon: 'spider', label: 'Map' },
+  { icon: 'edit', label: 'Document' },
+];
+
+const ALPHA_Z_FEATURES = [
+  {
+    title: 'Deliverables, not datasets',
+    description:
+      'AI-generated documentation, architecture diagrams, and dependency maps written in natural language — not graphs of nodes left for you to interpret.',
+  },
+  {
+    title: 'Multi-language call-chain tracing',
+    description:
+      'Follows logic end to end across COBOL → Assembler → COBOL → SQL PL stored procedures, cleanly — where competing tools break down.',
+  },
+  {
+    title: '40 years of IBM expertise',
+    description:
+      'SYSCOM interprets what the analysis reveals and what it means for your system. Other tools only report it.',
+  },
+  {
+    title: 'Minimal client burden',
+    description:
+      'We generate compiler listings from your own source using your build JCL. No specialized artifacts for your team to prepare.',
+  },
+  {
+    title: 'Cloud or air-gapped',
+    description:
+      'Anthropic Claude in the cloud for standard engagements; on-premise local LLMs for FedRAMP, CMMC, ITAR, and HIPAA environments.',
+  },
+  {
+    title: 'Proven at scale',
+    description:
+      "Validated on SYSCOM's own AIS+/AISBE codebase: 16,449 lines of COBOL and 45 MB of compiler listings analyzed in a single session into a 20+ page document — weeks of analyst work in hours.",
+  },
+];
+
+const ALPHA_Z_STACK = ['COBOL', 'Assembler', 'PL/I', 'JCL', 'BMS', 'CICS', 'IMS', 'DB2', 'z/OS'];
+
 export default function Products() {
   return (
     <div>
       <Seo
-        title="Products — AnySource Migrator, AIS Bridge & IBIG | SYSCOM, Inc."
-        description="Proprietary software SYSCOM builds and owns: AnySource Migrator (ECM migration), AIS Bridge (IBM ImagePlus modernization), IBIG content services, and more — supporting FileNet, IBM Content Manager, Hyland OnBase, and SharePoint."
+        title="Products: AnySource Migrator, AIS Bridge & IBIG | SYSCOM"
+        description="Software SYSCOM builds and owns — AnySource Migrator (ECM migration), AIS Bridge (IBM ImagePlus modernization), IBIG content services, and Alpha-Z mainframe AI."
         path="/products"
       />
       {/* Hero */}
       <section className="bg-gradient-to-b from-warm-cream to-warm-bg py-16 sm:py-20" aria-label="Products hero">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="font-heading text-4xl sm:text-5xl font-bold text-navy">
-            Our Products
+            Enterprise Content &amp; Automation Software
           </h1>
           <p className="mt-4 text-lg text-slate max-w-3xl leading-relaxed">
             Software we built because off-the-shelf didn't solve the problem. We own the code,
@@ -38,65 +88,78 @@ export default function Products() {
         </div>
       </section>
 
-      {/* Alpha-Z — in-development initiative, featured at the top. Govfriendly-only,
-          distinct "card" treatment (not in shared product data) so the code name stays
-          off other variants and gets its own visual identity. No detail page in this pass. */}
+      {/* Alpha-Z (code name) — featured at the top, laid out like the shipping
+          products (workflow highlights, feature grid, stack chips). Govfriendly-only
+          and hand-coded; not in shared product data so it stays off the other variants. */}
       <section id="alpha-z" className="py-16 sm:py-20 bg-warm-cream" aria-labelledby="product-alpha-z-heading">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative rounded-warm border-2 border-gold/40 bg-gradient-to-b from-gold/[0.06] to-white p-8 sm:p-10 shadow-sm">
-            <div className="text-center">
-              <span className="inline-flex items-center justify-center w-12 h-12 mb-4 rounded-lg bg-gold/15 text-gold" aria-hidden="true">
-                <Cpu className="w-6 h-6" strokeWidth={1.75} />
-              </span>
-              <div>
-                <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-gold/15 text-navy border border-gold/40">
-                  <Sparkles className="w-3.5 h-3.5 text-gold" aria-hidden="true" />
-                  In Development
-                </span>
-              </div>
-              <h2
-                id="product-alpha-z-heading"
-                className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-navy"
-              >
-                Alpha-Z
-              </h2>
-              <p className="mt-2 text-warm-brown font-medium">Mainframe modernization, accelerated by AI</p>
-              <p className="mt-4 text-slate max-w-2xl mx-auto leading-relaxed">
-                SYSCOM's mainframe modernization initiative. AI-powered analysis and documentation
-                of legacy mainframe applications (COBOL, JCL, IMS, DB2, CICS), turning decades of
-                institutional knowledge into current, searchable documentation that accelerates
-                modernization decisions.
-              </p>
-            </div>
-
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                'Automated compiler listing analysis',
-                'Call-chain mapping across program layers',
-                'AI-generated application documentation',
-                'Modernization assessment support',
-              ].map((feature) => (
-                <div
-                  key={feature}
-                  className="flex items-start gap-3 bg-white rounded-lg border border-gold/20 p-4"
-                >
-                  <span className="text-gold mt-0.5 shrink-0" aria-hidden="true">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <span className="text-sm text-slate">{feature}</span>
-                </div>
-              ))}
-            </div>
-
-            <p className="mt-6 text-center text-sm text-muted">
-              Currently in active development.{' '}
-              <Link to="/contact" className="text-teal font-semibold hover:underline">
-                Talk to us about early access.
-              </Link>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-10">
+            <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full bg-gold/15 text-navy border border-gold/40">
+              <Sparkles className="w-3.5 h-3.5 text-gold" aria-hidden="true" />
+              In Development
+            </span>
+            <h2
+              id="product-alpha-z-heading"
+              className="mt-3 font-heading text-3xl sm:text-4xl font-bold text-navy"
+            >
+              Alpha-Z
+            </h2>
+            <p className="mt-2 text-warm-brown font-medium">
+              AI-driven reverse engineering for legacy IBM mainframes
+            </p>
+            <p className="mt-4 text-slate max-w-3xl mx-auto leading-relaxed">
+              {ALPHA_Z_DESCRIPTION}
             </p>
           </div>
+
+          {/* Workflow Animation */}
+          <div className="mb-10">
+            <WorkflowAnimation steps={ALPHA_Z_WORKFLOW} accentColor="gold" />
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+            {ALPHA_Z_FEATURES.map((feature) => (
+              <div
+                key={feature.title}
+                className="bg-white rounded-warm border border-warm-border p-5 hover:shadow-sm transition-shadow"
+              >
+                <h3 className="font-heading font-semibold text-base text-navy">
+                  {feature.title}
+                </h3>
+                <p className="mt-2 text-sm text-slate leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Languages & Subsystems */}
+          <div>
+            <h3 className="font-heading font-semibold text-sm text-muted uppercase tracking-wider mb-3 text-center">
+              Languages &amp; Subsystems
+            </h3>
+            <div className="flex flex-wrap justify-center gap-2">
+              {ALPHA_Z_STACK.map((item) => (
+                <span
+                  key={item}
+                  className="text-xs px-3 py-1.5 bg-warm-light border border-warm-border rounded-full text-slate"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Phased rollout */}
+          <p className="mt-8 text-center text-sm text-muted max-w-2xl mx-auto leading-relaxed">
+            Rolling out in phases — the Code Documentation Sprint is in internal testing now, with
+            ecosystem mapping and an on-site toolkit to follow.{' '}
+            <Link to="/contact" className="text-teal font-semibold hover:underline">
+              Talk to us about early access.
+            </Link>
+          </p>
         </div>
       </section>
 

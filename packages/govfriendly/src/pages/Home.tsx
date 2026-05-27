@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Sparkles } from 'lucide-react';
 import { company, services, products, verticals } from '@shared/data/company';
+import { platforms } from '../data/platforms';
 import { SyscomIcon } from '../lib/icons';
 import Seo from '../components/Seo';
 
@@ -21,8 +22,9 @@ const ORG_JSON_LD = {
     postalCode: '21202',
     addressCountry: 'US',
   },
-  telephone: '+1-410-539-3737',
+  telephone: '+1-800-779-7266',
   email: 'sales@syscom.com',
+  sameAs: [],
 };
 
 // Rotating AI-reinvention provocations for the hero panel.
@@ -65,8 +67,8 @@ export default function Home() {
   return (
     <div>
       <Seo
-        title="SYSCOM, Inc. — Enterprise Content Management & Automation | Baltimore, MD"
-        description="40+ years of proven enterprise content management, business process automation, and intelligent capture for government, financial, and healthcare organizations. Baltimore, MD."
+        title="SYSCOM | ECM, Tungsten & IBM Implementation Partner"
+        description="SYSCOM is a Baltimore-based implementation partner for ECM, Tungsten TotalAgility, and IBM FileNet — 44 years serving government and financial services since 1982."
         path="/"
         jsonLd={ORG_JSON_LD}
       />
@@ -98,7 +100,7 @@ export default function Home() {
                   to="/services"
                   className="inline-flex items-center text-sm font-semibold text-navy hover:text-teal transition-colors"
                 >
-                  Explore Services
+                  Services
                   <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -107,7 +109,16 @@ export default function Home() {
                   to="/products"
                   className="inline-flex items-center text-sm font-semibold text-navy hover:text-teal transition-colors"
                 >
-                  Explore Products
+                  Products
+                  <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link
+                  to="/platforms"
+                  className="inline-flex items-center text-sm font-semibold text-navy hover:text-teal transition-colors"
+                >
+                  Platforms
                   <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -280,11 +291,11 @@ export default function Home() {
                       <h3 className="mt-3 font-heading font-bold text-lg text-navy group-hover:text-teal transition-colors">
                         Alpha-Z
                       </h3>
-                      <p className="mt-1 text-xs font-medium text-warm-brown">Mainframe modernization, accelerated by AI</p>
+                      <p className="mt-1 text-xs font-medium text-warm-brown">AI-driven reverse engineering for legacy IBM mainframes</p>
                       <p className="mt-3 text-sm text-slate leading-relaxed line-clamp-3">
-                        AI-powered analysis and documentation of legacy mainframe applications (COBOL, JCL,
-                        IMS, DB2, CICS) — turning decades of institutional knowledge into current, searchable
-                        documentation.
+                        Reverse-engineers and documents legacy IBM mainframe code — COBOL, Assembler,
+                        PL/I, JCL, CICS, IMS, DB2 — pairing LLM analysis with 40 years of IBM expertise
+                        to produce natural-language documentation, architecture diagrams, and dependency maps.
                       </p>
                       <span className="mt-4 inline-flex items-center text-sm font-medium text-teal group-hover:underline">
                         Learn More
@@ -302,8 +313,45 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Platforms */}
+      <section className="py-20 bg-white" aria-labelledby="platforms-heading">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2
+              id="platforms-heading"
+              className="font-heading text-3xl sm:text-4xl font-bold text-navy"
+            >
+              Platforms We Implement
+            </h2>
+            <p className="mt-3 text-lg text-muted max-w-2xl mx-auto">
+              A multi-platform implementation partner across the IBM and Tungsten Automation
+              (formerly Kofax) ecosystems.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {platforms.map((platform) => (
+              <Link
+                key={platform.name}
+                to={platform.href}
+                className="group block bg-warm-light border border-warm-border rounded-warm p-4 transition-all hover:shadow-md hover:border-teal/30"
+              >
+                <h3 className="font-heading font-semibold text-sm text-navy group-hover:text-teal transition-colors leading-snug">
+                  {platform.name}
+                </h3>
+                <p className="mt-1 text-xs text-muted">{platform.vendor}</p>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link to="/platforms" className="btn-teal">
+              Explore Platforms
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Verticals */}
-      <section className="py-20 bg-white" aria-labelledby="verticals-heading">
+      <section className="py-20 bg-warm-cream" aria-labelledby="verticals-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2

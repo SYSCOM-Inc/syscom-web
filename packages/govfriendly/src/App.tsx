@@ -40,6 +40,8 @@ const Services = lazy(() => import('./pages/Services'));
 const Products = lazy(() => import('./pages/Products'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Careers = lazy(() => import('./pages/Careers'));
+const PlatformsIndex = lazy(() => import('./pages/platforms/PlatformsIndex'));
+const TungstenTotalAgility = lazy(() => import('./pages/platforms/TungstenTotalAgility'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
@@ -58,6 +60,8 @@ function App() {
               <Route path="/products" element={<Products />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/careers" element={<Careers />} />
+              <Route path="/platforms" element={<PlatformsIndex />} />
+              <Route path="/platforms/tungsten-totalagility" element={<TungstenTotalAgility />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

@@ -3,13 +3,14 @@ import { useEffect } from 'react';
 // Lightweight, dependency-free per-route head management. The site is a
 // client-rendered SPA, so index.html ships one static <title>/meta set for
 // every route — terrible for findability. This sets a unique title,
-// description, canonical, Open Graph/Twitter tags, and optional JSON-LD
-// per page. Modern crawlers (Googlebot) render JS and pick these up.
+// description, canonical, full Open Graph/Twitter card tags, and optional
+// JSON-LD per page. Modern crawlers (Googlebot) render JS and pick these up.
 //
 // NOTE: for guaranteed crawlability without JS execution, prerendering/SSG
 // is the robust long-term fix (flagged in the PR as a follow-up).
 
 const SITE_URL = 'https://syscom.com';
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.svg`;
 
 interface SeoProps {
   title: string;
@@ -18,6 +19,10 @@ interface SeoProps {
   path: string;
   /** Optional Schema.org structured data (object or array of objects). */
   jsonLd?: object | object[];
+  /** Absolute OG/Twitter image URL. Defaults to the site card. */
+  image?: string;
+  /** og:type — "website" (default) or e.g. "article". */
+  type?: string;
 }
 
 function upsertMeta(attr: 'name' | 'property', key: string, content: string) {
@@ -42,7 +47,14 @@ function upsertLink(rel: string, href: string) {
 
 const JSONLD_ID = 'seo-jsonld';
 
-export default function Seo({ title, description, path, jsonLd }: SeoProps) {
+export default function Seo({
+  title,
+  description,
+  path,
+  jsonLd,
+  image = DEFAULT_OG_IMAGE,
+  type = 'website',
+}: SeoProps) {
   // Stringify so an inline object literal prop doesn't re-fire the effect every render.
   const ld = jsonLd ? JSON.stringify(jsonLd) : null;
 
@@ -50,11 +62,19 @@ export default function Seo({ title, description, path, jsonLd }: SeoProps) {
     const url = `${SITE_URL}${path}`;
     document.title = title;
     upsertMeta('name', 'description', description);
+    // Open Graph (LinkedIn, Slack, Facebook…)
     upsertMeta('property', 'og:title', title);
     upsertMeta('property', 'og:description', description);
     upsertMeta('property', 'og:url', url);
+    upsertMeta('property', 'og:type', type);
+    upsertMeta('property', 'og:site_name', 'SYSCOM, Inc.');
+    upsertMeta('property', 'og:image', image);
+    // Twitter / X cards
+    upsertMeta('name', 'twitter:card', 'summary_large_image');
     upsertMeta('name', 'twitter:title', title);
     upsertMeta('name', 'twitter:description', description);
+    upsertMeta('name', 'twitter:image', image);
+    // Self-referencing canonical
     upsertLink('canonical', url);
 
     document.getElementById(JSONLD_ID)?.remove();
@@ -69,7 +89,7 @@ export default function Seo({ title, description, path, jsonLd }: SeoProps) {
     return () => {
       document.getElementById(JSONLD_ID)?.remove();
     };
-  }, [title, description, path, ld]);
+  }, [title, description, path, ld, image, type]);
 
   return null;
 }

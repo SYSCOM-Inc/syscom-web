@@ -3,6 +3,26 @@ import { company, services, directions } from '@shared/data/company';
 import { CheckCircle2, MapPin } from 'lucide-react';
 import Seo from '../components/Seo';
 
+// LocalBusiness schema for the contact page (Part 3a). Phone uses the toll-free
+// number from the SEO brief; see PR note re: NAP consistency with the displayed number.
+const CONTACT_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'SYSCOM, Inc.',
+  url: 'https://syscom.com',
+  telephone: '+1-800-779-7266',
+  email: 'sales@syscom.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '400 East Pratt Street, Suite 600',
+    addressLocality: 'Baltimore',
+    addressRegion: 'MD',
+    postalCode: '21202',
+    addressCountry: 'US',
+  },
+  areaServed: 'US',
+};
+
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
 
@@ -26,9 +46,10 @@ export default function Contact() {
   return (
     <div>
       <Seo
-        title="Contact SYSCOM — Baltimore, MD | Enterprise Content Management"
-        description="Talk to SYSCOM about your enterprise content, capture, and automation challenges. 400 East Pratt Street, Suite 600, Baltimore, MD 21202 · (410) 539-3737 · sales@syscom.com."
+        title="Contact SYSCOM | Baltimore, MD ECM & Automation Partner"
+        description="Talk to SYSCOM about your enterprise content, capture, and automation challenges. 400 East Pratt Street, Suite 600, Baltimore, MD 21202 · sales@syscom.com."
         path="/contact"
+        jsonLd={CONTACT_JSON_LD}
       />
       {/* Hero */}
       <section className="bg-gradient-to-b from-warm-cream to-warm-bg py-16 sm:py-20" aria-label="Contact hero">
