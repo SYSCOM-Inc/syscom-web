@@ -18,7 +18,7 @@ export default function PlatformsIndex() {
     <div>
       <Seo
         title="Platforms We Implement & Support | SYSCOM"
-        description="SYSCOM implements and supports Tungsten TotalAgility, Kofax Capture, IBM FileNet, IBM Content Manager, Datacap, BAW, Hyland OnBase, and more — 44 years of ECM and automation expertise."
+        description="SYSCOM implements and supports Tungsten TotalAgility, Kofax Capture, IBM FileNet, IBM Content Manager, Datacap, BAW, Hyland OnBase, and more — 44+ years of ECM and automation expertise."
         path="/platforms"
         jsonLd={JSON_LD}
       />
@@ -32,7 +32,7 @@ export default function PlatformsIndex() {
           <p className="mt-4 text-lg text-slate max-w-3xl leading-relaxed">
             SYSCOM is a multi-platform implementation partner across the enterprise content and
             intelligent-automation ecosystem. We implement, upgrade, migrate, and support the
-            platforms below — backed by 44 years of experience and deep IBM and Tungsten Automation
+            platforms below — backed by 44+ years of experience and deep IBM and Tungsten Automation
             partnerships.
           </p>
 

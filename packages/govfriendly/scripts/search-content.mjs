@@ -60,7 +60,7 @@ export const searchPages = [
     url: '/platforms/tungsten-totalagility',
     title: 'Tungsten TotalAgility Implementation Partner',
     content:
-      'SYSCOM is a Tungsten TotalAgility implementation partner. We implement, upgrade, migrate, support, and train on Tungsten TotalAgility — also written Total Agility, and formerly sold as Kofax TotalAgility or Kofax Total Agility. Migration from Kofax Capture and older Kofax TotalAgility releases to current Tungsten TotalAgility. Use cases: accounts payable automation, customer and citizen onboarding, claims processing, government forms processing. 44 years of automation experience, 30+ year Tungsten Automation (Kofax) partnership, Baltimore mid-Atlantic, government and financial services. TotalAgility, Total Agility, Kofax TotalAgility, Kofax Total Agility.',
+      'SYSCOM is a Tungsten TotalAgility implementation partner. We implement, upgrade, migrate, support, and train on Tungsten TotalAgility — also written Total Agility, and formerly sold as Kofax TotalAgility or Kofax Total Agility. Migration from Kofax Capture and older Kofax TotalAgility releases to current Tungsten TotalAgility. Use cases: accounts payable automation, customer and citizen onboarding, claims processing, government forms processing. 44+ years of automation experience, 30+ year Tungsten Automation (Kofax) partnership, Baltimore mid-Atlantic, government and financial services. TotalAgility, Total Agility, Kofax TotalAgility, Kofax Total Agility.',
   },
   {
     url: '/services#migration',
