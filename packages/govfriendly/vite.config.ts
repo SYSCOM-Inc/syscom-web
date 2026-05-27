@@ -8,7 +8,7 @@ import path from 'path';
 //   3. Fallback — GitHub Pages project-page subpath
 const base =
   process.env.VITE_BASE_PATH ??
-  (process.env.CF_PAGES ? '/' : '/ClaudeSYSCOMwebsite/govfriendly/');
+  (process.env.CF_PAGES ? '/' : '/syscom-web/govfriendly/');
 
 export default defineConfig({
   base,
