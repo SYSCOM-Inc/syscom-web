@@ -54,7 +54,7 @@ const cultureCards = [
   {
     emoji: '\u{1F6E1}\uFE0F',
     title: 'Stable & Growing',
-    desc: `${new Date().getFullYear() - 1982}+ years in business. Government and financial services clients with long-term contracts.`,
+    desc: `${company.yearsInBusiness} years in business. Government and financial services clients with long-term contracts.`,
   },
 ];
 
@@ -130,7 +130,7 @@ export default function Careers() {
                   </p>
                   <p>
                     Based in Baltimore&apos;s Inner Harbor, SYSCOM offers the stability of a
-                    {' '}{company.yearsInBusiness}+ year track record with the technical ambition
+                    {' '}{company.yearsInBusiness} year track record with the technical ambition
                     of a company investing heavily in AI, cloud, and modern automation.
                   </p>
                 </div>

@@ -27,7 +27,7 @@ export default function Careers() {
               company gives them room to grow.
             </p>
             <p>
-              We are a Baltimore-based firm with over {company.yearsInBusiness}{' '}
+              We are a Baltimore-based firm with {company.yearsInBusiness}{' '}
               years of history. Our size means you will have real ownership over
               your work. Our longevity means you will have the stability to build
               a career, not just fill a role.

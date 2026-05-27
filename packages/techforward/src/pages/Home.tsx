@@ -113,7 +113,7 @@ export default function Home() {
 
             {/* Body */}
             <p className="text-lg sm:text-xl text-muted leading-relaxed max-w-2xl mb-10 opacity-0 animate-fade-up-3">
-              {company.yearsInBusiness}+ years of solving enterprise content challenges.
+              {company.yearsInBusiness} years of solving enterprise content challenges.
               Now with AI that actually understands your documents &mdash; not just the text inside them.
             </p>
 
@@ -362,7 +362,7 @@ export default function Home() {
                 Track Record
               </p>
               <h2 className="font-heading font-bold text-3xl sm:text-4xl tracking-[-2px] mb-6">
-                {company.yearsInBusiness}+ years of solving hard problems
+                {company.yearsInBusiness} years of solving hard problems
               </h2>
               <p className="text-muted leading-relaxed mb-6">
                 Founded in {company.founded} in {company.address.city}, SYSCOM has built a reputation
@@ -409,7 +409,7 @@ export default function Home() {
               Ready to modernize?
             </h2>
             <p className="text-muted text-lg max-w-xl mx-auto mb-10">
-              Talk to our team about how {company.yearsInBusiness}+ years of ECM expertise
+              Talk to our team about how {company.yearsInBusiness} years of ECM expertise
               and modern AI can solve your toughest challenges.
             </p>
 

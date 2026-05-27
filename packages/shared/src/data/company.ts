@@ -2,7 +2,9 @@ export const company = {
   name: "SYSCOM, Inc.",
   tagline: "The right technology at the right time.",
   founded: 1982,
-  yearsInBusiness: new Date().getFullYear() - 1982,
+  // Evergreen marketing figure — intentionally rounded ("40+") rather than the
+  // exact computed count, so copy reads consistently and needs no annual upkeep.
+  yearsInBusiness: "40+",
   address: {
     street: "400 East Pratt Street, Suite 600",
     building: "Inner Harbor Center",
@@ -89,7 +91,7 @@ export const partnerships = [
   },
   {
     name: "Tungsten Automation (Kofax)",
-    description: "Silver-level partner with 30+ years covering enterprise capture, intelligent document processing, and automation (Tungsten TotalAgility, formerly Kofax).",
+    description: "Silver-level partner across Document Exchange (DX), Financial Process Automation (FPA), and Intelligent Capture (IC), with 30+ years covering enterprise capture, intelligent document processing, and automation (Tungsten TotalAgility, formerly Kofax).",
   },
 ];
 
@@ -115,7 +117,7 @@ export const services = [
     name: "Enterprise Capture",
     shortName: "Capture",
     description:
-      "Silver-level Tungsten Automation (Kofax) partner with 30+ years of experience, with deep expertise in Tungsten TotalAgility for intelligent capture, classification, and process automation. Remote and central capture, scanner and VRS configuration, high-availability and disaster recovery, advanced recognition and classification, custom validation and release scripts, IBM Datacap deployment.",
+      "Silver-level Tungsten Automation (Kofax) partner across Document Exchange (DX), Financial Process Automation (FPA), and Intelligent Capture (IC), with deep expertise in Tungsten TotalAgility for intelligent capture, classification, and process automation. Remote and central capture, scanner and VRS configuration, high-availability and disaster recovery, advanced recognition and classification, custom validation and release scripts, IBM Datacap deployment.",
     icon: "scan",
   },
   {

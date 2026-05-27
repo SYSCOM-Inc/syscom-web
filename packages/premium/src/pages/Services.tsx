@@ -34,7 +34,7 @@ const serviceDetails: Record<string, string[]> = {
     'Case management for complex, multi-step processes',
   ],
   capture: [
-    'Silver-level Tungsten Automation (Kofax) partner, 30+ years',
+    'Silver-level Tungsten Automation partner across Document Exchange (DX), Financial Process Automation (FPA), and Intelligent Capture (IC)',
     'Remote and central capture, scanner and VRS configuration',
     'Advanced recognition and AI-powered classification',
     'Custom validation and release scripts, IBM Datacap deployment',

@@ -60,7 +60,7 @@ const serviceDetails: Record<
   capture: {
     platform: 'Built on Tungsten TotalAgility (formerly Kofax TotalAgility)',
     detail:
-      "Our capture solutions turn paper and unstructured content into actionable data. We build on Tungsten TotalAgility — the intelligent automation platform many teams still search for as “Total Agility” — to deliver remote and central capture, advanced recognition, AI-powered classification, and end-to-end process automation. It's all backed by our standing as a Silver-level Tungsten Automation (formerly Kofax) partner with 30+ years of experience — many teams still know the platform as Kofax TotalAgility or Kofax Total Agility — plus deep IBM Datacap deployment experience.",
+      "Our capture solutions turn paper and unstructured content into actionable data. We build on Tungsten TotalAgility — the intelligent automation platform many teams still search for as “Total Agility” — to deliver remote and central capture, advanced recognition, AI-powered classification, and end-to-end process automation. It's all backed by our standing as a Silver-level Tungsten Automation (formerly Kofax) partner across Document Exchange (DX), Financial Process Automation (FPA), and Intelligent Capture (IC) — many teams still know the platform as Kofax TotalAgility or Kofax Total Agility — plus deep IBM Datacap deployment experience.",
     platformLink: { href: '/platforms/tungsten-totalagility', label: 'Tungsten TotalAgility implementation' },
     capabilities: [
       'Remote and central capture deployment',
