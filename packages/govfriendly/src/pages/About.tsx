@@ -67,12 +67,12 @@ export default function About() {
               </h3>
               <ul className="space-y-4">
                 {[
-                  `${company.yearsInBusiness}+ years of continuous operation in ECM`,
+                  `${company.yearsInBusiness} years of continuous operation in ECM`,
                   'Proprietary migration technology (AnySource Migrator)',
                   'Deep IBM ecosystem expertise (CM8, FileNet, BAW)',
                   'We use proven platforms and build our own where needed',
                   'AI-forward strategy led by a dedicated CTO',
-                  'Silver-level Tungsten Automation (Kofax) partner, 30+ years',
+                  'Silver-level Tungsten Automation (Kofax) partner across Document Exchange (DX), Financial Process Automation (FPA), and Intelligent Capture (IC)',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <span className="text-teal mt-0.5 shrink-0" aria-hidden="true">

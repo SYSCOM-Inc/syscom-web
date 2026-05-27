@@ -9,7 +9,7 @@ COMPANY OVERVIEW:
 - Three divisions: Professional Services, Sales & Marketing, Corporate Services
 - Long-term client relationships spanning decades, 70%+ employee tenure over 5 years
 - Serves government (federal & state), financial services, insurance, health & human services, healthcare, transportation, manufacturing & telecom
-- Key partnerships: IBM (decades), Tungsten Automation/Kofax (Silver-level partner, 30+ years)
+- Key partnerships: IBM (decades), Tungsten Automation/Kofax (Silver-level partner across Document Exchange (DX), Financial Process Automation (FPA), and Intelligent Capture (IC); 30+ years)
 - PMP-certified project managers, PMBOK methodology
 
 PRODUCTS (10):
@@ -23,7 +23,7 @@ PRODUCTS (10):
 9. IP2CM - ImagePlus to Content Manager migration. ~1 million docs/hour.
 10. MVS Connect - High-speed mainframe-to-capture integration for IBM ImagePlus/390.
 
-SERVICES: ECM (IBM FileNet, Content Manager, ImagePlus, OnDemand), Enterprise Capture (Silver-level Kofax/Tungsten partner, 30+ yrs), BPA (IBM BAW, case management, business rules), Content Migration (gradual, overnight, federated strategies), AI & Intelligent Automation, Custom Application Services, Staffing & Workforce Augmentation.
+SERVICES: ECM (IBM FileNet, Content Manager, ImagePlus, OnDemand), Enterprise Capture (Silver-level Kofax/Tungsten partner across Document Exchange (DX), Financial Process Automation (FPA), and Intelligent Capture (IC); 30+ yrs), BPA (IBM BAW, case management, business rules), Content Migration (gradual, overnight, federated strategies), AI & Intelligent Automation, Custom Application Services, Staffing & Workforce Augmentation.
 
 AI CAPABILITIES: Zero-shot classification, SecureCapture Gateway (FedRAMP-aligned, NIST 800-53, CJIS, IRS Pub 1075), Compliance-as-Code, on-prem models (Llama, Mistral) for air-gapped environments.
 
@@ -50,7 +50,7 @@ const FALLBACK_RESPONSES: Record<string, { keywords: string[]; response: string 
   capture: {
     keywords: ['capture', 'kofax', 'tungsten', 'scanner', 'ocr', 'datacap'],
     response:
-      "Our **Enterprise Capture** practice is a **Silver-level Tungsten Automation (Kofax) partner** with 30+ years of experience. We specialize in remote/central capture, advanced recognition, and AI-powered zero-shot classification that works without templates — new document types onboarded in hours, not weeks.",
+      "Our **Enterprise Capture** practice is a **Silver-level Tungsten Automation (Kofax) partner** across Document Exchange (DX), Financial Process Automation (FPA), and Intelligent Capture (IC), with 30+ years of experience. We specialize in remote/central capture, advanced recognition, and AI-powered zero-shot classification that works without templates — new document types onboarded in hours, not weeks.",
   },
   security: {
     keywords: ['security', 'fedramp', 'nist', 'cjis', 'compliance', 'zero trust', 'secure'],
@@ -117,7 +117,7 @@ function getFallbackResponse(query: string): string {
   if (lower.includes('hello') || lower.includes('hi ') || lower === 'hi' || lower === 'hey')
     return "Hello! I'm SYSCOM's AI assistant. I can help with our products (ASM, AIS Bridge, IBIG 2.0, Content Services, Content Viewer, and more), services (ECM, capture, migration, BPA, AI, staffing), or security & compliance. What would you like to know?";
   if (lower.includes('what') && (lower.includes('do') || lower.includes('offer')))
-    return "SYSCOM provides enterprise content management, intelligent capture, business process automation, and AI-powered solutions. Our product suite includes AnySource Migrator, AIS Bridge, IBIG 2.0, Content Services, Content Viewer, and more. Plus enterprise capture consulting (Silver-level Kofax/Tungsten partner, 30+ years) and staffing & workforce augmentation. What area interests you?";
+    return "SYSCOM provides enterprise content management, intelligent capture, business process automation, and AI-powered solutions. Our product suite includes AnySource Migrator, AIS Bridge, IBIG 2.0, Content Services, Content Viewer, and more. Plus enterprise capture consulting (Silver-level Kofax/Tungsten partner across Document Exchange, Financial Process Automation, and Intelligent Capture) and staffing & workforce augmentation. What area interests you?";
   return "I can help with **products** (ASM, AIS Bridge, IBIG, Content Services, Viewer, and more), **services** (ECM, capture, migration, BPA, AI, staffing), **security & compliance**, or **company info**. What would you like to explore?";
 }
 

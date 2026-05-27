@@ -50,7 +50,7 @@ export default function About() {
               About {company.name}
             </p>
             <h1 className="font-heading font-bold text-4xl sm:text-5xl lg:text-6xl tracking-[-3px] leading-tight mb-6">
-              {company.yearsInBusiness}+ years solving enterprise{' '}
+              {company.yearsInBusiness} years solving enterprise{' '}
               <span className="gradient-text">content challenges.</span>
             </h1>
             <p className="text-lg text-muted leading-relaxed max-w-2xl">
@@ -284,7 +284,7 @@ export default function About() {
               Want to learn more?
             </h2>
             <p className="text-muted max-w-xl mx-auto mb-8">
-              See how SYSCOM&apos;s {company.yearsInBusiness}+ years of expertise can solve
+              See how SYSCOM&apos;s {company.yearsInBusiness} years of expertise can solve
               your enterprise content challenges.
             </p>
             <Link
