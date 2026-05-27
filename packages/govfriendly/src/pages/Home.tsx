@@ -68,7 +68,7 @@ export default function Home() {
     <div>
       <Seo
         title="SYSCOM | ECM, Tungsten & IBM Implementation Partner"
-        description="SYSCOM is a Baltimore-based implementation partner for ECM, Tungsten TotalAgility, and IBM FileNet — 44 years serving government and financial services since 1982."
+        description="SYSCOM is a Baltimore-based implementation partner for ECM, Tungsten TotalAgility, and IBM FileNet — 44+ years serving government and financial services since 1982."
         path="/"
         jsonLd={ORG_JSON_LD}
       />

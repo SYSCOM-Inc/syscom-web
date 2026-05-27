@@ -30,13 +30,13 @@ const content: PlatformContent = {
   seo: {
     title: 'Tungsten & Kofax TotalAgility Implementation | SYSCOM',
     description:
-      'Tungsten TotalAgility (also Kofax Total Agility) implementation, upgrades, and support from SYSCOM — 44 years of automation expertise for government and financial services.',
+      'Tungsten TotalAgility (also Kofax Total Agility) implementation, upgrades, and support from SYSCOM — 44+ years of automation expertise for government and financial services.',
     jsonLd: JSON_LD,
   },
   eyebrow: 'Tungsten Automation (Kofax) Partner',
   h1: 'Tungsten TotalAgility Implementation Partner',
   heroLead:
-    'SYSCOM implements, upgrades, and supports Tungsten TotalAgility — the intelligent automation platform formerly sold as Kofax TotalAgility. With 44 years of automation experience and a deep mid-Atlantic presence, we help government agencies and financial institutions get measurably more from their TotalAgility investment.',
+    'SYSCOM implements, upgrades, and supports Tungsten TotalAgility — the intelligent automation platform formerly sold as Kofax TotalAgility. With 44+ years of automation experience and a deep mid-Atlantic presence, we help government agencies and financial institutions get measurably more from their TotalAgility investment.',
   whatIs: {
     heading: 'What is Tungsten TotalAgility?',
     paragraphs: [
@@ -101,7 +101,7 @@ const content: PlatformContent = {
     heading: 'Why SYSCOM for Tungsten TotalAgility',
     points: [
       {
-        title: '44 years in automation',
+        title: '44+ years in automation',
         description:
           'Founded in 1982, SYSCOM has implemented content and capture systems across four decades of platform change.',
       },
