@@ -428,10 +428,10 @@ export default function Home() {
                 Calculate Your ROI
               </Link>
               <a
-                href={`tel:${company.phoneTollfree}`}
+                href={`tel:${company.phone.replace(/[^0-9+]/g, '')}`}
                 className="px-8 py-4 rounded-xl text-sm font-semibold text-gray-600 border border-border hover:bg-gray-50 transition-colors"
               >
-                {company.phoneTollfree}
+                {company.phone}
               </a>
             </div>
 

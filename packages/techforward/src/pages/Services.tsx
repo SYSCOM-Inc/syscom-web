@@ -64,7 +64,7 @@ const serviceCapabilities: Record<string, string[]> = {
     'Integration with ERP, CRM, and line-of-business applications',
   ],
   capture: [
-    '30+ year Tungsten Automation (Kofax) partnership',
+    'Silver-level Tungsten Automation (Kofax) partner, 30+ years',
     'Remote and central capture with scanner and VRS configuration',
     'High-availability and disaster recovery architectures',
     'Advanced recognition, classification, and AI zero-shot classification',

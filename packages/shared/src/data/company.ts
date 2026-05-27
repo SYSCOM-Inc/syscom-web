@@ -12,8 +12,6 @@ export const company = {
     full: "Inner Harbor Center, 400 East Pratt Street (at Gay Street), Suite 600, Baltimore, MD 21202-3116",
   },
   phone: "(410) 539-3737",
-  phoneTollfree: "1-800-7-SYSCOM",
-  phoneTollfreeNumeric: "1-800-779-7266",
   fax: "(410) 837-9535",
   email: "sales@syscom.com",
   supportEmail: "supportcenter@syscom.com",
@@ -91,7 +89,7 @@ export const partnerships = [
   },
   {
     name: "Tungsten Automation (Kofax)",
-    description: "30+ year partnership covering enterprise capture, intelligent document processing, and automation.",
+    description: "Silver-level partner with 30+ years covering enterprise capture, intelligent document processing, and automation (Tungsten TotalAgility, formerly Kofax).",
   },
 ];
 
@@ -117,7 +115,7 @@ export const services = [
     name: "Enterprise Capture",
     shortName: "Capture",
     description:
-      "30+ year Tungsten Automation (Kofax) partnership, with deep expertise in Tungsten TotalAgility for intelligent capture, classification, and process automation. Remote and central capture, scanner and VRS configuration, high-availability and disaster recovery, advanced recognition and classification, custom validation and release scripts, IBM Datacap deployment.",
+      "Silver-level Tungsten Automation (Kofax) partner with 30+ years of experience, with deep expertise in Tungsten TotalAgility for intelligent capture, classification, and process automation. Remote and central capture, scanner and VRS configuration, high-availability and disaster recovery, advanced recognition and classification, custom validation and release scripts, IBM Datacap deployment.",
     icon: "scan",
   },
   {

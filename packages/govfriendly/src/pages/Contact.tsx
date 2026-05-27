@@ -3,14 +3,14 @@ import { company, services, directions } from '@shared/data/company';
 import { CheckCircle2, MapPin } from 'lucide-react';
 import Seo from '../components/Seo';
 
-// LocalBusiness schema for the contact page (Part 3a). Phone uses the toll-free
-// number from the SEO brief; see PR note re: NAP consistency with the displayed number.
+// LocalBusiness schema for the contact page. Single primary phone (local
+// Baltimore line) — keeps NAP consistent with the displayed number.
 const CONTACT_JSON_LD = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'SYSCOM, Inc.',
   url: 'https://syscom.com',
-  telephone: '+1-800-779-7266',
+  telephone: '+1-410-539-3737',
   email: 'sales@syscom.com',
   address: {
     '@type': 'PostalAddress',
@@ -251,13 +251,6 @@ export default function Contact() {
                   >
                     {company.phone}
                   </a>
-                  <br />
-                  <a
-                    href={`tel:${company.phoneTollfreeNumeric}`}
-                    className="text-sm text-teal hover:underline"
-                  >
-                    {company.phoneTollfree} ({company.phoneTollfreeNumeric})
-                  </a>
                 </div>
 
                 <div>
@@ -277,6 +270,14 @@ export default function Contact() {
 
                 <div>
                   <p className="font-medium text-navy text-sm">Technical Support</p>
+                  <a
+                    href={`tel:${company.phone.replace(/[^0-9+]/g, '')}`}
+                    className="text-sm text-teal hover:underline"
+                  >
+                    {company.phone}
+                  </a>
+                  <span className="text-sm text-slate">, press 4 for Technical Support</span>
+                  <br />
                   <a
                     href={`mailto:${company.supportEmail}`}
                     className="text-sm text-teal hover:underline"

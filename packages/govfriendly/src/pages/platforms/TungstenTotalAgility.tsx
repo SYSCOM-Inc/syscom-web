@@ -2,13 +2,27 @@ import PlatformPage, { type PlatformContent } from '../../components/PlatformPag
 
 // Schema.org: a Service (SYSCOM's implementation service) plus the underlying
 // Product, with alternateName covering all four searched spelling variants.
+// Partner tier: SYSCOM is a confirmed Silver-level Tungsten Automation partner
+// (per the Tungsten partner portal) across the DX, FPA, and IC product lines.
+// We do NOT claim partner status on PPDF, ControlSuite, or Printix (tier blank).
 const JSON_LD = [
   {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: 'Tungsten TotalAgility Implementation & Support',
     serviceType: 'Tungsten TotalAgility implementation partner',
-    provider: { '@type': 'Organization', name: 'SYSCOM, Inc.', url: 'https://syscom.com' },
+    provider: {
+      '@type': 'Organization',
+      name: 'SYSCOM, Inc.',
+      url: 'https://syscom.com',
+      award: 'Tungsten Automation Silver Partner',
+      memberOf: {
+        '@type': 'ProgramMembership',
+        programName: 'Tungsten Automation Partner Program',
+        membershipNumber: 'Silver',
+        hostingOrganization: { '@type': 'Organization', name: 'Tungsten Automation' },
+      },
+    },
     areaServed: 'US',
     description:
       'Implementation, upgrades, migration, support, and training for Tungsten TotalAgility (formerly Kofax TotalAgility / Kofax Total Agility).',
@@ -33,7 +47,7 @@ const content: PlatformContent = {
       'Tungsten TotalAgility (also Kofax Total Agility) implementation, upgrades, and support from SYSCOM — 44+ years of automation expertise for government and financial services.',
     jsonLd: JSON_LD,
   },
-  eyebrow: 'Tungsten Automation (Kofax) Partner',
+  eyebrow: 'Silver Tungsten Automation (Kofax) Partner',
   h1: 'Tungsten TotalAgility Implementation Partner',
   heroLead:
     'SYSCOM implements, upgrades, and supports Tungsten TotalAgility — the intelligent automation platform formerly sold as Kofax TotalAgility. With 44+ years of automation experience and a deep mid-Atlantic presence, we help government agencies and financial institutions get measurably more from their TotalAgility investment.',
@@ -106,9 +120,9 @@ const content: PlatformContent = {
           'Founded in 1982, SYSCOM has implemented content and capture systems across four decades of platform change.',
       },
       {
-        title: '30+ year Tungsten / Kofax partnership',
+        title: 'Silver-level Tungsten Automation partner',
         description:
-          'A three-decade relationship with Tungsten Automation (formerly Kofax) — we have grown alongside the platform.',
+          'A Silver-tier partner with Tungsten Automation (formerly Kofax), backed by 30+ years of Kofax/Tungsten implementation experience across intelligent capture, document automation, and AP/financial process automation.',
       },
       {
         title: 'Mid-Atlantic presence',
