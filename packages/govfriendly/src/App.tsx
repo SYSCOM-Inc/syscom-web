@@ -34,7 +34,11 @@ function ScrollManager() {
   return null;
 }
 
-const Home = lazy(() => import('./pages/Home'));
+// Home is eager-imported (not lazy) so the initial render of "/" never shows
+// the Suspense fallback. Without this, the footer started inside the viewport
+// over a short fallback and shifted down when the real Home content inflated
+// <main> — that single shift was the entire CLS budget (~0.32). See #14.
+import Home from './pages/Home';
 const About = lazy(() => import('./pages/About'));
 const Services = lazy(() => import('./pages/Services'));
 const Products = lazy(() => import('./pages/Products'));
