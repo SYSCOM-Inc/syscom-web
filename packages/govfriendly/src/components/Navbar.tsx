@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Search, X } from 'lucide-react';
 import SearchBar from './SearchBar';
+import logoLight from '../assets/syscom-logo-light.webp';
 
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
@@ -48,10 +49,17 @@ export default function Navbar() {
           <div className="flex items-center gap-4 min-w-0">
             <Link
               to="/"
-              className="font-heading text-2xl font-bold text-navy tracking-tight hover:text-teal transition-colors shrink-0"
+              className="shrink-0 inline-flex items-center hover:opacity-80 transition-opacity"
               aria-label="SYSCOM home"
             >
-              SYSCOM
+              <img
+                src={logoLight}
+                alt="SYSCOM"
+                width={120}
+                height={40}
+                className="h-10 w-auto"
+                decoding="async"
+              />
             </Link>
             <div className="hidden lg:block w-64">
               <SearchBar />
