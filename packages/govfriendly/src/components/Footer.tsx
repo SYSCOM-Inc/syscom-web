@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Linkedin } from 'lucide-react';
 import { company, services, products } from '@shared/data/company';
+import logoDark from '../assets/syscom-logo-dark.webp';
 
 export default function Footer() {
   return (
@@ -9,8 +10,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Company */}
           <div>
-            <Link to="/" className="font-heading text-xl font-bold tracking-tight hover:text-gold transition-colors">
-              SYSCOM
+            <Link to="/" className="inline-flex items-center hover:opacity-80 transition-opacity" aria-label="SYSCOM home">
+              <img
+                src={logoDark}
+                alt="SYSCOM"
+                width={150}
+                height={50}
+                className="h-12 w-auto"
+                decoding="async"
+              />
             </Link>
             <p className="mt-3 text-sm text-white/70 leading-relaxed">
               {company.tagline}
