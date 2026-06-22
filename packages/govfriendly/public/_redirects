@@ -14,4 +14,9 @@
 
 # SPA fallback — must be the LAST rule. Pages Functions in /functions
 # match before this rule, so /api/* endpoints still hit the function.
-/*    /index.html   200
+#
+# Points at /spa-shell.html (not /index.html) because /index.html is now
+# a *pre-rendered* Home page — see scripts/prerender.mjs. Hydrating that
+# against /unknown would be a mismatch, so unknown routes go to the empty
+# SPA shell instead, where React Router renders <NotFound /> cleanly.
+/*    /spa-shell.html   200

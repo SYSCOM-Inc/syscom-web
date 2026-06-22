@@ -46,6 +46,11 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Careers = lazy(() => import('./pages/Careers'));
 const PlatformsIndex = lazy(() => import('./pages/platforms/PlatformsIndex'));
 const TungstenTotalAgility = lazy(() => import('./pages/platforms/TungstenTotalAgility'));
+const TungstenCapture = lazy(() => import('./pages/platforms/TungstenCapture'));
+const IbmFileNet = lazy(() => import('./pages/platforms/IbmFileNet'));
+const IbmBaw = lazy(() => import('./pages/platforms/IbmBaw'));
+const IbmDatacap = lazy(() => import('./pages/platforms/IbmDatacap'));
+const HylandOnBase = lazy(() => import('./pages/platforms/HylandOnBase'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
@@ -66,6 +71,11 @@ function App() {
               <Route path="/careers" element={<Careers />} />
               <Route path="/platforms" element={<PlatformsIndex />} />
               <Route path="/platforms/tungsten-totalagility" element={<TungstenTotalAgility />} />
+              <Route path="/platforms/tungsten-capture" element={<TungstenCapture />} />
+              <Route path="/platforms/ibm-filenet" element={<IbmFileNet />} />
+              <Route path="/platforms/ibm-baw" element={<IbmBaw />} />
+              <Route path="/platforms/ibm-datacap" element={<IbmDatacap />} />
+              <Route path="/platforms/hyland-onbase" element={<HylandOnBase />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
