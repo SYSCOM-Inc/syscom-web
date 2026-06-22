@@ -36,8 +36,9 @@ export const platforms: PlatformEntry[] = [
     name: 'Tungsten Capture',
     vendor: 'Tungsten Automation',
     blurb: 'High-volume document capture, recognition, and classification across distributed scan environments.',
-    href: '/services#capture',
+    href: '/platforms/tungsten-capture',
     formerly: 'formerly Kofax Capture',
+    featured: true,
   },
   {
     name: 'Legacy Capture: KTM & KFS',
@@ -51,7 +52,8 @@ export const platforms: PlatformEntry[] = [
     name: 'IBM FileNet P8',
     vendor: 'IBM',
     blurb: 'Enterprise content and case management — design, deployment, federation, and migration.',
-    href: '/services#ecm',
+    href: '/platforms/ibm-filenet',
+    featured: true,
   },
   {
     name: 'IBM Content Manager (CM8)',
@@ -63,13 +65,15 @@ export const platforms: PlatformEntry[] = [
     name: 'IBM Datacap',
     vendor: 'IBM',
     blurb: 'Intelligent document capture and classification, integrated with the IBM content stack.',
-    href: '/services#capture',
+    href: '/platforms/ibm-datacap',
+    featured: true,
   },
   {
     name: 'IBM Business Automation Workflow (BAW)',
     vendor: 'IBM',
     blurb: 'Process and case orchestration across the IBM automation portfolio.',
-    href: '/services#bpa',
+    href: '/platforms/ibm-baw',
+    featured: true,
   },
   {
     name: 'IBM ImagePlus',
@@ -88,7 +92,8 @@ export const platforms: PlatformEntry[] = [
     name: 'Hyland OnBase',
     vendor: 'Other ECM',
     blurb: 'ECM platform — a common AnySource Migrator source and target for content migration.',
-    href: '/services#migration',
+    href: '/platforms/hyland-onbase',
+    featured: true,
   },
   {
     name: 'Microsoft SharePoint',

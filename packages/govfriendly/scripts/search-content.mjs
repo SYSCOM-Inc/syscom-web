@@ -63,6 +63,36 @@ export const searchPages = [
       'SYSCOM is a Tungsten TotalAgility implementation partner. We implement, upgrade, migrate, support, and train on Tungsten TotalAgility — also written Total Agility, and formerly sold as Kofax TotalAgility or Kofax Total Agility. Migration from Kofax Capture and older Kofax TotalAgility releases to current Tungsten TotalAgility. Use cases: accounts payable automation, customer and citizen onboarding, claims processing, government forms processing. 40+ years of automation experience, Silver-level Tungsten Automation (Kofax) partner across Document Exchange (DX), Financial Process Automation (FPA), and Intelligent Capture (IC), Baltimore mid-Atlantic, government and financial services. TotalAgility, Total Agility, Kofax TotalAgility, Kofax Total Agility.',
   },
   {
+    url: '/platforms/tungsten-capture',
+    title: 'Tungsten Capture Implementation Partner (formerly Kofax Capture)',
+    content:
+      'SYSCOM is a Tungsten Capture implementation partner. We implement, modernize, upgrade, and support Tungsten Capture — formerly sold as Kofax Capture. High-volume distributed document capture for mailrooms, branch offices, and centralized scan operations. Custom validation and release scripts into IBM FileNet, IBM Content Manager, Hyland OnBase, and downstream systems. Modernization paths from Kofax Capture toward Tungsten TotalAgility where appropriate. Silver-level Tungsten Automation (Kofax) partner across Document Exchange (DX), Financial Process Automation (FPA), and Intelligent Capture (IC). 30+ years of Kofax/Tungsten experience. CTO Tungsten Capture certified v8 v11.2. Use cases: mailroom operations, remote and branch capture, claims and forms intake, government records intake. Tungsten Capture, Kofax Capture, Kofax distributed capture.',
+  },
+  {
+    url: '/platforms/ibm-filenet',
+    title: 'IBM FileNet Implementation Partner',
+    content:
+      'SYSCOM is an IBM FileNet implementation partner. We design, deploy, federate, migrate, upgrade, and support IBM FileNet P8 — also written File Net or simply FileNet. Enterprise content services and case management. Federation with IBM Content Manager, ImagePlus, and line-of-business apps. Migration in and out of FileNet powered by our proprietary AnySource Migrator (ASM) with full metadata, security, and folder fidelity. Use cases: records and compliance, claims and case management, contracts and document repositories, government forms. Decades-long IBM ECM partnership covering FileNet P8, Content Manager, ImagePlus, and BAW. IBM-certified engineers. 40+ years of ECM experience, Baltimore mid-Atlantic. FileNet, File Net, IBM FileNet P8, IBM FileNet Content Manager.',
+  },
+  {
+    url: '/platforms/ibm-baw',
+    title: 'IBM Business Automation Workflow (BAW) Implementation Partner',
+    content:
+      'SYSCOM is an IBM Business Automation Workflow implementation partner. We implement BAW, design case-management workflows, and migrate from older IBM BPM and Case Manager into BAW. Integration with FileNet content and Datacap intake so workflows reference real documents and data. Use cases: claims case management, government program workflows, regulatory and compliance workflows, document-driven processes. PMP-certified delivery with PMBOK methodology — the discipline audited workflows need. Decades-long IBM ECM and automation partnership. IBM-certified engineers. 40+ years of automation experience. BAW, IBM BAW, Business Automation Workflow, IBM BPM, IBM Case Manager.',
+  },
+  {
+    url: '/platforms/ibm-datacap',
+    title: 'IBM Datacap Implementation Partner',
+    content:
+      'SYSCOM is an IBM Datacap implementation partner. We implement Datacap, design custom recognition and classification rules, and integrate capture with FileNet P8, IBM Content Manager, and BAW workflows. Modernize older Datacap or Taskmaster deployments. Multi-capture-platform fluency across IBM Datacap, Tungsten Capture (Kofax Capture), and Tungsten TotalAgility under one roof. Use cases: invoice capture and AP automation, government forms processing, claims and insurance intake, mailroom and remote capture. Decades-long IBM ECM partnership. IBM-certified engineers. 40+ years of capture experience. Datacap, IBM Datacap, Datacap Taskmaster, IBM intelligent capture.',
+  },
+  {
+    url: '/platforms/hyland-onbase',
+    title: 'Hyland OnBase Implementation, Integration & Migration',
+    content:
+      'SYSCOM provides Hyland OnBase implementation, integration, and migration services. OnBase is also commonly written as On Base. Vendor-neutral multi-platform ECM expertise — not a Hyland-specific shop. Move content into OnBase from FileNet, IBM Content Manager, ImagePlus, SharePoint, Documentum, or shared drives with full metadata, security, and folder fidelity. Move content out of OnBase into another ECM as part of consolidation initiatives — bidirectional migration via our proprietary AnySource Migrator (ASM). Integration with the IBM stack (FileNet, BAW, Datacap) where customers run heterogeneous content estates. Use cases: ECM consolidation, legacy retirement, hybrid coexistence, OnBase plus IBM-stack integration. 40+ years across ECM platforms. OnBase, On Base, Hyland OnBase, Hyland ECM.',
+  },
+  {
     url: '/services#migration',
     title: 'Content Migration',
     content:

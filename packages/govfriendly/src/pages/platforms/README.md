@@ -43,11 +43,18 @@ For TotalAgility that means: `TotalAgility`, `Total Agility`, `Kofax TotalAgilit
 reference and work the variants in naturally ("also known as Kofax Total
 Agility"). Do not keyword-stuff.
 
+## Live platform partner pages
+
+- `/platforms/tungsten-totalagility` — Tungsten / Kofax TotalAgility
+- `/platforms/tungsten-capture` — Tungsten / Kofax Capture
+- `/platforms/ibm-filenet` — IBM FileNet P8
+- `/platforms/ibm-baw` — IBM Business Automation Workflow
+- `/platforms/ibm-datacap` — IBM Datacap
+- `/platforms/hyland-onbase` — Hyland OnBase (vendor-neutral / migration positioning; no claimed partner tier)
+
 ## Stubbed / future platform pages
 
-Reserved slugs (not yet built): `/platforms/ibm-filenet`,
-`/platforms/ibm-datacap`, `/platforms/ibm-content-manager`, `/platforms/ibm-baw`,
-`/platforms/hyland-onbase`, `/platforms/tungsten-capture`.
+Reserved but not yet built: `/platforms/ibm-content-manager`.
 
 **Decision:** these are intentionally **not routed** yet (no 301 redirects). A
 301 to a "closest existing page" would point buyers at generic content and dilute
