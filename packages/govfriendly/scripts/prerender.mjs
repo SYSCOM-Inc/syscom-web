@@ -47,9 +47,10 @@ console.log(`[prerender] discovered ${routes.length} routes:`, routes.join(', ')
 // --- Snapshot the original empty SPA shell BEFORE we touch dist/ ---
 const SHELL_PATH = path.join(DIST, 'index.html');
 const shellHtml = fs.readFileSync(SHELL_PATH, 'utf8');
-// Persist for Cloudflare's SPA fallback on unknown routes. Referenced from
-// public/_redirects so it's served instead of (potentially prerendered) /.
-fs.writeFileSync(path.join(DIST, 'spa-shell.html'), shellHtml);
+// Persist as 404.html so Cloudflare Pages serves it for unknown routes with a
+// real 404 status. React Router then renders <NotFound /> for the actual URL.
+// This avoids the soft-404 a `/* /index.html 200` rewrite would produce.
+fs.writeFileSync(path.join(DIST, '404.html'), shellHtml);
 
 // Detect the Vite base path from the shell's first asset reference. Cloudflare
 // prod sets CF_PAGES=1 so base = "/"; the GH Pages fallback build uses

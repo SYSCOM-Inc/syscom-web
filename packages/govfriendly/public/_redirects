@@ -12,11 +12,12 @@
 #
 # Add real redirect rules above this line as the site evolves.
 
-# SPA fallback — must be the LAST rule. Pages Functions in /functions
-# match before this rule, so /api/* endpoints still hit the function.
+# No SPA wildcard fallback rule. Each route is prerendered to its own
+# dist/<route>/index.html (see scripts/prerender.mjs) and served as a real
+# 200 file. Unknown routes hit dist/404.html, which Cloudflare Pages serves
+# automatically — the SPA shell loads inside that 404 response, React Router
+# renders <NotFound /> for the actual URL, and crawlers see a proper 404
+# status (instead of the soft-404 a 200-rewrite would produce).
 #
-# Points at /spa-shell.html (not /index.html) because /index.html is now
-# a *pre-rendered* Home page — see scripts/prerender.mjs. Hydrating that
-# against /unknown would be a mismatch, so unknown routes go to the empty
-# SPA shell instead, where React Router renders <NotFound /> cleanly.
-/*    /spa-shell.html   200
+# Pages Functions in /functions match before any rules here, so /api/*
+# endpoints continue to hit the function as before.
