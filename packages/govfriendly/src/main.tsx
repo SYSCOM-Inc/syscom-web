@@ -7,28 +7,22 @@ import './index.css';
 // real DOM already — use hydrateRoot to attach to it. In dev, #root is empty,
 // so fall back to createRoot.
 //
-// CRITICAL: before calling hydrateRoot on a lazy route, we await the route's
-// chunk. Without this, React 18 hits the React.lazy() throw during hydration,
-// Suspense activates, and the prerendered subtree gets unmounted in favor of
-// the Suspense fallback — which on lazy routes is `min-h-[60vh]`, causing
-// the footer to shift back into the viewport and reintroducing the CLS we
-// just spent #16 fixing. Awaiting the chunk first guarantees lazy() resolves
-// synchronously during hydration, so React reuses the prerendered DOM.
+// Before calling hydrateRoot on a still-lazy route, await its chunk. Without
+// this, React 18 hits the React.lazy() throw during hydration, Suspense
+// activates, and the prerendered subtree gets unmounted in favor of the
+// `min-h-[60vh]` fallback — the same footer-shift CLS we fixed in #16, just
+// reintroduced on lazy routes. Platform pages and Home are now eager
+// (see App.tsx) so they don't appear in this map; only routes that are
+// still lazy AND have prerendered HTML need preloading.
 //
 // Keep this map in sync with the lazy() imports + <Route>s in App.tsx.
 const ROUTE_PRELOAD: Record<string, () => Promise<unknown>> = {
-  '/about':                              () => import('./pages/About'),
-  '/services':                           () => import('./pages/Services'),
-  '/products':                           () => import('./pages/Products'),
-  '/contact':                            () => import('./pages/Contact'),
-  '/careers':                            () => import('./pages/Careers'),
-  '/platforms':                          () => import('./pages/platforms/PlatformsIndex'),
-  '/platforms/tungsten-totalagility':    () => import('./pages/platforms/TungstenTotalAgility'),
-  '/platforms/tungsten-capture':         () => import('./pages/platforms/TungstenCapture'),
-  '/platforms/ibm-filenet':              () => import('./pages/platforms/IbmFileNet'),
-  '/platforms/ibm-baw':                  () => import('./pages/platforms/IbmBaw'),
-  '/platforms/ibm-datacap':              () => import('./pages/platforms/IbmDatacap'),
-  '/platforms/hyland-onbase':            () => import('./pages/platforms/HylandOnBase'),
+  '/about':     () => import('./pages/About'),
+  '/services':  () => import('./pages/Services'),
+  '/products':  () => import('./pages/Products'),
+  '/contact':   () => import('./pages/Contact'),
+  '/careers':   () => import('./pages/Careers'),
+  '/platforms': () => import('./pages/platforms/PlatformsIndex'),
 };
 
 const root = document.getElementById('root')!;

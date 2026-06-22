@@ -34,23 +34,37 @@ function ScrollManager() {
   return null;
 }
 
-// Home is eager-imported (not lazy) so the initial render of "/" never shows
-// the Suspense fallback. Without this, the footer started inside the viewport
-// over a short fallback and shifted down when the real Home content inflated
-// <main> — that single shift was the entire CLS budget (~0.32). See #14.
+// Home is eager (originally to fix the Suspense-fallback footer CLS — #14/#16).
+//
+// All platform pages are *also* eager. Reason: even with prerendered HTML in
+// place + main.tsx awaiting the route chunk before hydrateRoot, React 18's
+// hydration with React.lazy still races against the chunk fetch under
+// real-world latency (we measured CLS 0.322 in 4/5 mobile Lighthouse runs on
+// the lazy platform routes — the same footer-shift bug as #14, just on
+// different routes). When the platform component is statically imported,
+// Suspense never activates, the prerendered DOM hydrates cleanly, CLS = 0.
+//
+// Cost: ~30 KB added to the main entry bundle (6 platform pages, ~5 KB each
+// post-gzip). Acceptable since platform pages are the highest-value
+// direct-land SEO surface and need predictable CWV.
+//
+// About / Services / Products / Contact / Careers / PlatformsIndex stay lazy.
+// They are mostly navigated to in-app rather than landed on from search, so
+// occasional hydration flicker on direct-land is a lower-priority issue we
+// can revisit if it shows up in real-user metrics.
 import Home from './pages/Home';
+import TungstenTotalAgility from './pages/platforms/TungstenTotalAgility';
+import TungstenCapture from './pages/platforms/TungstenCapture';
+import IbmFileNet from './pages/platforms/IbmFileNet';
+import IbmBaw from './pages/platforms/IbmBaw';
+import IbmDatacap from './pages/platforms/IbmDatacap';
+import HylandOnBase from './pages/platforms/HylandOnBase';
 const About = lazy(() => import('./pages/About'));
 const Services = lazy(() => import('./pages/Services'));
 const Products = lazy(() => import('./pages/Products'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Careers = lazy(() => import('./pages/Careers'));
 const PlatformsIndex = lazy(() => import('./pages/platforms/PlatformsIndex'));
-const TungstenTotalAgility = lazy(() => import('./pages/platforms/TungstenTotalAgility'));
-const TungstenCapture = lazy(() => import('./pages/platforms/TungstenCapture'));
-const IbmFileNet = lazy(() => import('./pages/platforms/IbmFileNet'));
-const IbmBaw = lazy(() => import('./pages/platforms/IbmBaw'));
-const IbmDatacap = lazy(() => import('./pages/platforms/IbmDatacap'));
-const HylandOnBase = lazy(() => import('./pages/platforms/HylandOnBase'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
