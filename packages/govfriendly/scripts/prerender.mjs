@@ -141,7 +141,27 @@ try {
       // Brief settle for any remaining effects (LinkedIn icon, etc.)
       await new Promise((r) => setTimeout(r, 200));
       const title = await page.title();
-      const html = '<!doctype html>\n' + await page.evaluate(() => document.documentElement.outerHTML);
+      // Identify the route-specific lazy chunks loaded during render. Without
+      // this, React 18 hydrateRoot + lazy races against chunk fetch and
+      // intermittently bails on the prerendered tree -> Suspense fallback
+      // briefly shows -> footer shifts -> CLS regression. Adding
+      // <link rel="modulepreload"> for those chunks makes the browser fetch
+      // them in parallel with the main bundle, so they're resolved by the
+      // time hydration tries to use them.
+      const lazyChunks = await page.evaluate(() =>
+        performance.getEntriesByType('resource')
+          .filter((e) => e.initiatorType === 'script' && /\/assets\/[A-Za-z0-9_-]+-[A-Za-z0-9_-]+\.js$/.test(new URL(e.name).pathname))
+          .map((e) => new URL(e.name).pathname)
+      );
+      let html = '<!doctype html>\n' + await page.evaluate(() => document.documentElement.outerHTML);
+      if (lazyChunks.length) {
+        const existingPreloads = new Set([...html.matchAll(/rel="modulepreload"[^>]*href="([^"]+)"/g)].map((m) => m[1]));
+        const newPreloads = lazyChunks.filter((c) => !existingPreloads.has(c) && !html.includes(`src="${c}"`));
+        if (newPreloads.length) {
+          const tags = newPreloads.map((c) => `<link rel="modulepreload" crossorigin href="${c}">`).join('\n    ');
+          html = html.replace('</head>', `    ${tags}\n  </head>`);
+        }
+      }
       // Compute output path. "/" -> dist/index.html; "/about" -> dist/about/index.html, etc.
       const outDir = route === '/' ? DIST : path.join(DIST, route.replace(/^\//, ''));
       fs.mkdirSync(outDir, { recursive: true });
